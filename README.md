@@ -26,3 +26,15 @@ Projeto em construção.
 | Gastos dos deputados, proposições e votações | Câmara dos Deputados    |
 | Atividade legislativa e gastos dos senadores | Senado Federal          |
 
+
+| Área                                           | Situação           |
+| ---------------------------------------------- | ------------------ |
+| Emendas, empenhado, liquidado e pago           | ✅ Concluído        |
+| Favorecidos e empresas recebedoras via emendas | ✅ Concluído        |
+| Convênios vinculados às emendas                | ✅ Silver concluída |
+| Contratos federais                             | ❌ Pendente         |
+| Licitações federais                            | ❌ Pendente         |
+| Gastos dos deputados                           | ❌ Pendente         |
+| Proposições e votações da Câmara               | ❌ Pendente         |
+| Atividade e gastos do Senado                   | ❌ Pendente         |
+
