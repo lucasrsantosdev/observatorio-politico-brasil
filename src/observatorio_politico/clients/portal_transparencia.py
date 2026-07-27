@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import logging
 from typing import Any
@@ -27,9 +27,7 @@ class PortalTransparenciaClient:
         timeout_seconds: float = 60,
     ) -> None:
         if not api_key.strip():
-            raise ValueError(
-                "PORTAL_TRANSPARENCIA_API_KEY não foi configurada."
-            )
+            raise ValueError("PORTAL_TRANSPARENCIA_API_KEY não foi configurada.")
 
         self._client = httpx.Client(
             base_url=f"{base_url.rstrip('/')}/",
@@ -41,7 +39,7 @@ class PortalTransparenciaClient:
             },
         )
 
-    def __enter__(self) -> "PortalTransparenciaClient":
+    def __enter__(self) -> PortalTransparenciaClient:
         return self
 
     def __exit__(self, *args: object) -> None:
@@ -92,9 +90,7 @@ class PortalTransparenciaClient:
         )
 
         if response.status_code == 429:
-            raise PortalTransparenciaError(
-                "Limite de requisições atingido: HTTP 429."
-            )
+            raise PortalTransparenciaError("Limite de requisições atingido: HTTP 429.")
 
         if response.status_code >= 500:
             raise PortalTransparenciaError(

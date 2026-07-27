@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 from typing import Any
 
@@ -20,8 +20,6 @@ def extract_orgaos_siafi(
     )
 
     if not isinstance(resultado, list):
-        raise TypeError(
-            "O endpoint /orgaos-siafi não retornou uma lista."
-        )
+        raise TypeError("O endpoint /orgaos-siafi não retornou uma lista.")
 
     return resultado

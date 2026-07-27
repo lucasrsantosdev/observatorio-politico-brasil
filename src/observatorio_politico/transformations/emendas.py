@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import json
 import logging
@@ -46,21 +46,15 @@ def _read_bronze_pages(execution_path: Path) -> pl.DataFrame:
     records: list[dict[str, object]] = []
 
     for page_file in page_files:
-        page_data = json.loads(
-            page_file.read_text(encoding="utf-8")
-        )
+        page_data = json.loads(page_file.read_text(encoding="utf-8"))
 
         if not isinstance(page_data, list):
-            raise TypeError(
-                f"O arquivo {page_file} não contém uma lista."
-            )
+            raise TypeError(f"O arquivo {page_file} não contém uma lista.")
 
         records.extend(page_data)
 
     if not records:
-        raise ValueError(
-            f"Nenhum registro foi encontrado em {execution_path}"
-        )
+        raise ValueError(f"Nenhum registro foi encontrado em {execution_path}")
 
     logger.info(
         "Páginas Bronze lidas: paginas=%s registros=%s",
@@ -90,21 +84,13 @@ def transform_emendas(
         *VALUE_COLUMNS,
     }
 
-    missing_columns = required_columns.difference(
-        dataframe.columns
-    )
+    missing_columns = required_columns.difference(dataframe.columns)
 
     if missing_columns:
-        raise ValueError(
-            "Colunas obrigatórias ausentes: "
-            f"{sorted(missing_columns)}"
-        )
+        raise ValueError(f"Colunas obrigatórias ausentes: {sorted(missing_columns)}")
 
     dataframe = dataframe.with_columns(
-        [
-            _money_expression(column).alias(column)
-            for column in VALUE_COLUMNS
-        ]
+        [_money_expression(column).alias(column) for column in VALUE_COLUMNS]
     )
 
     dataframe = dataframe.with_columns(
@@ -121,10 +107,7 @@ def transform_emendas(
     )
 
     dataframe = dataframe.with_columns(
-        pl.when(
-            pl.col("valorEmpenhado").is_not_null()
-            & (pl.col("valorEmpenhado") > 0)
-        )
+        pl.when(pl.col("valorEmpenhado").is_not_null() & (pl.col("valorEmpenhado") > 0))
         .then(
             (
                 pl.col("valorLiquidado").cast(pl.Float64)
@@ -135,10 +118,7 @@ def transform_emendas(
         .otherwise(None)
         .round(4)
         .alias("percentual_liquidado"),
-        pl.when(
-            pl.col("valorEmpenhado").is_not_null()
-            & (pl.col("valorEmpenhado") > 0)
-        )
+        pl.when(pl.col("valorEmpenhado").is_not_null() & (pl.col("valorEmpenhado") > 0))
         .then(
             (
                 pl.col("valorPago").cast(pl.Float64)
@@ -167,19 +147,15 @@ def transform_emendas(
         }
     )
 
-    dataframe = (
-        dataframe
-        .unique(
-            subset=["codigo_emenda"],
-            keep="last",
-        )
-        .sort(
-            [
-                "ano",
-                "nome_autor",
-                "codigo_emenda",
-            ]
-        )
+    dataframe = dataframe.unique(
+        subset=["codigo_emenda"],
+        keep="last",
+    ).sort(
+        [
+            "ano",
+            "nome_autor",
+            "codigo_emenda",
+        ]
     )
 
     logger.info(

@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import hashlib
 import json
@@ -35,15 +35,11 @@ def save_bronze_json(
         default=str,
     )
 
-    payload_hash = hashlib.sha256(
-        payload.encode("utf-8")
-    ).hexdigest()
+    payload_hash = hashlib.sha256(payload.encode("utf-8")).hexdigest()
 
     timestamp = execution_time.strftime("%Y%m%dT%H%M%SZ")
     data_filename = f"{entity}_{timestamp}_{payload_hash[:12]}.json"
-    manifest_filename = (
-        f"{entity}_{timestamp}_{payload_hash[:12]}.manifest.json"
-    )
+    manifest_filename = f"{entity}_{timestamp}_{payload_hash[:12]}.manifest.json"
 
     data_path = destination / data_filename
     manifest_path = destination / manifest_filename

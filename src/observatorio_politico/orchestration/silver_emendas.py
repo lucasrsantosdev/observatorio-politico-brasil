@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import json
 import logging
@@ -18,28 +18,16 @@ def find_latest_bronze_execution(
     bronze_root: Path,
     ano: int,
 ) -> Path:
-    base_path = (
-        bronze_root
-        / "portal_transparencia"
-        / "emendas"
-        / f"ano_emenda={ano}"
-    )
+    base_path = bronze_root / "portal_transparencia" / "emendas" / f"ano_emenda={ano}"
 
     execution_paths = sorted(
-        (
-            path.parent
-            for path in base_path.rglob(
-                "execucao.manifest.json"
-            )
-        ),
+        (path.parent for path in base_path.rglob("execucao.manifest.json")),
         key=lambda path: path.stat().st_mtime,
         reverse=True,
     )
 
     if not execution_paths:
-        raise FileNotFoundError(
-            f"Nenhuma execução Bronze encontrada para {ano}."
-        )
+        raise FileNotFoundError(f"Nenhuma execução Bronze encontrada para {ano}.")
 
     return execution_paths[0]
 
@@ -71,10 +59,7 @@ def run_silver_emendas(
     )
 
     destination = (
-        Path("data/silver")
-        / "portal_transparencia"
-        / "emendas"
-        / f"ano={ano}"
+        Path("data/silver") / "portal_transparencia" / "emendas" / f"ano={ano}"
     )
     destination.mkdir(
         parents=True,

@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 from typing import Any
 
@@ -28,8 +28,6 @@ def extract_emendas_page(
     )
 
     if not isinstance(resultado, list):
-        raise TypeError(
-            "O endpoint /emendas não retornou uma lista."
-        )
+        raise TypeError("O endpoint /emendas não retornou uma lista.")
 
     return resultado

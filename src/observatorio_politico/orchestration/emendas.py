@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import hashlib
 import json
@@ -31,9 +31,7 @@ def _save_page(
         default=str,
     )
 
-    sha256 = hashlib.sha256(
-        payload.encode("utf-8")
-    ).hexdigest()
+    sha256 = hashlib.sha256(payload.encode("utf-8")).hexdigest()
 
     file_path = destination / f"pagina_{pagina:05d}.json"
 
