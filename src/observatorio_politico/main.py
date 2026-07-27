@@ -10,6 +10,9 @@ from observatorio_politico.orchestration.emendas import run_emendas
 from observatorio_politico.orchestration.orgaos_siafi import (
     run_orgaos_siafi,
 )
+from observatorio_politico.orchestration.silver_emendas import (
+    run_silver_emendas,
+)
 
 
 def configure_logging(level: str) -> None:
@@ -39,7 +42,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     emendas_parser = subparsers.add_parser(
         "emendas",
-        help="Extrai emendas parlamentares.",
+        help="Extrai emendas parlamentares para a camada Bronze.",
     )
     emendas_parser.add_argument(
         "--ano",
@@ -52,6 +55,17 @@ def build_parser() -> argparse.ArgumentParser:
         type=int,
         default=None,
         help="Limite opcional de páginas para testes.",
+    )
+
+    silver_emendas_parser = subparsers.add_parser(
+        "silver-emendas",
+        help="Transforma a última execução Bronze em Silver.",
+    )
+    silver_emendas_parser.add_argument(
+        "--ano",
+        type=int,
+        required=True,
+        help="Ano das emendas.",
     )
 
     return parser
@@ -77,6 +91,17 @@ def main(argv: Sequence[str] | None = None) -> int:
                 settings,
                 ano=args.ano,
                 max_pages=args.max_pages,
+            )
+
+        elif args.command == "silver-emendas":
+            run_silver_emendas(
+                settings,
+                ano=args.ano,
+            )
+
+        else:
+            parser.error(
+                f"Comando não implementado: {args.command}"
             )
 
         logger.info("Pipeline concluído com sucesso.")
