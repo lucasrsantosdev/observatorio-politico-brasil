@@ -19,3 +19,7 @@ logs/
 *.pbix
 Thumbs.db
 .DS_Store
+data/bronze/
+data/silver/
+data/gold/
+logs/*.log
