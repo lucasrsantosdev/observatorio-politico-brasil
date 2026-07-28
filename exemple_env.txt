@@ -1,0 +1,9 @@
+APP_NAME=observatorio-politico-brasil
+APP_ENV=development
+LOG_LEVEL=INFO
+
+PORTAL_TRANSPARENCIA_BASE_URL=https://api.portaldatransparencia.gov.br/api-de-dados
+PORTAL_TRANSPARENCIA_API_KEY=
+
+REQUEST_TIMEOUT_SECONDS=60
+BRONZE_PATH=data/bronze

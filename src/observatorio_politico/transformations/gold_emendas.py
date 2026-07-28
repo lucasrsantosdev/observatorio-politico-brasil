@@ -170,6 +170,7 @@ def build_ranking_uf(
 ) -> pl.DataFrame:
     ranking = (
         emendas.filter(pl.col("uf").is_not_null())
+        .with_columns(pl.col("uf").cast(pl.String).str.strip_chars().str.to_uppercase())
         .group_by(
             [
                 "ano_emenda",
@@ -227,6 +228,7 @@ def build_ranking_municipios(
 ) -> pl.DataFrame:
     ranking = (
         emendas.filter(pl.col("codigo_municipio_ibge").is_not_null())
+        .with_columns(pl.col("uf").cast(pl.String).str.strip_chars().str.to_uppercase())
         .group_by(
             [
                 "ano_emenda",

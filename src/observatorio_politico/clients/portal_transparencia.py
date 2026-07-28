@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import logging
-from typing import Any
+from typing import Any, Self
 
 import httpx
 from tenacity import (
@@ -39,7 +39,7 @@ class PortalTransparenciaClient:
             },
         )
 
-    def __enter__(self) -> PortalTransparenciaClient:
+    def __enter__(self) -> Self:
         return self
 
     def __exit__(self, *args: object) -> None:
