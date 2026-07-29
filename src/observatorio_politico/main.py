@@ -10,10 +10,25 @@ from observatorio_politico.config import get_settings
 from observatorio_politico.orchestration.contratos_bronze import (
     run_bronze_contratos,
 )
+from observatorio_politico.orchestration.contratos_silver import (
+    run_silver_contratos,
+)
 from observatorio_politico.orchestration.dimensions_emendas import (
     run_dimensions_emendas,
 )
+from observatorio_politico.orchestration.dimensoes_contratos import (
+    run_dimensions_contratos,
+)
+from observatorio_politico.orchestration.dimensoes_convenios import (
+    run_dimensions_convenios,
+)
 from observatorio_politico.orchestration.emendas import run_emendas
+from observatorio_politico.orchestration.gold_contratos import (
+    run_gold_contratos,
+)
+from observatorio_politico.orchestration.gold_convenios import (
+    run_gold_convenios,
+)
 from observatorio_politico.orchestration.gold_emendas import run_gold_emendas
 from observatorio_politico.orchestration.gold_licitacoes import (
     run_gold_licitacoes,
@@ -36,8 +51,20 @@ from observatorio_politico.orchestration.orgaos_siafi import (
 from observatorio_politico.orchestration.silver_emendas import (
     run_silver_emendas,
 )
+from observatorio_politico.quality.contratos_silver import (
+    run_quality_silver_contratos,
+)
+from observatorio_politico.quality.convenios_silver import (
+    run_quality_silver_convenios,
+)
 from observatorio_politico.quality.licitacoes_silver import (
     run_quality_silver_licitacoes,
+)
+from observatorio_politico.quality.reconciliation_contratos import (
+    run_reconciliation_contratos,
+)
+from observatorio_politico.quality.reconciliation_convenios import (
+    run_reconciliation_convenios,
 )
 from observatorio_politico.quality.reconciliation_emendas import (
     run_reconciliation_emendas,
@@ -210,6 +237,136 @@ def build_parser() -> argparse.ArgumentParser:
         required=True,
         help="Período final no formato AAAAMM.",
     )
+    contratos_silver_parser = subparsers.add_parser(
+        "silver-contratos",
+        help="Normaliza e consolida os contratos federais.",
+    )
+
+    contratos_silver_parser.add_argument(
+        "--periodo-inicial",
+        required=True,
+        help="Período inicial no formato AAAAMM.",
+    )
+
+    contratos_silver_parser.add_argument(
+        "--periodo-final",
+        required=True,
+        help="Período final no formato AAAAMM.",
+    )
+    quality_contratos_parser = subparsers.add_parser(
+        "validar-silver-contratos",
+        help=("Valida qualidade e integridade da Silver de contratos."),
+    )
+
+    quality_contratos_parser.add_argument(
+        "--periodo-inicial",
+        required=True,
+        help="Período inicial no formato AAAAMM.",
+    )
+
+    quality_contratos_parser.add_argument(
+        "--periodo-final",
+        required=True,
+        help="Período final no formato AAAAMM.",
+    )
+    gold_contratos_parser = subparsers.add_parser(
+        "gold-contratos",
+        help="Cria rankings e indicadores Gold de contratos.",
+    )
+
+    gold_contratos_parser.add_argument(
+        "--periodo-inicial",
+        required=True,
+        help="Período inicial no formato AAAAMM.",
+    )
+
+    gold_contratos_parser.add_argument(
+        "--periodo-final",
+        required=True,
+        help="Período final no formato AAAAMM.",
+    )
+    reconciliation_contratos_parser = subparsers.add_parser(
+        "reconciliar-contratos",
+        help="Reconcilia os dados Silver e Gold de contratos.",
+    )
+
+    reconciliation_contratos_parser.add_argument(
+        "--periodo-inicial",
+        required=True,
+        help="Período inicial no formato AAAAMM.",
+    )
+
+    reconciliation_contratos_parser.add_argument(
+        "--periodo-final",
+        required=True,
+        help="Período final no formato AAAAMM.",
+    )
+    dimensions_contratos_parser = subparsers.add_parser(
+        "dimensoes-contratos",
+        help="Cria dimensões de contratos para o Power BI.",
+    )
+
+    dimensions_contratos_parser.add_argument(
+        "--periodo-inicial",
+        required=True,
+        help="Período inicial no formato AAAAMM.",
+    )
+
+    dimensions_contratos_parser.add_argument(
+        "--periodo-final",
+        required=True,
+        help="Período final no formato AAAAMM.",
+    )
+    quality_convenios_parser = subparsers.add_parser(
+        "validar-silver-convenios",
+        help="Valida qualidade da Silver histórica de convênios.",
+    )
+
+    quality_convenios_parser.add_argument(
+        "--anos",
+        type=int,
+        nargs="+",
+        required=True,
+        help="Anos processados. Exemplo: 2025 2026.",
+    )
+
+    gold_convenios_parser = subparsers.add_parser(
+        "gold-convenios",
+        help="Cria fatos e rankings Gold de convênios.",
+    )
+
+    gold_convenios_parser.add_argument(
+        "--anos",
+        type=int,
+        nargs="+",
+        required=True,
+        help="Anos processados. Exemplo: 2025 2026.",
+    )
+    reconciliation_convenios_parser = subparsers.add_parser(
+        "reconciliar-convenios",
+        help="Reconcilia Silver e Gold de convênios.",
+    )
+
+    reconciliation_convenios_parser.add_argument(
+        "--anos",
+        type=int,
+        nargs="+",
+        required=True,
+        help="Anos processados. Exemplo: 2025 2026.",
+    )
+
+    dimensions_convenios_parser = subparsers.add_parser(
+        "dimensoes-convenios",
+        help="Cria dimensões de convênios para o Power BI.",
+    )
+
+    dimensions_convenios_parser.add_argument(
+        "--anos",
+        type=int,
+        nargs="+",
+        required=True,
+        help="Anos processados. Exemplo: 2025 2026.",
+    )
     return parser
 
 
@@ -289,6 +446,50 @@ def main(argv: Sequence[str] | None = None) -> int:
                 first_period=args.periodo_inicial,
                 last_period=args.periodo_final,
             )
+        elif args.command == "silver-contratos":
+            run_silver_contratos(
+                first_period=args.periodo_inicial,
+                last_period=args.periodo_final,
+            )
+        elif args.command == "validar-silver-contratos":
+            run_quality_silver_contratos(
+                first_period=args.periodo_inicial,
+                last_period=args.periodo_final,
+            )
+        elif args.command == "gold-contratos":
+            run_gold_contratos(
+                first_period=args.periodo_inicial,
+                last_period=args.periodo_final,
+            )
+        elif args.command == "reconciliar-contratos":
+            run_reconciliation_contratos(
+                first_period=args.periodo_inicial,
+                last_period=args.periodo_final,
+            )
+        elif args.command == "dimensoes-contratos":
+            run_dimensions_contratos(
+                first_period=args.periodo_inicial,
+                last_period=args.periodo_final,
+            )
+        elif args.command == "validar-silver-convenios":
+            run_quality_silver_convenios(
+                years=args.anos,
+            )
+
+        elif args.command == "gold-convenios":
+            run_gold_convenios(
+                years=args.anos,
+            )
+        elif args.command == "reconciliar-convenios":
+            run_reconciliation_convenios(
+                years=args.anos,
+            )
+
+        elif args.command == "dimensoes-convenios":
+            run_dimensions_convenios(
+                years=args.anos,
+            )
+
         else:
             parser.error(f"Comando não implementado: {args.command}")
 

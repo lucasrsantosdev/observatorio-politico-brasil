@@ -122,16 +122,29 @@ Construir uma plataforma auditável para coleta, tratamento e análise de dados 
 
 Projeto em construção.
 
-| Área                                           | Situação           |
-| ---------------------------------------------- | ------------------ |
-| Emendas, empenhado, liquidado e pago           | ✅ Concluído        |
-| Favorecidos e empresas recebedoras via emendas | ✅ Concluído        |
-| Convênios vinculados às emendas                | ✅ Silver concluída |
-| Contratos federais                             | ❌ Pendente         |
-| Licitações federais                            | ❌ Pendente         |
-| Gastos dos deputados                           | ❌ Pendente         |
-| Proposições e votações da Câmara               | ❌ Pendente         |
-| Atividade e gastos do Senado                   | ❌ Pendente         |
+| Área                                           | Situação                                  |
+| ---------------------------------------------- | ----------------------------------------- |
+| Emendas, empenhado, liquidado e pago           | ✅ Concluído                              |
+| Favorecidos e empresas recebedoras via emendas | ✅ Concluído                              |
+| Convênios vinculados às emendas                | 🟡 Silver concluída                       |
+| Contratos federais                             | ✅ Concluído                              |
+| Licitações federais                            | 🟡 Gold concluída — faltam dimensões e reconciliação |
+| Gastos dos deputados                           | ❌ Pendente                               |
+| Proposições e votações da Câmara               | ❌ Pendente                               |
+| Atividade e gastos do Senado                   | ❌ Pendente                               |
+
+
+## Status do projeto
+| Área                                           | Camada atual                                             | Situação    |
+| ---------------------------------------------- | -------------------------------------------------------- | ----------- |
+| Emendas, empenhado, liquidado e pago           | Bronze, Silver, Gold, dimensões e reconciliação          | ✅ Concluído |
+| Favorecidos e empresas recebedoras via emendas | Bronze, Silver, Gold, dimensões e reconciliação          | ✅ Concluído |
+| Convênios vinculados às emendas                | Bronze, Silver, qualidade, Gold, dimensões e reconciliação | ✅ Concluído |
+| Contratos federais                             | Bronze, Silver, qualidade, Gold, dimensões e reconciliação | ✅ Concluído |
+| Licitações federais                            | Bronze, Silver, qualidade e Gold                         | 🟡 Em andamento |
+| Gastos dos deputados                           | Não iniciado                                             | ❌ Pendente |
+| Proposições e votações da Câmara               | Não iniciado                                             | ❌ Pendente |
+| Atividade e gastos do Senado                   | Não iniciado                                             | ❌ Pendente |
 
 ## Solicitação de documentos ausentes
 
