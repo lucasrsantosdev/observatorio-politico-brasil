@@ -23,3 +23,20 @@ data/bronze/
 data/silver/
 data/gold/
 logs/*.log
+
+# Dados gerados pelos pipelines
+data/bronze/
+data/silver/
+data/gold/
+data/landing/
+
+# Pacote de consumo do Power BI
+output/power_bi/**/*.csv
+output/power_bi/**/*.parquet
+
+# Manter apenas os catálogos do Power BI
+!output/power_bi/catalogo_dimensoes.csv
+!output/power_bi/catalogo_modelo.csv
+
+# Arquivos temporários de download
+*.part

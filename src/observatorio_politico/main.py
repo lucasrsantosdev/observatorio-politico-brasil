@@ -102,8 +102,14 @@ def configure_logging(level: str) -> None:
     )
 
 
+from observatorio_politico.orchestration.gold_proposicoes_votacoes import (
+    run_gold_proposicoes_votacoes,
+)
 from observatorio_politico.orchestration.proposicoes_votacoes_bronze import (
     run_bronze_proposicoes_votacoes,
+)
+from observatorio_politico.orchestration.proposicoes_votacoes_silver import (
+    run_silver_proposicoes_votacoes,
 )
 
 
@@ -528,6 +534,32 @@ def build_parser() -> argparse.ArgumentParser:
         help="Baixa novamente arquivos já existentes.",
     )
 
+    proposicoes_votacoes_silver_parser = subparsers.add_parser(
+        "silver-proposicoes-votacoes",
+        help="Normaliza proposi??es e vota??es da C?mara.",
+    )
+
+    proposicoes_votacoes_silver_parser.add_argument(
+        "--anos",
+        type=int,
+        nargs="+",
+        required=True,
+        help="Anos processados. Exemplo: 2025 2026.",
+    )
+
+    gold_proposicoes_votacoes_parser = subparsers.add_parser(
+        "gold-proposicoes-votacoes",
+        help="Cria fatos e indicadores de proposi??es e vota??es.",
+    )
+
+    gold_proposicoes_votacoes_parser.add_argument(
+        "--anos",
+        type=int,
+        nargs="+",
+        required=True,
+        help="Anos processados. Exemplo: 2025 2026.",
+    )
+
     return parser
 
 
@@ -697,6 +729,16 @@ def main(argv: Sequence[str] | None = None) -> int:
             run_bronze_proposicoes_votacoes(
                 years=args.anos,
                 force=args.force,
+            )
+
+        elif args.command == "silver-proposicoes-votacoes":
+            run_silver_proposicoes_votacoes(
+                years=args.anos,
+            )
+
+        elif args.command == "gold-proposicoes-votacoes":
+            run_gold_proposicoes_votacoes(
+                years=args.anos,
             )
 
         else:

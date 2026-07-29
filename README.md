@@ -119,33 +119,20 @@ Construir uma plataforma auditável para coleta, tratamento e análise de dados 
 | Atividade legislativa e gastos dos senadores    | Senado Federal          |
 
 ## Status do projeto
-
-Projeto em construção.
-
-| Área                                           | Situação                                  |
-| ---------------------------------------------- | ----------------------------------------- |
-| Emendas, empenhado, liquidado e pago           | ✅ Concluído                              |
-| Favorecidos e empresas recebedoras via emendas | ✅ Concluído                              |
-| Convênios vinculados às emendas                | 🟡 Silver concluída                       |
-| Contratos federais                             | ✅ Concluído                              |
-| Licitações federais                            | 🟡 Gold concluída — faltam dimensões e reconciliação |
-| Gastos dos deputados                           | ❌ Pendente                               |
-| Proposições e votações da Câmara               | ❌ Pendente                               |
-| Atividade e gastos do Senado                   | ❌ Pendente                               |
-
-
 ## Status do projeto
-| Área                                           | Camada atual                                               | Situação     |
-| ---------------------------------------------- | ---------------------------------------------------------- | ------------ |
-| Emendas, empenhado, liquidado e pago           | Bronze, Silver, Gold, dimensões e reconciliação            | ✅ Concluído |
-| Favorecidos e empresas recebedoras via emendas | Bronze, Silver, Gold, dimensões e reconciliação            | ✅ Concluído |
-| Convênios vinculados às emendas                | Bronze, Silver, qualidade, Gold, dimensões e reconciliação | ✅ Concluído |
-| Contratos federais                             | Bronze, Silver, qualidade, Gold, dimensões e reconciliação | ✅ Concluído |
-| Licitações federais                            | Bronze, Silver, qualidade, Gold, dimensões e reconciliação | ✅ Concluído |
-| Gastos dos deputados                           | Bronze, Silver, qualidade, Gold, dimensões e reconciliação | ✅ Concluído |
-| Proposições e votações da Câmara               | Não iniciado                                               | ❌ Pendente  |
-| Atividade e gastos do Senado                   | Não iniciado                                               | ❌ Pendente  |
 
+| Área                                           | Camada atual                                               | Situação           |
+| ---------------------------------------------- | ---------------------------------------------------------- | ------------------ |
+| Emendas, empenhado, liquidado e pago           | Bronze, Silver, Gold, dimensões e reconciliação            | ✅ Concluído       |
+| Favorecidos e empresas recebedoras via emendas | Bronze, Silver, Gold, dimensões e reconciliação            | ✅ Concluído       |
+| Convênios vinculados às emendas                | Bronze, Silver, qualidade, Gold, dimensões e reconciliação | ✅ Concluído       |
+| Contratos federais                             | Bronze, Silver, qualidade, Gold, dimensões e reconciliação | ✅ Concluído       |
+| Licitações federais                            | Bronze, Silver, qualidade, Gold, dimensões e reconciliação | ✅ Concluído       |
+| Gastos dos deputados                           | Bronze, Silver, qualidade, Gold, dimensões e reconciliação | ✅ Concluído       |
+| Proposições e votações da Câmara               | Bronze concluída e arquivos validados                      | 🟡 Em andamento    |
+| Atividade e gastos do Senado                   | Não iniciado                                               | ❌ Pendente        |
+| Camada de consumo do Power BI                  | 33 dimensões publicadas                                    | 🟡 Em andamento    |
+| Modelo semântico e dashboards                  | Não iniciado                                               | ❌ Pendente        |
 ## Solicitação de documentos ausentes
 
 Quando um documento ou conjunto de dados públicos necessário para o projeto não estiver disponível nos portais oficiais, deverá ser registrada uma solicitação pelo **Fala.BR**:
