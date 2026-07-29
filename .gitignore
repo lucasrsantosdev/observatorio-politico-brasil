@@ -40,3 +40,15 @@ output/power_bi/**/*.parquet
 
 # Arquivos temporários de download
 *.part
+
+# Inventários temporários
+output/diretorios_gold.txt
+output/inventario_gold.txt
+
+# Arquivos locais e cache do Power BI
+**/.pbi/
+*.abf
+
+# Inventários temporários
+output/diretorios_gold.txt
+output/inventario_gold.txt

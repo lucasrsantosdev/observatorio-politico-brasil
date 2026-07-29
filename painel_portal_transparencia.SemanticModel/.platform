@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "painel_portal_transparencia"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "a49c0e71-7414-4d3b-8869-660c31678bb7"
+  }
+}
