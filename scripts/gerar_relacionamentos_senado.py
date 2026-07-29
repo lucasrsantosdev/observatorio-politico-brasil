@@ -66,15 +66,6 @@ RELATIONSHIPS: tuple[dict[str, Any], ...] = (
         "allow_orphans": True,
     },
     {
-        "name": "materia_fato_materias",
-        "from_table": "senado_fato_materias",
-        "from_column": "id_materia",
-        "to_table": "senado_dim_materia",
-        "to_column": "id_materia",
-        "from_cardinality": "one",
-        "to_cardinality": "one",
-    },
-    {
         "name": "tempo_gastos",
         "from_table": "senado_fato_gastos_senadores",
         "from_column": "data_referencia",

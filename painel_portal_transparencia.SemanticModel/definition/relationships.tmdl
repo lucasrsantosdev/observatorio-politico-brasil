@@ -26,13 +26,6 @@ relationship 0a20d73a-b21c-5af7-b03e-51cd075b6a9d
 	toColumn: senado_dim_materia.id_materia
 	crossFilteringBehavior: oneDirection
 
-relationship 59c7ebc6-0dfe-5197-b05d-74baf2cf72aa
-	fromCardinality: one
-	toCardinality: one
-	fromColumn: senado_fato_materias.id_materia
-	toColumn: senado_dim_materia.id_materia
-	crossFilteringBehavior: oneDirection
-
 relationship 444540c5-bf44-5a60-a09a-660692512d28
 	fromCardinality: many
 	toCardinality: one

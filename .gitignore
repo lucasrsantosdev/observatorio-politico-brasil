@@ -61,3 +61,8 @@ output/schema_*.txt
 output/backup_modelo_semantico/
 output/modelo_semantico/
 output/modelo_semantico_senado.manifest.json
+
+# Artefatos locais do modelo semântico
+output/backup_modelo_semantico/
+output/modelo_semantico/
+output/modelo_semantico_senado.manifest.json
