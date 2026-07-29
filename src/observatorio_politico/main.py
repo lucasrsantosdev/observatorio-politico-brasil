@@ -22,10 +22,19 @@ from observatorio_politico.orchestration.dimensoes_contratos import (
 from observatorio_politico.orchestration.dimensoes_convenios import (
     run_dimensions_convenios,
 )
+from observatorio_politico.orchestration.dimensoes_gastos_deputados import (
+    run_dimensions_gastos_deputados,
+)
 from observatorio_politico.orchestration.dimensoes_licitacoes import (
     run_dimensions_licitacoes,
 )
 from observatorio_politico.orchestration.emendas import run_emendas
+from observatorio_politico.orchestration.gastos_deputados_bronze import (
+    run_bronze_gastos_deputados,
+)
+from observatorio_politico.orchestration.gastos_deputados_silver import (
+    run_silver_gastos_deputados,
+)
 from observatorio_politico.orchestration.gold_contratos import (
     run_gold_contratos,
 )
@@ -33,6 +42,9 @@ from observatorio_politico.orchestration.gold_convenios import (
     run_gold_convenios,
 )
 from observatorio_politico.orchestration.gold_emendas import run_gold_emendas
+from observatorio_politico.orchestration.gold_gastos_deputados import (
+    run_gold_gastos_deputados,
+)
 from observatorio_politico.orchestration.gold_licitacoes import (
     run_gold_licitacoes,
 )
@@ -60,6 +72,9 @@ from observatorio_politico.quality.contratos_silver import (
 from observatorio_politico.quality.convenios_silver import (
     run_quality_silver_convenios,
 )
+from observatorio_politico.quality.gastos_deputados_silver import (
+    run_quality_silver_gastos_deputados,
+)
 from observatorio_politico.quality.licitacoes_silver import (
     run_quality_silver_licitacoes,
 )
@@ -71,6 +86,9 @@ from observatorio_politico.quality.reconciliation_convenios import (
 )
 from observatorio_politico.quality.reconciliation_emendas import (
     run_reconciliation_emendas,
+)
+from observatorio_politico.quality.reconciliation_gastos_deputados import (
+    run_reconciliation_gastos_deputados,
 )
 from observatorio_politico.quality.reconciliation_licitacoes import (
     run_reconciliation_licitacoes,
@@ -407,6 +425,84 @@ def build_parser() -> argparse.ArgumentParser:
         help="Período final no formato AAAAMM.",
     )
 
+    gastos_bronze_parser = subparsers.add_parser(
+        "bronze-gastos-deputados",
+        help="Baixa os arquivos anuais da cota parlamentar da Câmara.",
+    )
+
+    gastos_bronze_parser.add_argument(
+        "--anos",
+        type=int,
+        nargs="+",
+        required=True,
+        help="Anos processados. Exemplo: 2025 2026.",
+    )
+
+    gastos_bronze_parser.add_argument(
+        "--force",
+        action="store_true",
+        help="Baixa novamente os arquivos mesmo que já existam.",
+    )
+
+    gastos_silver_parser = subparsers.add_parser(
+        "silver-gastos-deputados",
+        help="Normaliza os gastos dos deputados na camada Silver.",
+    )
+
+    gastos_silver_parser.add_argument(
+        "--anos",
+        type=int,
+        nargs="+",
+        required=True,
+        help="Anos processados. Exemplo: 2025 2026.",
+    )
+
+    quality_gastos_parser = subparsers.add_parser(
+        "validar-silver-gastos-deputados",
+        help="Valida a Silver de gastos dos deputados.",
+    )
+
+    quality_gastos_parser.add_argument(
+        "--anos",
+        type=int,
+        nargs="+",
+        required=True,
+        help="Anos processados. Exemplo: 2025 2026.",
+    )
+
+    gold_gastos_parser = subparsers.add_parser(
+        "gold-gastos-deputados",
+        help="Cria fatos, rankings e indicadores Gold dos gastos.",
+    )
+
+    gold_gastos_parser.add_argument(
+        "--anos",
+        type=int,
+        nargs="+",
+        required=True,
+        help="Anos processados. Exemplo: 2025 2026.",
+    )
+    reconciliation_gastos_parser = subparsers.add_parser(
+        "reconciliar-gastos-deputados",
+        help="Reconcilia Silver e Gold dos gastos dos deputados.",
+    )
+    reconciliation_gastos_parser.add_argument(
+        "--anos",
+        type=int,
+        nargs="+",
+        required=True,
+    )
+
+    dimensions_gastos_parser = subparsers.add_parser(
+        "dimensoes-gastos-deputados",
+        help="Cria dimensões dos gastos para o Power BI.",
+    )
+    dimensions_gastos_parser.add_argument(
+        "--anos",
+        type=int,
+        nargs="+",
+        required=True,
+    )
     return parser
 
 
@@ -542,6 +638,35 @@ def main(argv: Sequence[str] | None = None) -> int:
                 last_period=args.periodo_final,
             )
 
+        elif args.command == "bronze-gastos-deputados":
+            run_bronze_gastos_deputados(
+                years=args.anos,
+                force=args.force,
+            )
+
+        elif args.command == "silver-gastos-deputados":
+            run_silver_gastos_deputados(
+                years=args.anos,
+            )
+
+        elif args.command == "validar-silver-gastos-deputados":
+            run_quality_silver_gastos_deputados(
+                years=args.anos,
+            )
+
+        elif args.command == "gold-gastos-deputados":
+            run_gold_gastos_deputados(
+                years=args.anos,
+            )
+        elif args.command == "reconciliar-gastos-deputados":
+            run_reconciliation_gastos_deputados(
+                years=args.anos,
+            )
+
+        elif args.command == "dimensoes-gastos-deputados":
+            run_dimensions_gastos_deputados(
+                years=args.anos,
+            )
         else:
             parser.error(f"Comando não implementado: {args.command}")
 

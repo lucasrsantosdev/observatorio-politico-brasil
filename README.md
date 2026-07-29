@@ -142,7 +142,7 @@ Projeto em construção.
 | Convênios vinculados às emendas                | Bronze, Silver, qualidade, Gold, dimensões e reconciliação | ✅ Concluído |
 | Contratos federais                             | Bronze, Silver, qualidade, Gold, dimensões e reconciliação | ✅ Concluído |
 | Licitações federais                            | Bronze, Silver, qualidade, Gold, dimensões e reconciliação | ✅ Concluído |
-| Gastos dos deputados                           | Não iniciado                                               | ❌ Pendente  |
+| Gastos dos deputados                           | Bronze, Silver, qualidade, Gold, dimensões e reconciliação | ✅ Concluído |
 | Proposições e votações da Câmara               | Não iniciado                                               | ❌ Pendente  |
 | Atividade e gastos do Senado                   | Não iniciado                                               | ❌ Pendente  |
 
