@@ -43,6 +43,21 @@ def _write(
 
     csv_path = destination / f"{dataset}.csv"
 
+    null_columns = [
+        column for column, dtype in dataframe.schema.items() if dtype == pl.Null
+    ]
+
+    if null_columns:
+        dataframe = dataframe.with_columns(
+            [pl.col(column).cast(pl.String).alias(column) for column in null_columns]
+        )
+
+        logger.warning(
+            "Colunas Null convertidas para String: dataset=%s colunas=%s",
+            dataset,
+            null_columns,
+        )
+
     dataframe.write_parquet(
         parquet_path,
         compression="zstd",
