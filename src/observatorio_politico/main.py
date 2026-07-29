@@ -102,6 +102,11 @@ def configure_logging(level: str) -> None:
     )
 
 
+from observatorio_politico.orchestration.proposicoes_votacoes_bronze import (
+    run_bronze_proposicoes_votacoes,
+)
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         description="Observatório Político Brasil",
@@ -503,6 +508,26 @@ def build_parser() -> argparse.ArgumentParser:
         nargs="+",
         required=True,
     )
+
+    proposicoes_votacoes_bronze_parser = subparsers.add_parser(
+        "bronze-proposicoes-votacoes",
+        help="Baixa proposições e votações da Câmara.",
+    )
+
+    proposicoes_votacoes_bronze_parser.add_argument(
+        "--anos",
+        type=int,
+        nargs="+",
+        required=True,
+        help="Anos processados. Exemplo: 2025 2026.",
+    )
+
+    proposicoes_votacoes_bronze_parser.add_argument(
+        "--force",
+        action="store_true",
+        help="Baixa novamente arquivos já existentes.",
+    )
+
     return parser
 
 
@@ -667,6 +692,13 @@ def main(argv: Sequence[str] | None = None) -> int:
             run_dimensions_gastos_deputados(
                 years=args.anos,
             )
+
+        elif args.command == "bronze-proposicoes-votacoes":
+            run_bronze_proposicoes_votacoes(
+                years=args.anos,
+                force=args.force,
+            )
+
         else:
             parser.error(f"Comando não implementado: {args.command}")
 
