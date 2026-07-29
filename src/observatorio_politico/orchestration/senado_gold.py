@@ -171,11 +171,32 @@ def _build_fato_votos(
 def _build_fato_gastos(
     ceaps: pl.DataFrame,
 ) -> pl.DataFrame:
+    ano_data_original = pl.col("data").dt.year()
+
+    data_ano_valido = pl.col("data").is_not_null() & ano_data_original.is_in(
+        [2024, 2025, 2026]
+    )
+
+    data_corrigida = pl.date(
+        pl.col("ano"),
+        pl.col("data").dt.month().fill_null(pl.col("mes")),
+        pl.col("data").dt.day().fill_null(1),
+    )
+
     return ceaps.with_columns(
+        pl.col("data").alias("data_documento_original"),
+        pl.when(data_ano_valido)
+        .then(pl.col("data"))
+        .otherwise(data_corrigida)
+        .alias("data_referencia"),
+        (pl.col("data").is_null() | ~ano_data_original.is_in([2024, 2025, 2026])).alias(
+            "data_referencia_ajustada"
+        ),
+    ).with_columns(
         pl.col("id").cast(pl.Int64).alias("id_gasto"),
-        pl.col("data").dt.year().alias("ano_gasto"),
-        pl.col("data").dt.month().cast(pl.Int8).alias("mes_gasto"),
-        pl.col("data").dt.strftime("%Y%m").alias("periodo_gasto"),
+        pl.col("data_referencia").dt.year().alias("ano_gasto"),
+        pl.col("data_referencia").dt.month().cast(pl.Int8).alias("mes_gasto"),
+        pl.col("data_referencia").dt.strftime("%Y%m").alias("periodo_gasto"),
         pl.col("cpf_cnpj_fornecedor")
         .str.replace_all(
             r"[^0-9]",

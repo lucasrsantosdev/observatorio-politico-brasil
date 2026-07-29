@@ -1,0 +1,46 @@
+table senado_ranking_partidos_votos
+
+	column sigla_partido
+		dataType: string
+		sourceColumn: sigla_partido
+		summarizeBy: none
+
+	column quantidade_senadores
+		dataType: int64
+		sourceColumn: quantidade_senadores
+		summarizeBy: none
+
+	column quantidade_votos
+		dataType: int64
+		sourceColumn: quantidade_votos
+		summarizeBy: none
+
+	column votos_sim
+		dataType: int64
+		sourceColumn: votos_sim
+		summarizeBy: none
+
+	column votos_nao
+		dataType: int64
+		sourceColumn: votos_nao
+		summarizeBy: none
+
+	column abstencoes
+		dataType: int64
+		sourceColumn: abstencoes
+		summarizeBy: none
+
+	column posicao
+		dataType: int64
+		sourceColumn: posicao
+		summarizeBy: none
+
+	partition senado_ranking_partidos_votos = m
+		mode: import
+		source =
+			let
+				Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\senado_federal\senado_ranking_partidos_votos.parquet"))
+			in
+				Source
+
+	annotation PBI_ResultType = Table

@@ -1,0 +1,42 @@
+table senado_ranking_senadores_gastos
+
+	column cod_senador
+		dataType: int64
+		sourceColumn: cod_senador
+		summarizeBy: none
+
+	column nome_senador
+		dataType: string
+		sourceColumn: nome_senador
+		summarizeBy: none
+
+	column quantidade_despesas
+		dataType: int64
+		sourceColumn: quantidade_despesas
+		summarizeBy: none
+
+	column valor_total
+		dataType: double
+		sourceColumn: valor_total
+		summarizeBy: none
+		formatString: R$ #,0.00;-R$ #,0.00;R$ #,0.00
+
+	column quantidade_fornecedores
+		dataType: int64
+		sourceColumn: quantidade_fornecedores
+		summarizeBy: none
+
+	column posicao
+		dataType: int64
+		sourceColumn: posicao
+		summarizeBy: none
+
+	partition senado_ranking_senadores_gastos = m
+		mode: import
+		source =
+			let
+				Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\senado_federal\senado_ranking_senadores_gastos.parquet"))
+			in
+				Source
+
+	annotation PBI_ResultType = Table

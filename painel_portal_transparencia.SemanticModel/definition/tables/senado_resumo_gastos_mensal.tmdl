@@ -1,0 +1,47 @@
+table senado_resumo_gastos_mensal
+
+	column ano_gasto
+		dataType: int64
+		sourceColumn: ano_gasto
+		summarizeBy: none
+
+	column mes_gasto
+		dataType: int64
+		sourceColumn: mes_gasto
+		summarizeBy: none
+
+	column periodo_gasto
+		dataType: string
+		sourceColumn: periodo_gasto
+		summarizeBy: none
+
+	column quantidade_despesas
+		dataType: int64
+		sourceColumn: quantidade_despesas
+		summarizeBy: none
+
+	column valor_total
+		dataType: double
+		sourceColumn: valor_total
+		summarizeBy: none
+		formatString: R$ #,0.00;-R$ #,0.00;R$ #,0.00
+
+	column quantidade_senadores
+		dataType: int64
+		sourceColumn: quantidade_senadores
+		summarizeBy: none
+
+	column quantidade_fornecedores
+		dataType: int64
+		sourceColumn: quantidade_fornecedores
+		summarizeBy: none
+
+	partition senado_resumo_gastos_mensal = m
+		mode: import
+		source =
+			let
+				Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\senado_federal\senado_resumo_gastos_mensal.parquet"))
+			in
+				Source
+
+	annotation PBI_ResultType = Table

@@ -1,0 +1,78 @@
+table senado_dim_materia
+
+	column id_materia
+		dataType: int64
+		isKey
+		sourceColumn: id_materia
+		summarizeBy: none
+
+	column codigo
+		dataType: int64
+		sourceColumn: codigo
+		summarizeBy: none
+
+	column identificacao_processo
+		dataType: string
+		sourceColumn: identificacao_processo
+		summarizeBy: none
+
+	column descricao_identificacao
+		dataType: string
+		sourceColumn: descricao_identificacao
+		summarizeBy: none
+
+	column sigla
+		dataType: string
+		sourceColumn: sigla
+		summarizeBy: none
+
+	column numero
+		dataType: int64
+		sourceColumn: numero
+		summarizeBy: none
+
+	column ano
+		dataType: int64
+		sourceColumn: ano
+		summarizeBy: none
+
+	column sigla_comissao
+		dataType: string
+		sourceColumn: sigla_comissao
+		summarizeBy: none
+
+	column ementa
+		dataType: string
+		sourceColumn: ementa
+		summarizeBy: none
+
+	column autor
+		dataType: string
+		sourceColumn: autor
+		summarizeBy: none
+
+	column data
+		dataType: dateTime
+		sourceColumn: data
+		summarizeBy: none
+		formatString: Short Date
+
+	column url_detalhe_materia
+		dataType: string
+		sourceColumn: url_detalhe_materia
+		summarizeBy: none
+
+	column titulo_materia
+		dataType: string
+		sourceColumn: titulo_materia
+		summarizeBy: none
+
+	partition senado_dim_materia = m
+		mode: import
+		source =
+			let
+				Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\senado_federal\senado_dim_materia.parquet"))
+			in
+				Source
+
+	annotation PBI_ResultType = Table

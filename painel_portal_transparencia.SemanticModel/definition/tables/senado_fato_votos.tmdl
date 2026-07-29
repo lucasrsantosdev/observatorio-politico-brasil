@@ -1,0 +1,107 @@
+table senado_fato_votos
+
+	column chave_registro
+		dataType: string
+		sourceColumn: chave_registro
+		summarizeBy: none
+
+	column hash_registro
+		dataType: string
+		sourceColumn: hash_registro
+		summarizeBy: none
+
+	column dataset
+		dataType: string
+		sourceColumn: dataset
+		summarizeBy: none
+
+	column codigo_parlamentar
+		dataType: int64
+		sourceColumn: codigo_parlamentar
+		summarizeBy: none
+
+	column descricao_voto_parlamentar
+		dataType: string
+		sourceColumn: descricao_voto_parlamentar
+		summarizeBy: none
+
+	column nome_parlamentar
+		dataType: string
+		sourceColumn: nome_parlamentar
+		summarizeBy: none
+
+	column sexo_parlamentar
+		dataType: string
+		sourceColumn: sexo_parlamentar
+		summarizeBy: none
+
+	column sigla_partido_parlamentar
+		dataType: string
+		sourceColumn: sigla_partido_parlamentar
+		summarizeBy: none
+
+	column sigla_uf_parlamentar
+		dataType: string
+		sourceColumn: sigla_uf_parlamentar
+		summarizeBy: none
+
+	column sigla_voto_parlamentar
+		dataType: string
+		sourceColumn: sigla_voto_parlamentar
+		summarizeBy: none
+
+	column codigo_sessao_votacao
+		dataType: int64
+		sourceColumn: codigo_sessao_votacao
+		summarizeBy: none
+
+	column codigo_materia
+		dataType: int64
+		sourceColumn: codigo_materia
+		summarizeBy: none
+
+	column data_sessao
+		dataType: dateTime
+		sourceColumn: data_sessao
+		summarizeBy: none
+		formatString: Short Date
+
+	column linha_origem
+		dataType: int64
+		sourceColumn: linha_origem
+		summarizeBy: none
+
+	column chave_voto
+		dataType: string
+		sourceColumn: chave_voto
+		summarizeBy: none
+
+	column ano_voto
+		dataType: int64
+		sourceColumn: ano_voto
+		summarizeBy: none
+
+	column mes_voto
+		dataType: int64
+		sourceColumn: mes_voto
+		summarizeBy: none
+
+	column periodo_voto
+		dataType: string
+		sourceColumn: periodo_voto
+		summarizeBy: none
+
+	column categoria_voto
+		dataType: string
+		sourceColumn: categoria_voto
+		summarizeBy: none
+
+	partition senado_fato_votos = m
+		mode: import
+		source =
+			let
+				Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\senado_federal\senado_fato_votos.parquet"))
+			in
+				Source
+
+	annotation PBI_ResultType = Table

@@ -383,14 +383,12 @@ def _build_dim_tempo(
     votacoes: pl.DataFrame,
     gastos: pl.DataFrame,
 ) -> pl.DataFrame:
-    minimum = date(2025, 1, 1)
-    maximum = date(2026, 12, 31)
+    del materias
+    del votacoes
+    del gastos
 
-    logger.info(
-        "Criando dim_tempo com recorte fixo: minimum=%s maximum=%s",
-        minimum,
-        maximum,
-    )
+    minimum = date(2024, 1, 1)
+    maximum = date(2026, 12, 31)
 
     rows: list[dict[str, Any]] = []
 
@@ -407,7 +405,7 @@ def _build_dim_tempo(
                 "nome_mes": current.strftime("%B"),
                 "trimestre": (f"T{((current.month - 1) // 3) + 1}"),
                 "dia_semana": current.isoweekday(),
-                "nome_dia_semana": (current.strftime("%A")),
+                "nome_dia_semana": current.strftime("%A"),
             }
         )
 
@@ -434,12 +432,21 @@ def _build_dim_tempo(
         )
     )
 
-    if dataframe.height != 730:
+    expected_rows = 1096
+
+    if dataframe.height != expected_rows:
         raise RuntimeError(
-            "Dimensao tempo deveria possuir "
-            f"730 registros, mas possui "
-            f"{dataframe.height}."
+            "Dimensao tempo invalida: "
+            f"esperado={expected_rows}, "
+            f"atual={dataframe.height}."
         )
+
+    logger.info(
+        "Dimensao tempo criada: minimum=%s maximum=%s registros=%s",
+        minimum,
+        maximum,
+        dataframe.height,
+    )
 
     return dataframe
 

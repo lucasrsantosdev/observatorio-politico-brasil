@@ -15,3 +15,27 @@ annotation PBI_ProTooling = ["DevMode"]
 
 ref cultureInfo pt-BR
 
+ref table senado_fato_materias
+ref table senado_fato_votacoes
+ref table senado_fato_votos
+ref table senado_fato_gastos_senadores
+ref table senado_dim_senadores_base
+ref table senado_dim_empresas_contratadas_base
+ref table senado_ranking_senadores_gastos
+ref table senado_ranking_fornecedores_ceaps
+ref table senado_ranking_tipos_despesa_ceaps
+ref table senado_ranking_senadores_votos
+ref table senado_ranking_partidos_votos
+ref table senado_resumo_gastos_mensal
+ref table senado_resumo_atividade_mensal
+ref table senado_dim_senador
+ref table senado_dim_materia
+ref table senado_dim_partido
+ref table senado_dim_uf
+ref table senado_dim_tipo_materia
+ref table senado_dim_tipo_voto
+ref table senado_dim_resultado_votacao
+ref table senado_dim_tipo_despesa
+ref table senado_dim_fornecedor
+ref table senado_dim_tempo
+ref table _Medidas

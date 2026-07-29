@@ -1,0 +1,46 @@
+table senado_dim_empresas_contratadas_base
+
+	column chave_registro
+		dataType: string
+		sourceColumn: chave_registro
+		summarizeBy: none
+
+	column hash_registro
+		dataType: string
+		sourceColumn: hash_registro
+		summarizeBy: none
+
+	column dataset
+		dataType: string
+		sourceColumn: dataset
+		summarizeBy: none
+
+	column codigo
+		dataType: int64
+		sourceColumn: codigo
+		summarizeBy: none
+
+	column cnpj_cpf
+		dataType: string
+		sourceColumn: cnpj_cpf
+		summarizeBy: none
+
+	column nome
+		dataType: string
+		sourceColumn: nome
+		summarizeBy: none
+
+	column linha_origem
+		dataType: int64
+		sourceColumn: linha_origem
+		summarizeBy: none
+
+	partition senado_dim_empresas_contratadas_base = m
+		mode: import
+		source =
+			let
+				Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\senado_federal\senado_dim_empresas_contratadas_base.parquet"))
+			in
+				Source
+
+	annotation PBI_ResultType = Table

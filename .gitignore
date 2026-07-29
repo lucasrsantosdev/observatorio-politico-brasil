@@ -56,3 +56,8 @@ output/inventario_gold.txt
 # Evidências e diagnósticos gerados localmente
 output/auditoria/
 output/schema_*.txt
+
+# Artefatos locais do modelo semântico
+output/backup_modelo_semantico/
+output/modelo_semantico/
+output/modelo_semantico_senado.manifest.json

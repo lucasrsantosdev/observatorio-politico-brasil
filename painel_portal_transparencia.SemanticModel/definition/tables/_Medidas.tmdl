@@ -1,0 +1,128 @@
+table _Medidas
+
+	measure 'Total Gastos Senado' =
+			SUM (
+			    'senado_fato_gastos_senadores'[valor_gasto]
+			)
+		formatString: R$ #,0.00;-R$ #,0.00;R$ #,0.00
+		displayFolder: Senado\Gastos
+
+	measure 'Quantidade Despesas Senado' =
+			COUNTROWS (
+			    'senado_fato_gastos_senadores'
+			)
+		formatString: #,0
+		displayFolder: Senado\Gastos
+
+	measure 'Quantidade Senadores com Gastos' =
+			DISTINCTCOUNT (
+			    'senado_fato_gastos_senadores'[cod_senador]
+			)
+		formatString: #,0
+		displayFolder: Senado\Gastos
+
+	measure 'Quantidade Fornecedores Senado' =
+			DISTINCTCOUNT (
+			    'senado_fato_gastos_senadores'[cpf_cnpj_fornecedor_normalizado]
+			)
+		formatString: #,0
+		displayFolder: Senado\Gastos
+
+	measure 'Ticket Médio Despesa Senado' =
+			DIVIDE (
+			    [Total Gastos Senado],
+			    [Quantidade Despesas Senado],
+			    0
+			)
+		formatString: R$ #,0.00;-R$ #,0.00;R$ #,0.00
+		displayFolder: Senado\Gastos
+
+	measure 'Total Matérias Senado' =
+			DISTINCTCOUNT (
+			    'senado_fato_materias'[id_materia]
+			)
+		formatString: #,0
+		displayFolder: Senado\Atividade Legislativa
+
+	measure 'Total Votações Senado' =
+			DISTINCTCOUNT (
+			    'senado_fato_votacoes'[id_votacao]
+			)
+		formatString: #,0
+		displayFolder: Senado\Atividade Legislativa
+
+	measure 'Total Votos Senado' =
+			COUNTROWS (
+			    'senado_fato_votos'
+			)
+		formatString: #,0
+		displayFolder: Senado\Atividade Legislativa
+
+	measure 'Votos Sim Senado' =
+			CALCULATE (
+			    [Total Votos Senado],
+			    'senado_fato_votos'[categoria_voto] = "SIM"
+			)
+		formatString: #,0
+		displayFolder: Senado\Atividade Legislativa
+
+	measure 'Votos Não Senado' =
+			CALCULATE (
+			    [Total Votos Senado],
+			    'senado_fato_votos'[categoria_voto] = "NAO"
+			)
+		formatString: #,0
+		displayFolder: Senado\Atividade Legislativa
+
+	measure 'Abstenções Senado' =
+			CALCULATE (
+			    [Total Votos Senado],
+			    'senado_fato_votos'[categoria_voto] = "ABSTENCAO"
+			)
+		formatString: #,0
+		displayFolder: Senado\Atividade Legislativa
+
+	measure 'Percentual Votos Sim Senado' =
+			DIVIDE (
+			    [Votos Sim Senado],
+			    [Total Votos Senado],
+			    0
+			)
+		formatString: 0.00%
+		displayFolder: Senado\Atividade Legislativa
+
+	measure 'Votações Aprovadas Senado' =
+			CALCULATE (
+			    [Total Votações Senado],
+			    'senado_fato_votacoes'[resultado_votacao_normalizado] = "APROVADA"
+			)
+		formatString: #,0
+		displayFolder: Senado\Atividade Legislativa
+
+	measure 'Percentual Votações Aprovadas Senado' =
+			DIVIDE (
+			    [Votações Aprovadas Senado],
+			    [Total Votações Senado],
+			    0
+			)
+		formatString: 0.00%
+		displayFolder: Senado\Atividade Legislativa
+
+	column Indicador
+		dataType: string
+		isHidden
+		sourceColumn: Indicador
+		summarizeBy: none
+
+	partition _Medidas = m
+		mode: import
+		source =
+			let
+				Source = #table(
+				    type table [Indicador = text],
+				    {{"Medidas"}}
+				)
+			in
+				Source
+
+	annotation PBI_ResultType = Table
