@@ -108,8 +108,14 @@ from observatorio_politico.orchestration.gold_proposicoes_votacoes import (
 from observatorio_politico.orchestration.proposicoes_votacoes_bronze import (
     run_bronze_proposicoes_votacoes,
 )
+from observatorio_politico.orchestration.proposicoes_votacoes_dimensions import (
+    run_dimensions_proposicoes_votacoes,
+)
 from observatorio_politico.orchestration.proposicoes_votacoes_silver import (
     run_silver_proposicoes_votacoes,
+)
+from observatorio_politico.orchestration.proposicoes_votacoes_validation import (
+    run_quality_reconciliation_proposicoes_votacoes,
 )
 
 
@@ -560,6 +566,32 @@ def build_parser() -> argparse.ArgumentParser:
         help="Anos processados. Exemplo: 2025 2026.",
     )
 
+    validar_proposicoes_votacoes_parser = subparsers.add_parser(
+        "validar-proposicoes-votacoes",
+        help="Valida qualidade e reconcilia??o legislativa.",
+    )
+
+    validar_proposicoes_votacoes_parser.add_argument(
+        "--anos",
+        type=int,
+        nargs="+",
+        required=True,
+        help="Anos processados. Exemplo: 2025 2026.",
+    )
+
+    dimensions_proposicoes_votacoes_parser = subparsers.add_parser(
+        "dimensions-proposicoes-votacoes",
+        help="Cria dimensoes de proposicoes e votacoes.",
+    )
+
+    dimensions_proposicoes_votacoes_parser.add_argument(
+        "--anos",
+        type=int,
+        nargs="+",
+        required=True,
+        help="Anos processados. Exemplo: 2025 2026.",
+    )
+
     return parser
 
 
@@ -738,6 +770,16 @@ def main(argv: Sequence[str] | None = None) -> int:
 
         elif args.command == "gold-proposicoes-votacoes":
             run_gold_proposicoes_votacoes(
+                years=args.anos,
+            )
+
+        elif args.command == "validar-proposicoes-votacoes":
+            run_quality_reconciliation_proposicoes_votacoes(
+                years=args.anos,
+            )
+
+        elif args.command == "dimensions-proposicoes-votacoes":
+            run_dimensions_proposicoes_votacoes(
                 years=args.anos,
             )
 

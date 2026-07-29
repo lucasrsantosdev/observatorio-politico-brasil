@@ -120,19 +120,21 @@ Construir uma plataforma auditável para coleta, tratamento e análise de dados 
 
 ## Status do projeto
 ## Status do projeto
+| Área                             | Situação                                    |
+| -------------------------------- | ------------------------------------------- |
+| Emendas                          | ✅ Pipeline completo                         |
+| Favorecidos                      | ✅ Pipeline completo                         |
+| Convênios                        | ✅ Pipeline completo                         |
+| Contratos                        | ✅ Pipeline completo                         |
+| Licitações                       | ✅ Pipeline completo                         |
+| Gastos dos deputados             | ✅ Pipeline completo                         |
+| Proposições e votações da Câmara | 🟡 Bronze, Silver e Gold concluídas         |
+| Atividade e gastos do Senado     | ❌ Não iniciado                              |
+| Camada de consumo Power BI       | 🟡 Dimensões e parte das tabelas publicadas |
+| Projeto PBIP versionável         | ✅ Criado e versionado                       |
+| Modelo semântico                 | 🟡 Estrutura inicial                        |
+| Dashboards                       | ❌ Não iniciados                             |
 
-| Área                                           | Camada atual                                               | Situação           |
-| ---------------------------------------------- | ---------------------------------------------------------- | ------------------ |
-| Emendas, empenhado, liquidado e pago           | Bronze, Silver, Gold, dimensões e reconciliação            | ✅ Concluído       |
-| Favorecidos e empresas recebedoras via emendas | Bronze, Silver, Gold, dimensões e reconciliação            | ✅ Concluído       |
-| Convênios vinculados às emendas                | Bronze, Silver, qualidade, Gold, dimensões e reconciliação | ✅ Concluído       |
-| Contratos federais                             | Bronze, Silver, qualidade, Gold, dimensões e reconciliação | ✅ Concluído       |
-| Licitações federais                            | Bronze, Silver, qualidade, Gold, dimensões e reconciliação | ✅ Concluído       |
-| Gastos dos deputados                           | Bronze, Silver, qualidade, Gold, dimensões e reconciliação | ✅ Concluído       |
-| Proposições e votações da Câmara               | Bronze concluída e arquivos validados                      | 🟡 Em andamento    |
-| Atividade e gastos do Senado                   | Não iniciado                                               | ❌ Pendente        |
-| Camada de consumo do Power BI                  | 33 dimensões publicadas                                    | 🟡 Em andamento    |
-| Modelo semântico e dashboards                  | Não iniciado                                               | ❌ Pendente        |
 ## Solicitação de documentos ausentes
 
 Quando um documento ou conjunto de dados públicos necessário para o projeto não estiver disponível nos portais oficiais, deverá ser registrada uma solicitação pelo **Fala.BR**:
