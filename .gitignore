@@ -52,3 +52,7 @@ output/inventario_gold.txt
 # Inventários temporários
 output/diretorios_gold.txt
 output/inventario_gold.txt
+
+# Evidências e diagnósticos gerados localmente
+output/auditoria/
+output/schema_*.txt
