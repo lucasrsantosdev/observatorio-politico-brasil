@@ -119,21 +119,21 @@ Construir uma plataforma auditável para coleta, tratamento e análise de dados 
 | Atividade legislativa e gastos dos senadores    | Senado Federal          |
 
 ## Status do projeto
-## Status do projeto
-| Área                             | Situação                                    |
-| -------------------------------- | ------------------------------------------- |
-| Emendas                          | ✅ Pipeline completo                         |
-| Favorecidos                      | ✅ Pipeline completo                         |
-| Convênios                        | ✅ Pipeline completo                         |
-| Contratos                        | ✅ Pipeline completo                         |
-| Licitações                       | ✅ Pipeline completo                         |
-| Gastos dos deputados             | ✅ Pipeline completo                         |
-| Proposições e votações da Câmara | 🟡 Bronze, Silver e Gold concluídas         |
-| Atividade e gastos do Senado     | ❌ Não iniciado                              |
-| Camada de consumo Power BI       | 🟡 Dimensões e parte das tabelas publicadas |
-| Projeto PBIP versionável         | ✅ Criado e versionado                       |
-| Modelo semântico                 | 🟡 Estrutura inicial                        |
-| Dashboards                       | ❌ Não iniciados                             |
+
+| Área                             | Situação                                                        |
+| -------------------------------- | --------------------------------------------------------------- |
+| Emendas                          | ✅ Pipeline completo                                             |
+| Favorecidos                      | ✅ Pipeline completo                                             |
+| Convênios                        | ✅ Pipeline completo                                             |
+| Contratos                        | ✅ Pipeline completo                                             |
+| Licitações                       | ✅ Pipeline completo                                             |
+| Gastos dos deputados             | ✅ Pipeline completo                                             |
+| Proposições e votações da Câmara | ✅ Pipeline completo e publicado para consumo no Power BI        |
+| Atividade e gastos do Senado     | 🟡 Próxima etapa — mapeamento e Bronze                           |
+| Camada de consumo Power BI       | 🟡 44 dimensões e 40 fatos, rankings e relacionamentos publicados |
+| Projeto PBIP versionável         | ✅ Criado e versionado                                           |
+| Modelo semântico                 | 🟡 Estrutura inicial                                             |
+| Dashboards                       | ❌ Não iniciados                                                 |
 
 ## Solicitação de documentos ausentes
 

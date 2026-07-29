@@ -117,6 +117,21 @@ from observatorio_politico.orchestration.proposicoes_votacoes_silver import (
 from observatorio_politico.orchestration.proposicoes_votacoes_validation import (
     run_quality_reconciliation_proposicoes_votacoes,
 )
+from observatorio_politico.orchestration.senado_bronze import (
+    run_senado_bronze,
+)
+from observatorio_politico.orchestration.senado_dimensions import (
+    run_senado_dimensions,
+)
+from observatorio_politico.orchestration.senado_gold import (
+    run_senado_gold,
+)
+from observatorio_politico.orchestration.senado_quality import (
+    run_senado_quality,
+)
+from observatorio_politico.orchestration.senado_silver import (
+    run_senado_silver,
+)
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -592,6 +607,31 @@ def build_parser() -> argparse.ArgumentParser:
         help="Anos processados. Exemplo: 2025 2026.",
     )
 
+    subparsers.add_parser(
+        "senado-bronze",
+        help="Baixa a camada Bronze do Senado Federal.",
+    )
+
+    subparsers.add_parser(
+        "senado-silver",
+        help="Cria a camada Silver do Senado Federal.",
+    )
+
+    subparsers.add_parser(
+        "senado-gold",
+        help="Cria a camada Gold do Senado Federal.",
+    )
+
+    subparsers.add_parser(
+        "senado-quality",
+        help=("Valida qualidade e reconciliacao do Senado Federal."),
+    )
+
+    subparsers.add_parser(
+        "senado-dimensions",
+        help="Cria as dimensoes do Senado Federal.",
+    )
+
     return parser
 
 
@@ -782,6 +822,21 @@ def main(argv: Sequence[str] | None = None) -> int:
             run_dimensions_proposicoes_votacoes(
                 years=args.anos,
             )
+
+        elif args.command == "senado-bronze":
+            run_senado_bronze()
+
+        elif args.command == "senado-silver":
+            run_senado_silver()
+
+        elif args.command == "senado-gold":
+            run_senado_gold()
+
+        elif args.command == "senado-quality":
+            run_senado_quality()
+
+        elif args.command == "senado-dimensions":
+            run_senado_dimensions()
 
         else:
             parser.error(f"Comando não implementado: {args.command}")

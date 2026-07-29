@@ -1,0 +1,451 @@
+{
+  "domain": "senado_federal",
+  "processed_at_utc": "2026-07-29T20:50:59.532313+00:00",
+  "gold_approved": true,
+  "quality_approved": true,
+  "dimensions_approved": true,
+  "gold_dataset_count": 13,
+  "dimension_count": 10,
+  "dataset_count": 23,
+  "file_count": 46,
+  "approved": true,
+  "datasets": [
+    {
+      "domain": "senado_federal",
+      "category": "gold",
+      "dataset": "fato_materias",
+      "power_bi_table": "senado_fato_materias",
+      "parquet": {
+        "source": "data\\gold\\senado_federal\\anos=2025_2026\\fato_materias\\fato_materias.parquet",
+        "target": "output\\power_bi\\senado_federal\\senado_fato_materias.parquet",
+        "size_bytes": 294930,
+        "exists": true
+      },
+      "csv": {
+        "source": "data\\gold\\senado_federal\\anos=2025_2026\\fato_materias\\fato_materias.csv",
+        "target": "output\\power_bi\\senado_federal\\senado_fato_materias.csv",
+        "size_bytes": 1299005,
+        "exists": true
+      },
+      "approved": true
+    },
+    {
+      "domain": "senado_federal",
+      "category": "gold",
+      "dataset": "fato_votacoes",
+      "power_bi_table": "senado_fato_votacoes",
+      "parquet": {
+        "source": "data\\gold\\senado_federal\\anos=2025_2026\\fato_votacoes\\fato_votacoes.parquet",
+        "target": "output\\power_bi\\senado_federal\\senado_fato_votacoes.parquet",
+        "size_bytes": 53624,
+        "exists": true
+      },
+      "csv": {
+        "source": "data\\gold\\senado_federal\\anos=2025_2026\\fato_votacoes\\fato_votacoes.csv",
+        "target": "output\\power_bi\\senado_federal\\senado_fato_votacoes.csv",
+        "size_bytes": 178041,
+        "exists": true
+      },
+      "approved": true
+    },
+    {
+      "domain": "senado_federal",
+      "category": "gold",
+      "dataset": "fato_votos",
+      "power_bi_table": "senado_fato_votos",
+      "parquet": {
+        "source": "data\\gold\\senado_federal\\anos=2025_2026\\fato_votos\\fato_votos.parquet",
+        "target": "output\\power_bi\\senado_federal\\senado_fato_votos.parquet",
+        "size_bytes": 495800,
+        "exists": true
+      },
+      "csv": {
+        "source": "data\\gold\\senado_federal\\anos=2025_2026\\fato_votos\\fato_votos.csv",
+        "target": "output\\power_bi\\senado_federal\\senado_fato_votos.csv",
+        "size_bytes": 2037372,
+        "exists": true
+      },
+      "approved": true
+    },
+    {
+      "domain": "senado_federal",
+      "category": "gold",
+      "dataset": "fato_gastos_senadores",
+      "power_bi_table": "senado_fato_gastos_senadores",
+      "parquet": {
+        "source": "data\\gold\\senado_federal\\anos=2025_2026\\fato_gastos_senadores\\fato_gastos_senadores.parquet",
+        "target": "output\\power_bi\\senado_federal\\senado_fato_gastos_senadores.parquet",
+        "size_bytes": 2247212,
+        "exists": true
+      },
+      "csv": {
+        "source": "data\\gold\\senado_federal\\anos=2025_2026\\fato_gastos_senadores\\fato_gastos_senadores.csv",
+        "target": "output\\power_bi\\senado_federal\\senado_fato_gastos_senadores.csv",
+        "size_bytes": 13060877,
+        "exists": true
+      },
+      "approved": true
+    },
+    {
+      "domain": "senado_federal",
+      "category": "gold",
+      "dataset": "dim_senadores_base",
+      "power_bi_table": "senado_dim_senadores_base",
+      "parquet": {
+        "source": "data\\gold\\senado_federal\\anos=2025_2026\\dim_senadores_base\\dim_senadores_base.parquet",
+        "target": "output\\power_bi\\senado_federal\\senado_dim_senadores_base.parquet",
+        "size_bytes": 36387,
+        "exists": true
+      },
+      "csv": {
+        "source": "data\\gold\\senado_federal\\anos=2025_2026\\dim_senadores_base\\dim_senadores_base.csv",
+        "target": "output\\power_bi\\senado_federal\\senado_dim_senadores_base.csv",
+        "size_bytes": 87905,
+        "exists": true
+      },
+      "approved": true
+    },
+    {
+      "domain": "senado_federal",
+      "category": "gold",
+      "dataset": "dim_empresas_contratadas_base",
+      "power_bi_table": "senado_dim_empresas_contratadas_base",
+      "parquet": {
+        "source": "data\\gold\\senado_federal\\anos=2025_2026\\dim_empresas_contratadas_base\\dim_empresas_contratadas_base.parquet",
+        "target": "output\\power_bi\\senado_federal\\senado_dim_empresas_contratadas_base.parquet",
+        "size_bytes": 195351,
+        "exists": true
+      },
+      "csv": {
+        "source": "data\\gold\\senado_federal\\anos=2025_2026\\dim_empresas_contratadas_base\\dim_empresas_contratadas_base.csv",
+        "target": "output\\power_bi\\senado_federal\\senado_dim_empresas_contratadas_base.csv",
+        "size_bytes": 532285,
+        "exists": true
+      },
+      "approved": true
+    },
+    {
+      "domain": "senado_federal",
+      "category": "gold",
+      "dataset": "ranking_senadores_gastos",
+      "power_bi_table": "senado_ranking_senadores_gastos",
+      "parquet": {
+        "source": "data\\gold\\senado_federal\\anos=2025_2026\\ranking_senadores_gastos\\ranking_senadores_gastos.parquet",
+        "target": "output\\power_bi\\senado_federal\\senado_ranking_senadores_gastos.parquet",
+        "size_bytes": 4858,
+        "exists": true
+      },
+      "csv": {
+        "source": "data\\gold\\senado_federal\\anos=2025_2026\\ranking_senadores_gastos\\ranking_senadores_gastos.csv",
+        "target": "output\\power_bi\\senado_federal\\senado_ranking_senadores_gastos.csv",
+        "size_bytes": 3572,
+        "exists": true
+      },
+      "approved": true
+    },
+    {
+      "domain": "senado_federal",
+      "category": "gold",
+      "dataset": "ranking_fornecedores_ceaps",
+      "power_bi_table": "senado_ranking_fornecedores_ceaps",
+      "parquet": {
+        "source": "data\\gold\\senado_federal\\anos=2025_2026\\ranking_fornecedores_ceaps\\ranking_fornecedores_ceaps.parquet",
+        "target": "output\\power_bi\\senado_federal\\senado_ranking_fornecedores_ceaps.parquet",
+        "size_bytes": 128452,
+        "exists": true
+      },
+      "csv": {
+        "source": "data\\gold\\senado_federal\\anos=2025_2026\\ranking_fornecedores_ceaps\\ranking_fornecedores_ceaps.csv",
+        "target": "output\\power_bi\\senado_federal\\senado_ranking_fornecedores_ceaps.csv",
+        "size_bytes": 326222,
+        "exists": true
+      },
+      "approved": true
+    },
+    {
+      "domain": "senado_federal",
+      "category": "gold",
+      "dataset": "ranking_tipos_despesa_ceaps",
+      "power_bi_table": "senado_ranking_tipos_despesa_ceaps",
+      "parquet": {
+        "source": "data\\gold\\senado_federal\\anos=2025_2026\\ranking_tipos_despesa_ceaps\\ranking_tipos_despesa_ceaps.parquet",
+        "target": "output\\power_bi\\senado_federal\\senado_ranking_tipos_despesa_ceaps.parquet",
+        "size_bytes": 2796,
+        "exists": true
+      },
+      "csv": {
+        "source": "data\\gold\\senado_federal\\anos=2025_2026\\ranking_tipos_despesa_ceaps\\ranking_tipos_despesa_ceaps.csv",
+        "target": "output\\power_bi\\senado_federal\\senado_ranking_tipos_despesa_ceaps.csv",
+        "size_bytes": 869,
+        "exists": true
+      },
+      "approved": true
+    },
+    {
+      "domain": "senado_federal",
+      "category": "gold",
+      "dataset": "ranking_senadores_votos",
+      "power_bi_table": "senado_ranking_senadores_votos",
+      "parquet": {
+        "source": "data\\gold\\senado_federal\\anos=2025_2026\\ranking_senadores_votos\\ranking_senadores_votos.parquet",
+        "target": "output\\power_bi\\senado_federal\\senado_ranking_senadores_votos.parquet",
+        "size_bytes": 5969,
+        "exists": true
+      },
+      "csv": {
+        "source": "data\\gold\\senado_federal\\anos=2025_2026\\ranking_senadores_votos\\ranking_senadores_votos.csv",
+        "target": "output\\power_bi\\senado_federal\\senado_ranking_senadores_votos.csv",
+        "size_bytes": 4844,
+        "exists": true
+      },
+      "approved": true
+    },
+    {
+      "domain": "senado_federal",
+      "category": "gold",
+      "dataset": "ranking_partidos_votos",
+      "power_bi_table": "senado_ranking_partidos_votos",
+      "parquet": {
+        "source": "data\\gold\\senado_federal\\anos=2025_2026\\ranking_partidos_votos\\ranking_partidos_votos.parquet",
+        "target": "output\\power_bi\\senado_federal\\senado_ranking_partidos_votos.parquet",
+        "size_bytes": 2993,
+        "exists": true
+      },
+      "csv": {
+        "source": "data\\gold\\senado_federal\\anos=2025_2026\\ranking_partidos_votos\\ranking_partidos_votos.csv",
+        "target": "output\\power_bi\\senado_federal\\senado_ranking_partidos_votos.csv",
+        "size_bytes": 410,
+        "exists": true
+      },
+      "approved": true
+    },
+    {
+      "domain": "senado_federal",
+      "category": "gold",
+      "dataset": "resumo_gastos_mensal",
+      "power_bi_table": "senado_resumo_gastos_mensal",
+      "parquet": {
+        "source": "data\\gold\\senado_federal\\anos=2025_2026\\resumo_gastos_mensal\\resumo_gastos_mensal.parquet",
+        "target": "output\\power_bi\\senado_federal\\senado_resumo_gastos_mensal.parquet",
+        "size_bytes": 3496,
+        "exists": true
+      },
+      "csv": {
+        "source": "data\\gold\\senado_federal\\anos=2025_2026\\resumo_gastos_mensal\\resumo_gastos_mensal.csv",
+        "target": "output\\power_bi\\senado_federal\\senado_resumo_gastos_mensal.csv",
+        "size_bytes": 1510,
+        "exists": true
+      },
+      "approved": true
+    },
+    {
+      "domain": "senado_federal",
+      "category": "gold",
+      "dataset": "resumo_atividade_mensal",
+      "power_bi_table": "senado_resumo_atividade_mensal",
+      "parquet": {
+        "source": "data\\gold\\senado_federal\\anos=2025_2026\\resumo_atividade_mensal\\resumo_atividade_mensal.parquet",
+        "target": "output\\power_bi\\senado_federal\\senado_resumo_atividade_mensal.parquet",
+        "size_bytes": 2972,
+        "exists": true
+      },
+      "csv": {
+        "source": "data\\gold\\senado_federal\\anos=2025_2026\\resumo_atividade_mensal\\resumo_atividade_mensal.csv",
+        "target": "output\\power_bi\\senado_federal\\senado_resumo_atividade_mensal.csv",
+        "size_bytes": 392,
+        "exists": true
+      },
+      "approved": true
+    },
+    {
+      "domain": "senado_federal",
+      "category": "dimension",
+      "dataset": "dim_senador",
+      "power_bi_table": "senado_dim_senador",
+      "parquet": {
+        "source": "data\\gold\\senado_federal\\anos=2025_2026\\dimensoes\\dim_senador\\dim_senador.parquet",
+        "target": "output\\power_bi\\senado_federal\\senado_dim_senador.parquet",
+        "size_bytes": 6429,
+        "exists": true
+      },
+      "csv": {
+        "source": "data\\gold\\senado_federal\\anos=2025_2026\\dimensoes\\dim_senador\\dim_senador.csv",
+        "target": "output\\power_bi\\senado_federal\\senado_dim_senador.csv",
+        "size_bytes": 6477,
+        "exists": true
+      },
+      "approved": true
+    },
+    {
+      "domain": "senado_federal",
+      "category": "dimension",
+      "dataset": "dim_materia",
+      "power_bi_table": "senado_dim_materia",
+      "parquet": {
+        "source": "data\\gold\\senado_federal\\anos=2025_2026\\dimensoes\\dim_materia\\dim_materia.parquet",
+        "target": "output\\power_bi\\senado_federal\\senado_dim_materia.parquet",
+        "size_bytes": 194864,
+        "exists": true
+      },
+      "csv": {
+        "source": "data\\gold\\senado_federal\\anos=2025_2026\\dimensoes\\dim_materia\\dim_materia.csv",
+        "target": "output\\power_bi\\senado_federal\\senado_dim_materia.csv",
+        "size_bytes": 1036551,
+        "exists": true
+      },
+      "approved": true
+    },
+    {
+      "domain": "senado_federal",
+      "category": "dimension",
+      "dataset": "dim_partido",
+      "power_bi_table": "senado_dim_partido",
+      "parquet": {
+        "source": "data\\gold\\senado_federal\\anos=2025_2026\\dimensoes\\dim_partido\\dim_partido.parquet",
+        "target": "output\\power_bi\\senado_federal\\senado_dim_partido.parquet",
+        "size_bytes": 1032,
+        "exists": true
+      },
+      "csv": {
+        "source": "data\\gold\\senado_federal\\anos=2025_2026\\dimensoes\\dim_partido\\dim_partido.csv",
+        "target": "output\\power_bi\\senado_federal\\senado_dim_partido.csv",
+        "size_bytes": 138,
+        "exists": true
+      },
+      "approved": true
+    },
+    {
+      "domain": "senado_federal",
+      "category": "dimension",
+      "dataset": "dim_uf",
+      "power_bi_table": "senado_dim_uf",
+      "parquet": {
+        "source": "data\\gold\\senado_federal\\anos=2025_2026\\dimensoes\\dim_uf\\dim_uf.parquet",
+        "target": "output\\power_bi\\senado_federal\\senado_dim_uf.parquet",
+        "size_bytes": 969,
+        "exists": true
+      },
+      "csv": {
+        "source": "data\\gold\\senado_federal\\anos=2025_2026\\dimensoes\\dim_uf\\dim_uf.csv",
+        "target": "output\\power_bi\\senado_federal\\senado_dim_uf.csv",
+        "size_bytes": 168,
+        "exists": true
+      },
+      "approved": true
+    },
+    {
+      "domain": "senado_federal",
+      "category": "dimension",
+      "dataset": "dim_tipo_materia",
+      "power_bi_table": "senado_dim_tipo_materia",
+      "parquet": {
+        "source": "data\\gold\\senado_federal\\anos=2025_2026\\dimensoes\\dim_tipo_materia\\dim_tipo_materia.parquet",
+        "target": "output\\power_bi\\senado_federal\\senado_dim_tipo_materia.parquet",
+        "size_bytes": 1637,
+        "exists": true
+      },
+      "csv": {
+        "source": "data\\gold\\senado_federal\\anos=2025_2026\\dimensoes\\dim_tipo_materia\\dim_tipo_materia.csv",
+        "target": "output\\power_bi\\senado_federal\\senado_dim_tipo_materia.csv",
+        "size_bytes": 507,
+        "exists": true
+      },
+      "approved": true
+    },
+    {
+      "domain": "senado_federal",
+      "category": "dimension",
+      "dataset": "dim_tipo_voto",
+      "power_bi_table": "senado_dim_tipo_voto",
+      "parquet": {
+        "source": "data\\gold\\senado_federal\\anos=2025_2026\\dimensoes\\dim_tipo_voto\\dim_tipo_voto.parquet",
+        "target": "output\\power_bi\\senado_federal\\senado_dim_tipo_voto.parquet",
+        "size_bytes": 1529,
+        "exists": true
+      },
+      "csv": {
+        "source": "data\\gold\\senado_federal\\anos=2025_2026\\dimensoes\\dim_tipo_voto\\dim_tipo_voto.csv",
+        "target": "output\\power_bi\\senado_federal\\senado_dim_tipo_voto.csv",
+        "size_bytes": 247,
+        "exists": true
+      },
+      "approved": true
+    },
+    {
+      "domain": "senado_federal",
+      "category": "dimension",
+      "dataset": "dim_resultado_votacao",
+      "power_bi_table": "senado_dim_resultado_votacao",
+      "parquet": {
+        "source": "data\\gold\\senado_federal\\anos=2025_2026\\dimensoes\\dim_resultado_votacao\\dim_resultado_votacao.parquet",
+        "target": "output\\power_bi\\senado_federal\\senado_dim_resultado_votacao.parquet",
+        "size_bytes": 1321,
+        "exists": true
+      },
+      "csv": {
+        "source": "data\\gold\\senado_federal\\anos=2025_2026\\dimensoes\\dim_resultado_votacao\\dim_resultado_votacao.csv",
+        "target": "output\\power_bi\\senado_federal\\senado_dim_resultado_votacao.csv",
+        "size_bytes": 89,
+        "exists": true
+      },
+      "approved": true
+    },
+    {
+      "domain": "senado_federal",
+      "category": "dimension",
+      "dataset": "dim_tipo_despesa",
+      "power_bi_table": "senado_dim_tipo_despesa",
+      "parquet": {
+        "source": "data\\gold\\senado_federal\\anos=2025_2026\\dimensoes\\dim_tipo_despesa\\dim_tipo_despesa.parquet",
+        "target": "output\\power_bi\\senado_federal\\senado_dim_tipo_despesa.parquet",
+        "size_bytes": 1648,
+        "exists": true
+      },
+      "csv": {
+        "source": "data\\gold\\senado_federal\\anos=2025_2026\\dimensoes\\dim_tipo_despesa\\dim_tipo_despesa.csv",
+        "target": "output\\power_bi\\senado_federal\\senado_dim_tipo_despesa.csv",
+        "size_bytes": 690,
+        "exists": true
+      },
+      "approved": true
+    },
+    {
+      "domain": "senado_federal",
+      "category": "dimension",
+      "dataset": "dim_fornecedor",
+      "power_bi_table": "senado_dim_fornecedor",
+      "parquet": {
+        "source": "data\\gold\\senado_federal\\anos=2025_2026\\dimensoes\\dim_fornecedor\\dim_fornecedor.parquet",
+        "target": "output\\power_bi\\senado_federal\\senado_dim_fornecedor.parquet",
+        "size_bytes": 145733,
+        "exists": true
+      },
+      "csv": {
+        "source": "data\\gold\\senado_federal\\anos=2025_2026\\dimensoes\\dim_fornecedor\\dim_fornecedor.csv",
+        "target": "output\\power_bi\\senado_federal\\senado_dim_fornecedor.csv",
+        "size_bytes": 393687,
+        "exists": true
+      },
+      "approved": true
+    },
+    {
+      "domain": "senado_federal",
+      "category": "dimension",
+      "dataset": "dim_tempo",
+      "power_bi_table": "senado_dim_tempo",
+      "parquet": {
+        "source": "data\\gold\\senado_federal\\anos=2025_2026\\dimensoes\\dim_tempo\\dim_tempo.parquet",
+        "target": "output\\power_bi\\senado_federal\\senado_dim_tempo.parquet",
+        "size_bytes": 7512,
+        "exists": true
+      },
+      "csv": {
+        "source": "data\\gold\\senado_federal\\anos=2025_2026\\dimensoes\\dim_tempo\\dim_tempo.csv",
+        "target": "output\\power_bi\\senado_federal\\senado_dim_tempo.csv",
+        "size_bytes": 41873,
+        "exists": true
+      },
+      "approved": true
+    }
+  ]
+}
