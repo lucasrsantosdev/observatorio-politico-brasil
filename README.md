@@ -135,16 +135,16 @@ Projeto em construção.
 
 
 ## Status do projeto
-| Área                                           | Camada atual                                             | Situação    |
-| ---------------------------------------------- | -------------------------------------------------------- | ----------- |
-| Emendas, empenhado, liquidado e pago           | Bronze, Silver, Gold, dimensões e reconciliação          | ✅ Concluído |
-| Favorecidos e empresas recebedoras via emendas | Bronze, Silver, Gold, dimensões e reconciliação          | ✅ Concluído |
+| Área                                           | Camada atual                                               | Situação     |
+| ---------------------------------------------- | ---------------------------------------------------------- | ------------ |
+| Emendas, empenhado, liquidado e pago           | Bronze, Silver, Gold, dimensões e reconciliação            | ✅ Concluído |
+| Favorecidos e empresas recebedoras via emendas | Bronze, Silver, Gold, dimensões e reconciliação            | ✅ Concluído |
 | Convênios vinculados às emendas                | Bronze, Silver, qualidade, Gold, dimensões e reconciliação | ✅ Concluído |
 | Contratos federais                             | Bronze, Silver, qualidade, Gold, dimensões e reconciliação | ✅ Concluído |
-| Licitações federais                            | Bronze, Silver, qualidade e Gold                         | 🟡 Em andamento |
-| Gastos dos deputados                           | Não iniciado                                             | ❌ Pendente |
-| Proposições e votações da Câmara               | Não iniciado                                             | ❌ Pendente |
-| Atividade e gastos do Senado                   | Não iniciado                                             | ❌ Pendente |
+| Licitações federais                            | Bronze, Silver, qualidade, Gold, dimensões e reconciliação | ✅ Concluído |
+| Gastos dos deputados                           | Não iniciado                                               | ❌ Pendente  |
+| Proposições e votações da Câmara               | Não iniciado                                               | ❌ Pendente  |
+| Atividade e gastos do Senado                   | Não iniciado                                               | ❌ Pendente  |
 
 ## Solicitação de documentos ausentes
 

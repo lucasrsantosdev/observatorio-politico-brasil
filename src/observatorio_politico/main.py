@@ -22,6 +22,9 @@ from observatorio_politico.orchestration.dimensoes_contratos import (
 from observatorio_politico.orchestration.dimensoes_convenios import (
     run_dimensions_convenios,
 )
+from observatorio_politico.orchestration.dimensoes_licitacoes import (
+    run_dimensions_licitacoes,
+)
 from observatorio_politico.orchestration.emendas import run_emendas
 from observatorio_politico.orchestration.gold_contratos import (
     run_gold_contratos,
@@ -68,6 +71,9 @@ from observatorio_politico.quality.reconciliation_convenios import (
 )
 from observatorio_politico.quality.reconciliation_emendas import (
     run_reconciliation_emendas,
+)
+from observatorio_politico.quality.reconciliation_licitacoes import (
+    run_reconciliation_licitacoes,
 )
 
 
@@ -367,6 +373,40 @@ def build_parser() -> argparse.ArgumentParser:
         required=True,
         help="Anos processados. Exemplo: 2025 2026.",
     )
+    reconciliation_licitacoes_parser = subparsers.add_parser(
+        "reconciliar-licitacoes",
+        help="Reconcilia os dados Silver e Gold de licitações.",
+    )
+
+    reconciliation_licitacoes_parser.add_argument(
+        "--periodo-inicial",
+        required=True,
+        help="Período inicial no formato AAAAMM.",
+    )
+
+    reconciliation_licitacoes_parser.add_argument(
+        "--periodo-final",
+        required=True,
+        help="Período final no formato AAAAMM.",
+    )
+
+    dimensions_licitacoes_parser = subparsers.add_parser(
+        "dimensoes-licitacoes",
+        help="Cria dimensões de licitações para o Power BI.",
+    )
+
+    dimensions_licitacoes_parser.add_argument(
+        "--periodo-inicial",
+        required=True,
+        help="Período inicial no formato AAAAMM.",
+    )
+
+    dimensions_licitacoes_parser.add_argument(
+        "--periodo-final",
+        required=True,
+        help="Período final no formato AAAAMM.",
+    )
+
     return parser
 
 
@@ -488,6 +528,18 @@ def main(argv: Sequence[str] | None = None) -> int:
         elif args.command == "dimensoes-convenios":
             run_dimensions_convenios(
                 years=args.anos,
+            )
+
+        elif args.command == "reconciliar-licitacoes":
+            run_reconciliation_licitacoes(
+                first_period=args.periodo_inicial,
+                last_period=args.periodo_final,
+            )
+
+        elif args.command == "dimensoes-licitacoes":
+            run_dimensions_licitacoes(
+                first_period=args.periodo_inicial,
+                last_period=args.periodo_final,
             )
 
         else:
