@@ -1,0 +1,280 @@
+table gastos_deputados_fato_gastos_deputados
+
+	column chave_despesa
+		dataType: string
+		sourceColumn: chave_despesa
+		summarizeBy: none
+
+	column chave_documento
+		dataType: string
+		sourceColumn: chave_documento
+		summarizeBy: none
+
+	column chave_beneficiario
+		dataType: string
+		sourceColumn: chave_beneficiario
+		summarizeBy: none
+
+	column chave_fornecedor
+		dataType: string
+		sourceColumn: chave_fornecedor
+		summarizeBy: none
+
+	column codigo_documento
+		dataType: int64
+		sourceColumn: codigo_documento
+		summarizeBy: none
+
+	column codigo_beneficiario
+		dataType: int64
+		sourceColumn: codigo_beneficiario
+		summarizeBy: none
+
+	column nome_beneficiario
+		dataType: string
+		sourceColumn: nome_beneficiario
+		summarizeBy: none
+
+	column tipo_beneficiario
+		dataType: string
+		sourceColumn: tipo_beneficiario
+		summarizeBy: none
+
+	column cpf
+		dataType: string
+		sourceColumn: cpf
+		summarizeBy: none
+
+	column ideCadastro
+		dataType: string
+		sourceColumn: ideCadastro
+		summarizeBy: none
+
+	column nuCarteiraParlamentar
+		dataType: string
+		sourceColumn: nuCarteiraParlamentar
+		summarizeBy: none
+
+	column uf
+		dataType: string
+		sourceColumn: uf
+		summarizeBy: none
+
+	column partido
+		dataType: string
+		sourceColumn: partido
+		summarizeBy: none
+
+	column numero_legislatura
+		dataType: int64
+		sourceColumn: numero_legislatura
+		summarizeBy: none
+
+	column codigo_legislatura
+		dataType: int64
+		sourceColumn: codigo_legislatura
+		summarizeBy: none
+
+	column codigo_tipo_despesa
+		dataType: int64
+		sourceColumn: codigo_tipo_despesa
+		summarizeBy: none
+
+	column tipo_despesa
+		dataType: string
+		sourceColumn: tipo_despesa
+		summarizeBy: none
+
+	column codigo_especificacao_despesa
+		dataType: int64
+		sourceColumn: codigo_especificacao_despesa
+		summarizeBy: none
+
+	column especificacao_despesa
+		dataType: string
+		sourceColumn: especificacao_despesa
+		summarizeBy: none
+
+	column nome_fornecedor
+		dataType: string
+		sourceColumn: nome_fornecedor
+		summarizeBy: none
+
+	column documento_fornecedor
+		dataType: string
+		sourceColumn: documento_fornecedor
+		summarizeBy: none
+
+	column numero_documento
+		dataType: string
+		sourceColumn: numero_documento
+		summarizeBy: none
+
+	column codigo_tipo_documento
+		dataType: int64
+		sourceColumn: codigo_tipo_documento
+		summarizeBy: none
+
+	column data_hora_emissao
+		dataType: dateTime
+		sourceColumn: data_hora_emissao
+		summarizeBy: none
+		formatString: Short Date
+
+	column data_emissao
+		dataType: dateTime
+		sourceColumn: data_emissao
+		summarizeBy: none
+		formatString: Short Date
+
+	column valor_documento
+		dataType: double
+		sourceColumn: valor_documento
+		summarizeBy: none
+		formatString: R$ #,0.00;-R$ #,0.00;R$ #,0.00
+
+	column valor_glosa
+		dataType: double
+		sourceColumn: valor_glosa
+		summarizeBy: none
+		formatString: R$ #,0.00;-R$ #,0.00;R$ #,0.00
+
+	column valor_liquido
+		dataType: double
+		sourceColumn: valor_liquido
+		summarizeBy: none
+		formatString: R$ #,0.00;-R$ #,0.00;R$ #,0.00
+
+	column diferenca_financeira
+		dataType: double
+		sourceColumn: diferenca_financeira
+		summarizeBy: none
+
+	column financeiro_consistente
+		dataType: boolean
+		sourceColumn: financeiro_consistente
+		summarizeBy: none
+
+	column valor_restituicao
+		dataType: double
+		sourceColumn: valor_restituicao
+		summarizeBy: none
+		formatString: R$ #,0.00;-R$ #,0.00;R$ #,0.00
+
+	column possui_restituicao
+		dataType: boolean
+		sourceColumn: possui_restituicao
+		summarizeBy: none
+
+	column data_hora_pagamento_restituicao
+		dataType: dateTime
+		sourceColumn: data_hora_pagamento_restituicao
+		summarizeBy: none
+		formatString: Short Date
+
+	column data_pagamento_restituicao
+		dataType: dateTime
+		sourceColumn: data_pagamento_restituicao
+		summarizeBy: none
+		formatString: Short Date
+
+	column ano_despesa
+		dataType: int64
+		sourceColumn: ano_despesa
+		summarizeBy: none
+
+	column mes_despesa
+		dataType: int64
+		sourceColumn: mes_despesa
+		summarizeBy: none
+
+	column periodo_despesa
+		dataType: string
+		sourceColumn: periodo_despesa
+		summarizeBy: none
+
+	column numero_parcela
+		dataType: int64
+		sourceColumn: numero_parcela
+		summarizeBy: none
+
+	column passageiro
+		dataType: string
+		sourceColumn: passageiro
+		summarizeBy: none
+
+	column trecho
+		dataType: string
+		sourceColumn: trecho
+		summarizeBy: none
+
+	column numero_lote
+		dataType: int64
+		sourceColumn: numero_lote
+		summarizeBy: none
+
+	column numero_ressarcimento
+		dataType: string
+		sourceColumn: numero_ressarcimento
+		summarizeBy: none
+
+	column tipo_movimento
+		dataType: string
+		sourceColumn: tipo_movimento
+		summarizeBy: none
+
+	column data_emissao_ausente
+		dataType: boolean
+		sourceColumn: data_emissao_ausente
+		summarizeBy: none
+
+	column fornecedor_sem_documento
+		dataType: boolean
+		sourceColumn: fornecedor_sem_documento
+		summarizeBy: none
+
+	column url_documento
+		dataType: string
+		sourceColumn: url_documento
+		summarizeBy: none
+
+	column ano_arquivo_origem
+		dataType: int64
+		sourceColumn: ano_arquivo_origem
+		summarizeBy: none
+
+	column arquivo_origem
+		dataType: string
+		sourceColumn: arquivo_origem
+		summarizeBy: none
+
+	column linha_arquivo
+		dataType: int64
+		sourceColumn: linha_arquivo
+		summarizeBy: none
+
+	column valor_liquido_apos_restituicao
+		dataType: double
+		sourceColumn: valor_liquido_apos_restituicao
+		summarizeBy: none
+		formatString: R$ #,0.00;-R$ #,0.00;R$ #,0.00
+
+	column movimento_positivo
+		dataType: boolean
+		sourceColumn: movimento_positivo
+		summarizeBy: none
+
+	column movimento_negativo
+		dataType: boolean
+		sourceColumn: movimento_negativo
+		summarizeBy: none
+
+	partition gastos_deputados_fato_gastos_deputados = m
+		mode: import
+		source =
+			let
+				Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\gastos_deputados\gastos_deputados_fato_gastos_deputados.parquet"))
+			in
+				Source
+
+	annotation PBI_ResultType = Table

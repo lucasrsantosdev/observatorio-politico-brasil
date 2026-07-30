@@ -1,0 +1,26 @@
+table gastos_deputados_dim_tipo_despesa
+
+	column chave_tipo_despesa
+		dataType: string
+		sourceColumn: chave_tipo_despesa
+		summarizeBy: none
+
+	column codigo_tipo_despesa
+		dataType: int64
+		sourceColumn: codigo_tipo_despesa
+		summarizeBy: none
+
+	column tipo_despesa
+		dataType: string
+		sourceColumn: tipo_despesa
+		summarizeBy: none
+
+	partition gastos_deputados_dim_tipo_despesa = m
+		mode: import
+		source =
+			let
+				Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\gastos_deputados\gastos_deputados_dim_tipo_despesa.parquet"))
+			in
+				Source
+
+	annotation PBI_ResultType = Table

@@ -1,0 +1,52 @@
+table gastos_deputados_dim_beneficiario
+
+	column chave_beneficiario
+		dataType: string
+		sourceColumn: chave_beneficiario
+		summarizeBy: none
+
+	column codigo_beneficiario
+		dataType: int64
+		sourceColumn: codigo_beneficiario
+		summarizeBy: none
+
+	column nome_beneficiario
+		dataType: string
+		sourceColumn: nome_beneficiario
+		summarizeBy: none
+
+	column tipo_beneficiario
+		dataType: string
+		sourceColumn: tipo_beneficiario
+		summarizeBy: none
+
+	column partido
+		dataType: string
+		sourceColumn: partido
+		summarizeBy: none
+
+	column uf
+		dataType: string
+		sourceColumn: uf
+		summarizeBy: none
+
+	column quantidade_lancamentos
+		dataType: int64
+		sourceColumn: quantidade_lancamentos
+		summarizeBy: none
+
+	column valor_total_liquido
+		dataType: double
+		sourceColumn: valor_total_liquido
+		summarizeBy: none
+		formatString: R$ #,0.00;-R$ #,0.00;R$ #,0.00
+
+	partition gastos_deputados_dim_beneficiario = m
+		mode: import
+		source =
+			let
+				Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\gastos_deputados\gastos_deputados_dim_beneficiario.parquet"))
+			in
+				Source
+
+	annotation PBI_ResultType = Table

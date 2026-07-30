@@ -1,0 +1,106 @@
+table gastos_deputados_ranking_deputados
+
+	column chave_beneficiario
+		dataType: string
+		sourceColumn: chave_beneficiario
+		summarizeBy: none
+
+	column codigo_beneficiario
+		dataType: int64
+		sourceColumn: codigo_beneficiario
+		summarizeBy: none
+
+	column nome_beneficiario
+		dataType: string
+		sourceColumn: nome_beneficiario
+		summarizeBy: none
+
+	column partido
+		dataType: string
+		sourceColumn: partido
+		summarizeBy: none
+
+	column uf
+		dataType: string
+		sourceColumn: uf
+		summarizeBy: none
+
+	column quantidade_lancamentos
+		dataType: int64
+		sourceColumn: quantidade_lancamentos
+		summarizeBy: none
+
+	column quantidade_documentos
+		dataType: int64
+		sourceColumn: quantidade_documentos
+		summarizeBy: none
+
+	column quantidade_fornecedores
+		dataType: int64
+		sourceColumn: quantidade_fornecedores
+		summarizeBy: none
+
+	column quantidade_tipos_despesa
+		dataType: int64
+		sourceColumn: quantidade_tipos_despesa
+		summarizeBy: none
+
+	column valor_total_documentos
+		dataType: double
+		sourceColumn: valor_total_documentos
+		summarizeBy: none
+		formatString: R$ #,0.00;-R$ #,0.00;R$ #,0.00
+
+	column valor_total_glosas
+		dataType: double
+		sourceColumn: valor_total_glosas
+		summarizeBy: none
+		formatString: R$ #,0.00;-R$ #,0.00;R$ #,0.00
+
+	column valor_total_liquido
+		dataType: double
+		sourceColumn: valor_total_liquido
+		summarizeBy: none
+		formatString: R$ #,0.00;-R$ #,0.00;R$ #,0.00
+
+	column valor_total_restituicoes
+		dataType: double
+		sourceColumn: valor_total_restituicoes
+		summarizeBy: none
+		formatString: R$ #,0.00;-R$ #,0.00;R$ #,0.00
+
+	column valor_liquido_apos_restituicao
+		dataType: double
+		sourceColumn: valor_liquido_apos_restituicao
+		summarizeBy: none
+		formatString: R$ #,0.00;-R$ #,0.00;R$ #,0.00
+
+	column quantidade_estornos
+		dataType: int64
+		sourceColumn: quantidade_estornos
+		summarizeBy: none
+
+	column quantidade_inconsistencias_financeiras
+		dataType: int64
+		sourceColumn: quantidade_inconsistencias_financeiras
+		summarizeBy: none
+
+	column posicao_valor_liquido
+		dataType: int64
+		sourceColumn: posicao_valor_liquido
+		summarizeBy: none
+
+	column posicao_quantidade_lancamentos
+		dataType: int64
+		sourceColumn: posicao_quantidade_lancamentos
+		summarizeBy: none
+
+	partition gastos_deputados_ranking_deputados = m
+		mode: import
+		source =
+			let
+				Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\gastos_deputados\gastos_deputados_ranking_deputados.parquet"))
+			in
+				Source
+
+	annotation PBI_ResultType = Table
