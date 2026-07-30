@@ -2,145 +2,146 @@ table senado_fato_gastos_senadores
 
 	column chave_registro
 		dataType: string
-		sourceColumn: chave_registro
 		summarizeBy: none
+		sourceColumn: chave_registro
 
 	column hash_registro
 		dataType: string
-		sourceColumn: hash_registro
 		summarizeBy: none
+		sourceColumn: hash_registro
 
 	column dataset
 		dataType: string
-		sourceColumn: dataset
 		summarizeBy: none
+		sourceColumn: dataset
 
 	column id
 		dataType: int64
-		sourceColumn: id
 		summarizeBy: none
+		sourceColumn: id
 
 	column tipo_documento
 		dataType: string
-		sourceColumn: tipo_documento
 		summarizeBy: none
+		sourceColumn: tipo_documento
 
 	column ano
 		dataType: int64
-		sourceColumn: ano
 		summarizeBy: none
+		sourceColumn: ano
 
 	column mes
 		dataType: int64
-		sourceColumn: mes
 		summarizeBy: none
+		sourceColumn: mes
 
 	column cod_senador
 		dataType: int64
-		sourceColumn: cod_senador
 		summarizeBy: none
+		sourceColumn: cod_senador
 
 	column nome_senador
 		dataType: string
-		sourceColumn: nome_senador
 		summarizeBy: none
+		sourceColumn: nome_senador
 
 	column tipo_despesa
 		dataType: string
-		sourceColumn: tipo_despesa
 		summarizeBy: none
+		sourceColumn: tipo_despesa
 
 	column cpf_cnpj_fornecedor
 		dataType: string
-		sourceColumn: cpf_cnpj_fornecedor
 		summarizeBy: none
+		sourceColumn: cpf_cnpj_fornecedor
 
 	column nome_fornecedor
 		dataType: string
-		sourceColumn: nome_fornecedor
 		summarizeBy: none
+		sourceColumn: nome_fornecedor
 
 	column documento
 		dataType: string
-		sourceColumn: documento
 		summarizeBy: none
+		sourceColumn: documento
 
 	column data
 		dataType: dateTime
-		sourceColumn: data
-		summarizeBy: none
 		formatString: Short Date
+		summarizeBy: none
+		sourceColumn: data
 
 	column detalhamento
 		dataType: string
-		sourceColumn: detalhamento
 		summarizeBy: none
+		sourceColumn: detalhamento
 
 	column valor_reembolsado
 		dataType: double
-		sourceColumn: valor_reembolsado
-		summarizeBy: none
 		formatString: R$ #,0.00;-R$ #,0.00;R$ #,0.00
+		summarizeBy: none
+		sourceColumn: valor_reembolsado
 
 	column linha_origem
 		dataType: int64
-		sourceColumn: linha_origem
 		summarizeBy: none
+		sourceColumn: linha_origem
 
 	column data_documento_original
 		dataType: dateTime
-		sourceColumn: data_documento_original
-		summarizeBy: none
 		formatString: Short Date
+		summarizeBy: none
+		sourceColumn: data_documento_original
 
 	column data_referencia
 		dataType: dateTime
-		sourceColumn: data_referencia
-		summarizeBy: none
 		formatString: Short Date
+		summarizeBy: none
+		sourceColumn: data_referencia
 
 	column data_referencia_ajustada
 		dataType: boolean
-		sourceColumn: data_referencia_ajustada
 		summarizeBy: none
+		sourceColumn: data_referencia_ajustada
 
 	column id_gasto
 		dataType: int64
-		sourceColumn: id_gasto
 		summarizeBy: none
+		sourceColumn: id_gasto
 
 	column ano_gasto
 		dataType: int64
-		sourceColumn: ano_gasto
 		summarizeBy: none
+		sourceColumn: ano_gasto
 
 	column mes_gasto
 		dataType: int64
-		sourceColumn: mes_gasto
 		summarizeBy: none
+		sourceColumn: mes_gasto
 
 	column periodo_gasto
 		dataType: string
-		sourceColumn: periodo_gasto
 		summarizeBy: none
+		sourceColumn: periodo_gasto
 
 	column cpf_cnpj_fornecedor_normalizado
 		dataType: string
-		sourceColumn: cpf_cnpj_fornecedor_normalizado
 		summarizeBy: none
+		sourceColumn: cpf_cnpj_fornecedor_normalizado
 
 	column valor_gasto
 		dataType: double
-		sourceColumn: valor_gasto
-		summarizeBy: none
 		formatString: R$ #,0.00;-R$ #,0.00;R$ #,0.00
+		summarizeBy: none
+		sourceColumn: valor_gasto
 
 	partition senado_fato_gastos_senadores = m
 		mode: import
 		source =
-			let
-				Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\senado_federal\senado_fato_gastos_senadores.parquet"))
-			in
-				Source
+				let
+					Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\senado_federal\senado_fato_gastos_senadores.parquet"))
+				in
+					Source
 
 	annotation PBI_ResultType = Table
+

@@ -2,20 +2,21 @@ table gastos_deputados_dim_partido
 
 	column chave_partido
 		dataType: string
-		sourceColumn: chave_partido
 		summarizeBy: none
+		sourceColumn: chave_partido
 
 	column partido
 		dataType: string
-		sourceColumn: partido
 		summarizeBy: none
+		sourceColumn: partido
 
 	partition gastos_deputados_dim_partido = m
 		mode: import
 		source =
-			let
-				Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\gastos_deputados\gastos_deputados_dim_partido.parquet"))
-			in
-				Source
+				let
+					Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\gastos_deputados\gastos_deputados_dim_partido.parquet"))
+				in
+					Source
 
 	annotation PBI_ResultType = Table
+

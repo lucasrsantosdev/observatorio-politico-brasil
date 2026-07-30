@@ -2,51 +2,52 @@ table gastos_deputados_dim_tempo
 
 	column chave_data
 		dataType: int64
-		sourceColumn: chave_data
 		summarizeBy: none
+		sourceColumn: chave_data
 
 	column data
 		dataType: dateTime
-		sourceColumn: data
-		summarizeBy: none
 		formatString: Short Date
+		summarizeBy: none
+		sourceColumn: data
 
 	column ano
 		dataType: int64
-		sourceColumn: ano
 		summarizeBy: none
+		sourceColumn: ano
 
 	column mes
 		dataType: int64
-		sourceColumn: mes
 		summarizeBy: none
+		sourceColumn: mes
 
 	column nome_mes
 		dataType: string
-		sourceColumn: nome_mes
 		summarizeBy: none
+		sourceColumn: nome_mes
 
 	column dia
 		dataType: int64
-		sourceColumn: dia
 		summarizeBy: none
+		sourceColumn: dia
 
 	column trimestre
 		dataType: int64
-		sourceColumn: trimestre
 		summarizeBy: none
+		sourceColumn: trimestre
 
 	column periodo
 		dataType: string
-		sourceColumn: periodo
 		summarizeBy: none
+		sourceColumn: periodo
 
 	partition gastos_deputados_dim_tempo = m
 		mode: import
 		source =
-			let
-				Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\gastos_deputados\gastos_deputados_dim_tempo.parquet"))
-			in
-				Source
+				let
+					Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\gastos_deputados\gastos_deputados_dim_tempo.parquet"))
+				in
+					Source
 
 	annotation PBI_ResultType = Table
+

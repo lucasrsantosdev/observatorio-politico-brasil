@@ -111,18 +111,19 @@ table _Medidas
 	column Indicador
 		dataType: string
 		isHidden
-		sourceColumn: Indicador
 		summarizeBy: none
+		sourceColumn: Indicador
 
 	partition _Medidas = m
 		mode: import
 		source =
-			let
-				Source = #table(
-				    type table [Indicador = text],
-				    {{"Medidas"}}
-				)
-			in
-				Source
+				let
+					Source = #table(
+					    type table [Indicador = text],
+					    {{"Medidas"}}
+					)
+				in
+					Source
 
 	annotation PBI_ResultType = Table
+

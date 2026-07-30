@@ -2,106 +2,107 @@ table senado_fato_votos
 
 	column chave_registro
 		dataType: string
-		sourceColumn: chave_registro
 		summarizeBy: none
+		sourceColumn: chave_registro
 
 	column hash_registro
 		dataType: string
-		sourceColumn: hash_registro
 		summarizeBy: none
+		sourceColumn: hash_registro
 
 	column dataset
 		dataType: string
-		sourceColumn: dataset
 		summarizeBy: none
+		sourceColumn: dataset
 
 	column codigo_parlamentar
 		dataType: int64
-		sourceColumn: codigo_parlamentar
 		summarizeBy: none
+		sourceColumn: codigo_parlamentar
 
 	column descricao_voto_parlamentar
 		dataType: string
-		sourceColumn: descricao_voto_parlamentar
 		summarizeBy: none
+		sourceColumn: descricao_voto_parlamentar
 
 	column nome_parlamentar
 		dataType: string
-		sourceColumn: nome_parlamentar
 		summarizeBy: none
+		sourceColumn: nome_parlamentar
 
 	column sexo_parlamentar
 		dataType: string
-		sourceColumn: sexo_parlamentar
 		summarizeBy: none
+		sourceColumn: sexo_parlamentar
 
 	column sigla_partido_parlamentar
 		dataType: string
-		sourceColumn: sigla_partido_parlamentar
 		summarizeBy: none
+		sourceColumn: sigla_partido_parlamentar
 
 	column sigla_uf_parlamentar
 		dataType: string
-		sourceColumn: sigla_uf_parlamentar
 		summarizeBy: none
+		sourceColumn: sigla_uf_parlamentar
 
 	column sigla_voto_parlamentar
 		dataType: string
-		sourceColumn: sigla_voto_parlamentar
 		summarizeBy: none
+		sourceColumn: sigla_voto_parlamentar
 
 	column codigo_sessao_votacao
 		dataType: int64
-		sourceColumn: codigo_sessao_votacao
 		summarizeBy: none
+		sourceColumn: codigo_sessao_votacao
 
 	column codigo_materia
 		dataType: int64
-		sourceColumn: codigo_materia
 		summarizeBy: none
+		sourceColumn: codigo_materia
 
 	column data_sessao
 		dataType: dateTime
-		sourceColumn: data_sessao
-		summarizeBy: none
 		formatString: Short Date
+		summarizeBy: none
+		sourceColumn: data_sessao
 
 	column linha_origem
 		dataType: int64
-		sourceColumn: linha_origem
 		summarizeBy: none
+		sourceColumn: linha_origem
 
 	column chave_voto
 		dataType: string
-		sourceColumn: chave_voto
 		summarizeBy: none
+		sourceColumn: chave_voto
 
 	column ano_voto
 		dataType: int64
-		sourceColumn: ano_voto
 		summarizeBy: none
+		sourceColumn: ano_voto
 
 	column mes_voto
 		dataType: int64
-		sourceColumn: mes_voto
 		summarizeBy: none
+		sourceColumn: mes_voto
 
 	column periodo_voto
 		dataType: string
-		sourceColumn: periodo_voto
 		summarizeBy: none
+		sourceColumn: periodo_voto
 
 	column categoria_voto
 		dataType: string
-		sourceColumn: categoria_voto
 		summarizeBy: none
+		sourceColumn: categoria_voto
 
 	partition senado_fato_votos = m
 		mode: import
 		source =
-			let
-				Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\senado_federal\senado_fato_votos.parquet"))
-			in
-				Source
+				let
+					Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\senado_federal\senado_fato_votos.parquet"))
+				in
+					Source
 
 	annotation PBI_ResultType = Table
+

@@ -3,76 +3,77 @@ table senado_dim_materia
 	column id_materia
 		dataType: int64
 		isKey
-		sourceColumn: id_materia
 		summarizeBy: none
+		sourceColumn: id_materia
 
 	column codigo
 		dataType: int64
-		sourceColumn: codigo
 		summarizeBy: none
+		sourceColumn: codigo
 
 	column identificacao_processo
 		dataType: string
-		sourceColumn: identificacao_processo
 		summarizeBy: none
+		sourceColumn: identificacao_processo
 
 	column descricao_identificacao
 		dataType: string
-		sourceColumn: descricao_identificacao
 		summarizeBy: none
+		sourceColumn: descricao_identificacao
 
 	column sigla
 		dataType: string
-		sourceColumn: sigla
 		summarizeBy: none
+		sourceColumn: sigla
 
 	column numero
 		dataType: int64
-		sourceColumn: numero
 		summarizeBy: none
+		sourceColumn: numero
 
 	column ano
 		dataType: int64
-		sourceColumn: ano
 		summarizeBy: none
+		sourceColumn: ano
 
 	column sigla_comissao
 		dataType: string
-		sourceColumn: sigla_comissao
 		summarizeBy: none
+		sourceColumn: sigla_comissao
 
 	column ementa
 		dataType: string
-		sourceColumn: ementa
 		summarizeBy: none
+		sourceColumn: ementa
 
 	column autor
 		dataType: string
-		sourceColumn: autor
 		summarizeBy: none
+		sourceColumn: autor
 
 	column data
 		dataType: dateTime
-		sourceColumn: data
-		summarizeBy: none
 		formatString: Short Date
+		summarizeBy: none
+		sourceColumn: data
 
 	column url_detalhe_materia
 		dataType: string
-		sourceColumn: url_detalhe_materia
 		summarizeBy: none
+		sourceColumn: url_detalhe_materia
 
 	column titulo_materia
 		dataType: string
-		sourceColumn: titulo_materia
 		summarizeBy: none
+		sourceColumn: titulo_materia
 
 	partition senado_dim_materia = m
 		mode: import
 		source =
-			let
-				Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\senado_federal\senado_dim_materia.parquet"))
-			in
-				Source
+				let
+					Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\senado_federal\senado_dim_materia.parquet"))
+				in
+					Source
 
 	annotation PBI_ResultType = Table
+

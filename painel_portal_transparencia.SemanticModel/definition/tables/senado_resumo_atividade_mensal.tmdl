@@ -2,45 +2,46 @@ table senado_resumo_atividade_mensal
 
 	column ano_votacao
 		dataType: int64
-		sourceColumn: ano_votacao
 		summarizeBy: none
+		sourceColumn: ano_votacao
 
 	column mes_votacao
 		dataType: int64
-		sourceColumn: mes_votacao
 		summarizeBy: none
+		sourceColumn: mes_votacao
 
 	column periodo_votacao
 		dataType: string
-		sourceColumn: periodo_votacao
 		summarizeBy: none
+		sourceColumn: periodo_votacao
 
 	column quantidade_votacoes
 		dataType: int64
-		sourceColumn: quantidade_votacoes
 		summarizeBy: none
+		sourceColumn: quantidade_votacoes
 
 	column quantidade_aprovadas
 		dataType: int64
-		sourceColumn: quantidade_aprovadas
 		summarizeBy: none
+		sourceColumn: quantidade_aprovadas
 
 	column quantidade_rejeitadas
 		dataType: int64
-		sourceColumn: quantidade_rejeitadas
 		summarizeBy: none
+		sourceColumn: quantidade_rejeitadas
 
 	column total_votos_informados
 		dataType: int64
-		sourceColumn: total_votos_informados
 		summarizeBy: none
+		sourceColumn: total_votos_informados
 
 	partition senado_resumo_atividade_mensal = m
 		mode: import
 		source =
-			let
-				Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\senado_federal\senado_resumo_atividade_mensal.parquet"))
-			in
-				Source
+				let
+					Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\senado_federal\senado_resumo_atividade_mensal.parquet"))
+				in
+					Source
 
 	annotation PBI_ResultType = Table
+

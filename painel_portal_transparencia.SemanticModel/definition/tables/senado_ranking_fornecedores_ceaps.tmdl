@@ -2,41 +2,42 @@ table senado_ranking_fornecedores_ceaps
 
 	column cpf_cnpj_fornecedor_normalizado
 		dataType: string
-		sourceColumn: cpf_cnpj_fornecedor_normalizado
 		summarizeBy: none
+		sourceColumn: cpf_cnpj_fornecedor_normalizado
 
 	column nome_fornecedor
 		dataType: string
-		sourceColumn: nome_fornecedor
 		summarizeBy: none
+		sourceColumn: nome_fornecedor
 
 	column quantidade_despesas
 		dataType: int64
-		sourceColumn: quantidade_despesas
 		summarizeBy: none
+		sourceColumn: quantidade_despesas
 
 	column valor_total
 		dataType: double
-		sourceColumn: valor_total
-		summarizeBy: none
 		formatString: R$ #,0.00;-R$ #,0.00;R$ #,0.00
+		summarizeBy: none
+		sourceColumn: valor_total
 
 	column quantidade_senadores
 		dataType: int64
-		sourceColumn: quantidade_senadores
 		summarizeBy: none
+		sourceColumn: quantidade_senadores
 
 	column posicao
 		dataType: int64
-		sourceColumn: posicao
 		summarizeBy: none
+		sourceColumn: posicao
 
 	partition senado_ranking_fornecedores_ceaps = m
 		mode: import
 		source =
-			let
-				Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\senado_federal\senado_ranking_fornecedores_ceaps.parquet"))
-			in
-				Source
+				let
+					Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\senado_federal\senado_ranking_fornecedores_ceaps.parquet"))
+				in
+					Source
 
 	annotation PBI_ResultType = Table
+

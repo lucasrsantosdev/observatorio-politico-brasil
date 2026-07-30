@@ -13,9 +13,6 @@ annotation PBI_QueryOrder = ["senado_fato_materias","senado_fato_votacoes","sena
 
 annotation PBI_ProTooling = ["DevMode"]
 
-
-ref cultureInfo pt-BR
-
 ref table senado_fato_materias
 ref table senado_fato_votacoes
 ref table senado_fato_votos
@@ -54,3 +51,6 @@ ref table gastos_deputados_ranking_partidos
 ref table gastos_deputados_ranking_tipos_despesa
 ref table gastos_deputados_ranking_ufs
 ref table gastos_deputados_resumo_mensal
+
+ref cultureInfo pt-BR
+

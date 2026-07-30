@@ -3,50 +3,51 @@ table senado_dim_senador
 	column id_senador
 		dataType: int64
 		isKey
-		sourceColumn: id_senador
 		summarizeBy: none
+		sourceColumn: id_senador
 
 	column codigo_senador
 		dataType: int64
-		sourceColumn: codigo_senador
 		summarizeBy: none
+		sourceColumn: codigo_senador
 
 	column nome_senador
 		dataType: string
-		sourceColumn: nome_senador
 		summarizeBy: none
+		sourceColumn: nome_senador
 
 	column nome_completo
 		dataType: string
-		sourceColumn: nome_completo
 		summarizeBy: none
+		sourceColumn: nome_completo
 
 	column sigla_partido
 		dataType: string
-		sourceColumn: sigla_partido
 		summarizeBy: none
+		sourceColumn: sigla_partido
 
 	column sigla_uf
 		dataType: string
-		sourceColumn: sigla_uf
 		summarizeBy: none
+		sourceColumn: sigla_uf
 
 	column sexo
 		dataType: string
-		sourceColumn: sexo
 		summarizeBy: none
+		sourceColumn: sexo
 
 	column senador_em_exercicio
 		dataType: boolean
-		sourceColumn: senador_em_exercicio
 		summarizeBy: none
+		sourceColumn: senador_em_exercicio
 
 	partition senado_dim_senador = m
 		mode: import
 		source =
-			let
-				Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\senado_federal\senado_dim_senador.parquet"))
-			in
-				Source
+				let
+					Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\senado_federal\senado_dim_senador.parquet"))
+				in
+					Source
 
 	annotation PBI_ResultType = Table
+

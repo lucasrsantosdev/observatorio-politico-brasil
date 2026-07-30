@@ -2,248 +2,249 @@ table senado_fato_votacoes
 
 	column chave_registro
 		dataType: string
-		sourceColumn: chave_registro
 		summarizeBy: none
+		sourceColumn: chave_registro
 
 	column hash_registro
 		dataType: string
-		sourceColumn: hash_registro
 		summarizeBy: none
+		sourceColumn: hash_registro
 
 	column dataset
 		dataType: string
-		sourceColumn: dataset
 		summarizeBy: none
+		sourceColumn: dataset
 
 	column ano
 		dataType: int64
-		sourceColumn: ano
 		summarizeBy: none
+		sourceColumn: ano
 
 	column casa_sessao
 		dataType: string
-		sourceColumn: casa_sessao
 		summarizeBy: none
+		sourceColumn: casa_sessao
 
 	column codigo_materia
 		dataType: int64
-		sourceColumn: codigo_materia
 		summarizeBy: none
+		sourceColumn: codigo_materia
 
 	column codigo_sessao
 		dataType: int64
-		sourceColumn: codigo_sessao
 		summarizeBy: none
+		sourceColumn: codigo_sessao
 
 	column codigo_sessao_legislativa
 		dataType: int64
-		sourceColumn: codigo_sessao_legislativa
 		summarizeBy: none
+		sourceColumn: codigo_sessao_legislativa
 
 	column codigo_sessao_votacao
 		dataType: int64
-		sourceColumn: codigo_sessao_votacao
 		summarizeBy: none
+		sourceColumn: codigo_sessao_votacao
 
 	column data_apresentacao
 		dataType: dateTime
-		sourceColumn: data_apresentacao
-		summarizeBy: none
 		formatString: Short Date
+		summarizeBy: none
+		sourceColumn: data_apresentacao
 
 	column data_sessao
 		dataType: dateTime
-		sourceColumn: data_sessao
-		summarizeBy: none
 		formatString: Short Date
+		summarizeBy: none
+		sourceColumn: data_sessao
 
 	column descricao_votacao
 		dataType: string
-		sourceColumn: descricao_votacao
 		summarizeBy: none
+		sourceColumn: descricao_votacao
 
 	column ementa
 		dataType: string
-		sourceColumn: ementa
 		summarizeBy: none
+		sourceColumn: ementa
 
 	column id_processo
 		dataType: int64
-		sourceColumn: id_processo
 		summarizeBy: none
+		sourceColumn: id_processo
 
 	column identificacao
 		dataType: string
-		sourceColumn: identificacao
 		summarizeBy: none
+		sourceColumn: identificacao
 
 	column informe_legislativo_casa_colegiado
 		dataType: string
-		sourceColumn: informe_legislativo_casa_colegiado
 		summarizeBy: none
+		sourceColumn: informe_legislativo_casa_colegiado
 
 	column informe_legislativo_casa_ente_adm
 		dataType: string
-		sourceColumn: informe_legislativo_casa_ente_adm
 		summarizeBy: none
+		sourceColumn: informe_legislativo_casa_ente_adm
 
 	column informe_legislativo_codigo_colegiado
 		dataType: int64
-		sourceColumn: informe_legislativo_codigo_colegiado
 		summarizeBy: none
+		sourceColumn: informe_legislativo_codigo_colegiado
 
 	column informe_legislativo_data
 		dataType: dateTime
-		sourceColumn: informe_legislativo_data
-		summarizeBy: none
 		formatString: Short Date
+		summarizeBy: none
+		sourceColumn: informe_legislativo_data
 
 	column informe_legislativo_id
 		dataType: int64
-		sourceColumn: informe_legislativo_id
 		summarizeBy: none
+		sourceColumn: informe_legislativo_id
 
 	column informe_legislativo_id_ente_adm
 		dataType: int64
-		sourceColumn: informe_legislativo_id_ente_adm
 		summarizeBy: none
+		sourceColumn: informe_legislativo_id_ente_adm
 
 	column informe_legislativo_id_evento
 		dataType: int64
-		sourceColumn: informe_legislativo_id_evento
 		summarizeBy: none
+		sourceColumn: informe_legislativo_id_evento
 
 	column informe_legislativo_nome_colegiado
 		dataType: string
-		sourceColumn: informe_legislativo_nome_colegiado
 		summarizeBy: none
+		sourceColumn: informe_legislativo_nome_colegiado
 
 	column informe_legislativo_nome_ente_adm
 		dataType: string
-		sourceColumn: informe_legislativo_nome_ente_adm
 		summarizeBy: none
+		sourceColumn: informe_legislativo_nome_ente_adm
 
 	column informe_legislativo_numero_autuacao
 		dataType: int64
-		sourceColumn: informe_legislativo_numero_autuacao
 		summarizeBy: none
+		sourceColumn: informe_legislativo_numero_autuacao
 
 	column informe_legislativo_sigla_colegiado
 		dataType: string
-		sourceColumn: informe_legislativo_sigla_colegiado
 		summarizeBy: none
+		sourceColumn: informe_legislativo_sigla_colegiado
 
 	column informe_legislativo_sigla_ente_adm
 		dataType: string
-		sourceColumn: informe_legislativo_sigla_ente_adm
 		summarizeBy: none
+		sourceColumn: informe_legislativo_sigla_ente_adm
 
 	column informe_legislativo_texto
 		dataType: string
-		sourceColumn: informe_legislativo_texto
 		summarizeBy: none
+		sourceColumn: informe_legislativo_texto
 
 	column numero
 		dataType: string
-		sourceColumn: numero
 		summarizeBy: none
+		sourceColumn: numero
 
 	column numero_sessao
 		dataType: int64
-		sourceColumn: numero_sessao
 		summarizeBy: none
+		sourceColumn: numero_sessao
 
 	column resultado_votacao
 		dataType: string
-		sourceColumn: resultado_votacao
 		summarizeBy: none
+		sourceColumn: resultado_votacao
 
 	column sequencial_sessao
 		dataType: int64
-		sourceColumn: sequencial_sessao
 		summarizeBy: none
+		sourceColumn: sequencial_sessao
 
 	column sequencial_votacao
 		dataType: int64
-		sourceColumn: sequencial_votacao
 		summarizeBy: none
+		sourceColumn: sequencial_votacao
 
 	column sigla
 		dataType: string
-		sourceColumn: sigla
 		summarizeBy: none
+		sourceColumn: sigla
 
 	column sigla_tipo_sessao
 		dataType: string
-		sourceColumn: sigla_tipo_sessao
 		summarizeBy: none
+		sourceColumn: sigla_tipo_sessao
 
 	column total_votos_abstencao
 		dataType: int64
-		sourceColumn: total_votos_abstencao
 		summarizeBy: none
+		sourceColumn: total_votos_abstencao
 
 	column total_votos_nao
 		dataType: int64
-		sourceColumn: total_votos_nao
 		summarizeBy: none
+		sourceColumn: total_votos_nao
 
 	column total_votos_sim
 		dataType: int64
-		sourceColumn: total_votos_sim
 		summarizeBy: none
+		sourceColumn: total_votos_sim
 
 	column votacao_secreta
 		dataType: string
-		sourceColumn: votacao_secreta
 		summarizeBy: none
+		sourceColumn: votacao_secreta
 
 	column informe_legislativo
 		dataType: string
-		sourceColumn: informe_legislativo
 		summarizeBy: none
+		sourceColumn: informe_legislativo
 
 	column linha_origem
 		dataType: int64
-		sourceColumn: linha_origem
 		summarizeBy: none
+		sourceColumn: linha_origem
 
 	column id_votacao
 		dataType: int64
-		sourceColumn: id_votacao
 		summarizeBy: none
+		sourceColumn: id_votacao
 
 	column ano_votacao
 		dataType: int64
-		sourceColumn: ano_votacao
 		summarizeBy: none
+		sourceColumn: ano_votacao
 
 	column mes_votacao
 		dataType: int64
-		sourceColumn: mes_votacao
 		summarizeBy: none
+		sourceColumn: mes_votacao
 
 	column periodo_votacao
 		dataType: string
-		sourceColumn: periodo_votacao
 		summarizeBy: none
+		sourceColumn: periodo_votacao
 
 	column total_votos_informados
 		dataType: int64
-		sourceColumn: total_votos_informados
 		summarizeBy: none
+		sourceColumn: total_votos_informados
 
 	column resultado_votacao_normalizado
 		dataType: string
-		sourceColumn: resultado_votacao_normalizado
 		summarizeBy: none
+		sourceColumn: resultado_votacao_normalizado
 
 	partition senado_fato_votacoes = m
 		mode: import
 		source =
-			let
-				Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\senado_federal\senado_fato_votacoes.parquet"))
-			in
-				Source
+				let
+					Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\senado_federal\senado_fato_votacoes.parquet"))
+				in
+					Source
 
 	annotation PBI_ResultType = Table
+

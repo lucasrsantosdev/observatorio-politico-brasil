@@ -5,7 +5,7 @@
       "ordinal": 0,
       "scrollPosition": {
         "x": 0,
-        "y": 9.67741935483871
+        "y": 6.4516129032258069
       },
       "nodes": [
         {
@@ -292,6 +292,174 @@
           "nodeIndex": "senado_resumo_gastos_mensal",
           "size": {
             "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 4885.4969606779869,
+            "y": 634.59244639830717
+          },
+          "nodeIndex": "gastos_deputados_dim_beneficiario",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 5169.4969606779869,
+            "y": 670.59244639830717
+          },
+          "nodeIndex": "gastos_deputados_dim_fornecedor",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 5453.4969606779869,
+            "y": 706.59244639830717
+          },
+          "nodeIndex": "gastos_deputados_dim_movimento",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 5737.4969606779869,
+            "y": 706.59244639830717
+          },
+          "nodeIndex": "gastos_deputados_dim_partido",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 6021.4969606779869,
+            "y": 634.59244639830717
+          },
+          "nodeIndex": "gastos_deputados_dim_tempo",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 6305.4969606779869,
+            "y": 694.59244639830717
+          },
+          "nodeIndex": "gastos_deputados_dim_tipo_despesa",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 6589.4969606779869,
+            "y": 706.59244639830717
+          },
+          "nodeIndex": "gastos_deputados_dim_uf",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 6873.4969606779869,
+            "y": 620.59244639830717
+          },
+          "nodeIndex": "gastos_deputados_fato_gastos_deputados",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 7157.4969606779869,
+            "y": 620.59244639830717
+          },
+          "nodeIndex": "gastos_deputados_ranking_deputados",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 7441.4969606779869,
+            "y": 620.59244639830717
+          },
+          "nodeIndex": "gastos_deputados_ranking_fornecedores",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 7725.4969606779869,
+            "y": 620.59244639830717
+          },
+          "nodeIndex": "gastos_deputados_ranking_partidos",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 8009.4969606779869,
+            "y": 620.59244639830717
+          },
+          "nodeIndex": "gastos_deputados_ranking_tipos_despesa",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 8293.4969606779869,
+            "y": 622.59244639830717
+          },
+          "nodeIndex": "gastos_deputados_ranking_ufs",
+          "size": {
+            "height": 296,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 8577.4969606779869,
+            "y": 620.59244639830717
+          },
+          "nodeIndex": "gastos_deputados_resumo_mensal",
+          "size": {
+            "height": 300,
             "width": 234
           },
           "zIndex": 0
