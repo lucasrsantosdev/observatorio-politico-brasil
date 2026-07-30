@@ -108,22 +108,128 @@ table _Medidas
 		formatString: 0.00%
 		displayFolder: Senado\Atividade Legislativa
 
+
+    measure 'Total Gastos Deputados' =
+            SUM (
+                'gastos_deputados_fato_gastos_deputados'[valor_liquido_apos_restituicao]
+            )
+        formatString: R$ #,0.00;-R$ #,0.00;R$ #,0.00
+        displayFolder: C?mara\Gastos dos Deputados
+
+    measure 'Valor Documentos Deputados' =
+            SUM (
+                'gastos_deputados_fato_gastos_deputados'[valor_documento]
+            )
+        formatString: R$ #,0.00;-R$ #,0.00;R$ #,0.00
+        displayFolder: C?mara\Gastos dos Deputados
+
+    measure 'Total L?quido Deputados' =
+            SUM (
+                'gastos_deputados_fato_gastos_deputados'[valor_liquido]
+            )
+        formatString: R$ #,0.00;-R$ #,0.00;R$ #,0.00
+        displayFolder: C?mara\Gastos dos Deputados
+
+    measure 'Total Glosas Deputados' =
+            SUM (
+                'gastos_deputados_fato_gastos_deputados'[valor_glosa]
+            )
+        formatString: R$ #,0.00;-R$ #,0.00;R$ #,0.00
+        displayFolder: C?mara\Gastos dos Deputados
+
+    measure 'Total Restitui??es Deputados' =
+            SUM (
+                'gastos_deputados_fato_gastos_deputados'[valor_restituicao]
+            )
+        formatString: R$ #,0.00;-R$ #,0.00;R$ #,0.00
+        displayFolder: C?mara\Gastos dos Deputados
+
+    measure 'Quantidade Despesas Deputados' =
+            COUNTROWS (
+                'gastos_deputados_fato_gastos_deputados'
+            )
+        formatString: #,0
+        displayFolder: C?mara\Gastos dos Deputados
+
+    measure 'Quantidade Deputados' =
+            DISTINCTCOUNT (
+                'gastos_deputados_fato_gastos_deputados'[codigo_beneficiario]
+            )
+        formatString: #,0
+        displayFolder: C?mara\Gastos dos Deputados
+
+    measure 'Quantidade Fornecedores Deputados' =
+            DISTINCTCOUNT (
+                'gastos_deputados_fato_gastos_deputados'[chave_fornecedor]
+            )
+        formatString: #,0
+        displayFolder: C?mara\Gastos dos Deputados
+
+    measure 'Quantidade Partidos Deputados' =
+            DISTINCTCOUNT (
+                'gastos_deputados_fato_gastos_deputados'[partido]
+            )
+        formatString: #,0
+        displayFolder: C?mara\Gastos dos Deputados
+
+    measure 'Ticket M?dio Deputados' =
+            DIVIDE (
+                [Total Gastos Deputados],
+                [Quantidade Despesas Deputados],
+                0
+            )
+        formatString: R$ #,0.00;-R$ #,0.00;R$ #,0.00
+        displayFolder: C?mara\Gastos dos Deputados
+
+    measure 'Percentual Glosado Deputados' =
+            DIVIDE (
+                [Total Glosas Deputados],
+                [Valor Documentos Deputados],
+                0
+            )
+        formatString: 0.00%
+        displayFolder: C?mara\Gastos dos Deputados
+
+    measure 'Despesas com Restitui??o' =
+            CALCULATE (
+                [Quantidade Despesas Deputados],
+                'gastos_deputados_fato_gastos_deputados'[possui_restituicao] = TRUE ()
+            )
+        formatString: #,0
+        displayFolder: C?mara\Gastos dos Deputados
+
+    measure 'Despesas com Glosa' =
+            CALCULATE (
+                [Quantidade Despesas Deputados],
+                'gastos_deputados_fato_gastos_deputados'[valor_glosa] > 0
+            )
+        formatString: #,0
+        displayFolder: C?mara\Gastos dos Deputados
+
+    measure 'M?dia por Deputado' =
+            DIVIDE (
+                [Total Gastos Deputados],
+                [Quantidade Deputados],
+                0
+            )
+        formatString: R$ #,0.00;-R$ #,0.00;R$ #,0.00
+        displayFolder: C?mara\Gastos dos Deputados
+
 	column Indicador
 		dataType: string
 		isHidden
-		summarizeBy: none
 		sourceColumn: Indicador
+		summarizeBy: none
 
 	partition _Medidas = m
 		mode: import
 		source =
-				let
-					Source = #table(
-					    type table [Indicador = text],
-					    {{"Medidas"}}
-					)
-				in
-					Source
+			let
+				Source = #table(
+				    type table [Indicador = text],
+				    {{"Medidas"}}
+				)
+			in
+				Source
 
 	annotation PBI_ResultType = Table
-

@@ -2,70 +2,69 @@ table gastos_deputados_ranking_tipos_despesa
 
 	column codigo_tipo_despesa
 		dataType: int64
-		summarizeBy: none
 		sourceColumn: codigo_tipo_despesa
+		summarizeBy: none
 
 	column tipo_despesa
 		dataType: string
-		summarizeBy: none
 		sourceColumn: tipo_despesa
+		summarizeBy: none
 
 	column quantidade_lancamentos
 		dataType: int64
-		summarizeBy: none
 		sourceColumn: quantidade_lancamentos
+		summarizeBy: none
 
 	column quantidade_beneficiarios
 		dataType: int64
-		summarizeBy: none
 		sourceColumn: quantidade_beneficiarios
+		summarizeBy: none
 
 	column quantidade_fornecedores
 		dataType: int64
-		summarizeBy: none
 		sourceColumn: quantidade_fornecedores
+		summarizeBy: none
 
 	column valor_total_documentos
 		dataType: double
-		formatString: R$ #,0.00;-R$ #,0.00;R$ #,0.00
-		summarizeBy: none
 		sourceColumn: valor_total_documentos
+		summarizeBy: none
+		formatString: R$ #,0.00;-R$ #,0.00;R$ #,0.00
 
 	column valor_total_glosas
 		dataType: double
-		formatString: R$ #,0.00;-R$ #,0.00;R$ #,0.00
-		summarizeBy: none
 		sourceColumn: valor_total_glosas
+		summarizeBy: none
+		formatString: R$ #,0.00;-R$ #,0.00;R$ #,0.00
 
 	column valor_total_liquido
 		dataType: double
-		formatString: R$ #,0.00;-R$ #,0.00;R$ #,0.00
-		summarizeBy: none
 		sourceColumn: valor_total_liquido
+		summarizeBy: none
+		formatString: R$ #,0.00;-R$ #,0.00;R$ #,0.00
 
 	column valor_medio_lancamento
 		dataType: double
-		formatString: R$ #,0.00;-R$ #,0.00;R$ #,0.00
-		summarizeBy: none
 		sourceColumn: valor_medio_lancamento
+		summarizeBy: none
+		formatString: R$ #,0.00;-R$ #,0.00;R$ #,0.00
 
 	column quantidade_estornos
 		dataType: int64
-		summarizeBy: none
 		sourceColumn: quantidade_estornos
+		summarizeBy: none
 
 	column posicao_valor_liquido
 		dataType: int64
-		summarizeBy: none
 		sourceColumn: posicao_valor_liquido
+		summarizeBy: none
 
 	partition gastos_deputados_ranking_tipos_despesa = m
 		mode: import
 		source =
-				let
-					Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\gastos_deputados\gastos_deputados_ranking_tipos_despesa.parquet"))
-				in
-					Source
+			let
+				Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\gastos_deputados\gastos_deputados_ranking_tipos_despesa.parquet"))
+			in
+				Source
 
 	annotation PBI_ResultType = Table
-

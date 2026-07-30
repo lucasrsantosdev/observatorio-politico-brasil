@@ -1,7 +1,7 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
-  "name": "e99080bf43e30b34a07d",
-  "displayName": "04 — Gastos dos Deputados",
+  "name": "0c17b77c0e38ce6c542d",
+  "displayName": "Página 1",
   "displayOption": "FitToPage",
   "height": 720,
   "width": 1280

@@ -2,280 +2,279 @@ table gastos_deputados_fato_gastos_deputados
 
 	column chave_despesa
 		dataType: string
-		summarizeBy: none
 		sourceColumn: chave_despesa
+		summarizeBy: none
 
 	column chave_documento
 		dataType: string
-		summarizeBy: none
 		sourceColumn: chave_documento
+		summarizeBy: none
 
 	column chave_beneficiario
 		dataType: string
-		summarizeBy: none
 		sourceColumn: chave_beneficiario
+		summarizeBy: none
 
 	column chave_fornecedor
 		dataType: string
-		summarizeBy: none
 		sourceColumn: chave_fornecedor
+		summarizeBy: none
 
 	column codigo_documento
 		dataType: int64
-		summarizeBy: none
 		sourceColumn: codigo_documento
+		summarizeBy: none
 
 	column codigo_beneficiario
 		dataType: int64
-		summarizeBy: none
 		sourceColumn: codigo_beneficiario
+		summarizeBy: none
 
 	column nome_beneficiario
 		dataType: string
-		summarizeBy: none
 		sourceColumn: nome_beneficiario
+		summarizeBy: none
 
 	column tipo_beneficiario
 		dataType: string
-		summarizeBy: none
 		sourceColumn: tipo_beneficiario
+		summarizeBy: none
 
 	column cpf
 		dataType: string
-		summarizeBy: none
 		sourceColumn: cpf
+		summarizeBy: none
 
 	column ideCadastro
 		dataType: string
-		summarizeBy: none
 		sourceColumn: ideCadastro
+		summarizeBy: none
 
 	column nuCarteiraParlamentar
 		dataType: string
-		summarizeBy: none
 		sourceColumn: nuCarteiraParlamentar
+		summarizeBy: none
 
 	column uf
 		dataType: string
-		summarizeBy: none
 		sourceColumn: uf
+		summarizeBy: none
 
 	column partido
 		dataType: string
-		summarizeBy: none
 		sourceColumn: partido
+		summarizeBy: none
 
 	column numero_legislatura
 		dataType: int64
-		summarizeBy: none
 		sourceColumn: numero_legislatura
+		summarizeBy: none
 
 	column codigo_legislatura
 		dataType: int64
-		summarizeBy: none
 		sourceColumn: codigo_legislatura
+		summarizeBy: none
 
 	column codigo_tipo_despesa
 		dataType: int64
-		summarizeBy: none
 		sourceColumn: codigo_tipo_despesa
+		summarizeBy: none
 
 	column tipo_despesa
 		dataType: string
-		summarizeBy: none
 		sourceColumn: tipo_despesa
+		summarizeBy: none
 
 	column codigo_especificacao_despesa
 		dataType: int64
-		summarizeBy: none
 		sourceColumn: codigo_especificacao_despesa
+		summarizeBy: none
 
 	column especificacao_despesa
 		dataType: string
-		summarizeBy: none
 		sourceColumn: especificacao_despesa
+		summarizeBy: none
 
 	column nome_fornecedor
 		dataType: string
-		summarizeBy: none
 		sourceColumn: nome_fornecedor
+		summarizeBy: none
 
 	column documento_fornecedor
 		dataType: string
-		summarizeBy: none
 		sourceColumn: documento_fornecedor
+		summarizeBy: none
 
 	column numero_documento
 		dataType: string
-		summarizeBy: none
 		sourceColumn: numero_documento
+		summarizeBy: none
 
 	column codigo_tipo_documento
 		dataType: int64
-		summarizeBy: none
 		sourceColumn: codigo_tipo_documento
+		summarizeBy: none
 
 	column data_hora_emissao
 		dataType: dateTime
-		formatString: Short Date
-		summarizeBy: none
 		sourceColumn: data_hora_emissao
+		summarizeBy: none
+		formatString: Short Date
 
 	column data_emissao
 		dataType: dateTime
-		formatString: Short Date
-		summarizeBy: none
 		sourceColumn: data_emissao
+		summarizeBy: none
+		formatString: Short Date
 
 	column valor_documento
 		dataType: double
-		formatString: R$ #,0.00;-R$ #,0.00;R$ #,0.00
-		summarizeBy: none
 		sourceColumn: valor_documento
+		summarizeBy: none
+		formatString: R$ #,0.00;-R$ #,0.00;R$ #,0.00
 
 	column valor_glosa
 		dataType: double
-		formatString: R$ #,0.00;-R$ #,0.00;R$ #,0.00
-		summarizeBy: none
 		sourceColumn: valor_glosa
+		summarizeBy: none
+		formatString: R$ #,0.00;-R$ #,0.00;R$ #,0.00
 
 	column valor_liquido
 		dataType: double
-		formatString: R$ #,0.00;-R$ #,0.00;R$ #,0.00
-		summarizeBy: none
 		sourceColumn: valor_liquido
+		summarizeBy: none
+		formatString: R$ #,0.00;-R$ #,0.00;R$ #,0.00
 
 	column diferenca_financeira
 		dataType: double
-		summarizeBy: none
 		sourceColumn: diferenca_financeira
+		summarizeBy: none
 
 	column financeiro_consistente
 		dataType: boolean
-		summarizeBy: none
 		sourceColumn: financeiro_consistente
+		summarizeBy: none
 
 	column valor_restituicao
 		dataType: double
-		formatString: R$ #,0.00;-R$ #,0.00;R$ #,0.00
-		summarizeBy: none
 		sourceColumn: valor_restituicao
+		summarizeBy: none
+		formatString: R$ #,0.00;-R$ #,0.00;R$ #,0.00
 
 	column possui_restituicao
 		dataType: boolean
-		summarizeBy: none
 		sourceColumn: possui_restituicao
+		summarizeBy: none
 
 	column data_hora_pagamento_restituicao
 		dataType: dateTime
-		formatString: Short Date
-		summarizeBy: none
 		sourceColumn: data_hora_pagamento_restituicao
+		summarizeBy: none
+		formatString: Short Date
 
 	column data_pagamento_restituicao
 		dataType: dateTime
-		formatString: Short Date
-		summarizeBy: none
 		sourceColumn: data_pagamento_restituicao
+		summarizeBy: none
+		formatString: Short Date
 
 	column ano_despesa
 		dataType: int64
-		summarizeBy: none
 		sourceColumn: ano_despesa
+		summarizeBy: none
 
 	column mes_despesa
 		dataType: int64
-		summarizeBy: none
 		sourceColumn: mes_despesa
+		summarizeBy: none
 
 	column periodo_despesa
 		dataType: string
-		summarizeBy: none
 		sourceColumn: periodo_despesa
+		summarizeBy: none
 
 	column numero_parcela
 		dataType: int64
-		summarizeBy: none
 		sourceColumn: numero_parcela
+		summarizeBy: none
 
 	column passageiro
 		dataType: string
-		summarizeBy: none
 		sourceColumn: passageiro
+		summarizeBy: none
 
 	column trecho
 		dataType: string
-		summarizeBy: none
 		sourceColumn: trecho
+		summarizeBy: none
 
 	column numero_lote
 		dataType: int64
-		summarizeBy: none
 		sourceColumn: numero_lote
+		summarizeBy: none
 
 	column numero_ressarcimento
 		dataType: string
-		summarizeBy: none
 		sourceColumn: numero_ressarcimento
+		summarizeBy: none
 
 	column tipo_movimento
 		dataType: string
-		summarizeBy: none
 		sourceColumn: tipo_movimento
+		summarizeBy: none
 
 	column data_emissao_ausente
 		dataType: boolean
-		summarizeBy: none
 		sourceColumn: data_emissao_ausente
+		summarizeBy: none
 
 	column fornecedor_sem_documento
 		dataType: boolean
-		summarizeBy: none
 		sourceColumn: fornecedor_sem_documento
+		summarizeBy: none
 
 	column url_documento
 		dataType: string
-		summarizeBy: none
 		sourceColumn: url_documento
+		summarizeBy: none
 
 	column ano_arquivo_origem
 		dataType: int64
-		summarizeBy: none
 		sourceColumn: ano_arquivo_origem
+		summarizeBy: none
 
 	column arquivo_origem
 		dataType: string
-		summarizeBy: none
 		sourceColumn: arquivo_origem
+		summarizeBy: none
 
 	column linha_arquivo
 		dataType: int64
-		summarizeBy: none
 		sourceColumn: linha_arquivo
+		summarizeBy: none
 
 	column valor_liquido_apos_restituicao
 		dataType: double
-		formatString: R$ #,0.00;-R$ #,0.00;R$ #,0.00
-		summarizeBy: none
 		sourceColumn: valor_liquido_apos_restituicao
+		summarizeBy: none
+		formatString: R$ #,0.00;-R$ #,0.00;R$ #,0.00
 
 	column movimento_positivo
 		dataType: boolean
-		summarizeBy: none
 		sourceColumn: movimento_positivo
+		summarizeBy: none
 
 	column movimento_negativo
 		dataType: boolean
-		summarizeBy: none
 		sourceColumn: movimento_negativo
+		summarizeBy: none
 
 	partition gastos_deputados_fato_gastos_deputados = m
 		mode: import
 		source =
-				let
-					Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\gastos_deputados\gastos_deputados_fato_gastos_deputados.parquet"))
-				in
-					Source
+			let
+				Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\gastos_deputados\gastos_deputados_fato_gastos_deputados.parquet"))
+			in
+				Source
 
 	annotation PBI_ResultType = Table
-

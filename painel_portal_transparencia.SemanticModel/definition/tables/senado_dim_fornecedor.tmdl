@@ -3,36 +3,35 @@ table senado_dim_fornecedor
 	column id_fornecedor
 		dataType: int64
 		isKey
-		summarizeBy: none
 		sourceColumn: id_fornecedor
+		summarizeBy: none
 
 	column documento_fornecedor
 		dataType: string
-		summarizeBy: none
 		sourceColumn: documento_fornecedor
+		summarizeBy: none
 
 	column documento_fornecedor_formatado
 		dataType: string
-		summarizeBy: none
 		sourceColumn: documento_fornecedor_formatado
+		summarizeBy: none
 
 	column nome_fornecedor
 		dataType: string
-		summarizeBy: none
 		sourceColumn: nome_fornecedor
+		summarizeBy: none
 
 	column tipo_documento
 		dataType: string
-		summarizeBy: none
 		sourceColumn: tipo_documento
+		summarizeBy: none
 
 	partition senado_dim_fornecedor = m
 		mode: import
 		source =
-				let
-					Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\senado_federal\senado_dim_fornecedor.parquet"))
-				in
-					Source
+			let
+				Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\senado_federal\senado_dim_fornecedor.parquet"))
+			in
+				Source
 
 	annotation PBI_ResultType = Table
-

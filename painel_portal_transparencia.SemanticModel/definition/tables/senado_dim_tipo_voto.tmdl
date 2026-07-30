@@ -3,26 +3,25 @@ table senado_dim_tipo_voto
 	column id_tipo_voto
 		dataType: int64
 		isKey
-		summarizeBy: none
 		sourceColumn: id_tipo_voto
+		summarizeBy: none
 
 	column categoria_voto
 		dataType: string
-		summarizeBy: none
 		sourceColumn: categoria_voto
+		summarizeBy: none
 
 	column descricao_voto_original
 		dataType: string
-		summarizeBy: none
 		sourceColumn: descricao_voto_original
+		summarizeBy: none
 
 	partition senado_dim_tipo_voto = m
 		mode: import
 		source =
-				let
-					Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\senado_federal\senado_dim_tipo_voto.parquet"))
-				in
-					Source
+			let
+				Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\senado_federal\senado_dim_tipo_voto.parquet"))
+			in
+				Source
 
 	annotation PBI_ResultType = Table
-

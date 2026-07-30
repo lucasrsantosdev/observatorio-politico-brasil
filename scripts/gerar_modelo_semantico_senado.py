@@ -457,10 +457,15 @@ def main() -> None:
 
     measures_path = TABLES_ROOT / "_Medidas.tmdl"
 
-    measures_path.write_text(
-        build_measures_tmdl(),
-        encoding="utf-8",
-    )
+    if not measures_path.exists():
+        measures_path.write_text(
+            build_measures_tmdl(),
+            encoding="utf-8",
+        )
+
+        print("TABELA_MEDIDAS_CRIADA")
+    else:
+        print("TABELA_MEDIDAS_PRESERVADA")
 
     all_tables = [
         *DATASETS,

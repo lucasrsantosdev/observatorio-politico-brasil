@@ -3,21 +3,20 @@ table senado_dim_uf
 	column id_uf
 		dataType: int64
 		isKey
-		summarizeBy: none
 		sourceColumn: id_uf
+		summarizeBy: none
 
 	column sigla_uf
 		dataType: string
-		summarizeBy: none
 		sourceColumn: sigla_uf
+		summarizeBy: none
 
 	partition senado_dim_uf = m
 		mode: import
 		source =
-				let
-					Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\senado_federal\senado_dim_uf.parquet"))
-				in
-					Source
+			let
+				Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\senado_federal\senado_dim_uf.parquet"))
+			in
+				Source
 
 	annotation PBI_ResultType = Table
-

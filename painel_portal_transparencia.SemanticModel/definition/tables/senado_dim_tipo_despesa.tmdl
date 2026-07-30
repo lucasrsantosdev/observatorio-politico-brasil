@@ -3,21 +3,20 @@ table senado_dim_tipo_despesa
 	column id_tipo_despesa
 		dataType: int64
 		isKey
-		summarizeBy: none
 		sourceColumn: id_tipo_despesa
+		summarizeBy: none
 
 	column tipo_despesa
 		dataType: string
-		summarizeBy: none
 		sourceColumn: tipo_despesa
+		summarizeBy: none
 
 	partition senado_dim_tipo_despesa = m
 		mode: import
 		source =
-				let
-					Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\senado_federal\senado_dim_tipo_despesa.parquet"))
-				in
-					Source
+			let
+				Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\senado_federal\senado_dim_tipo_despesa.parquet"))
+			in
+				Source
 
 	annotation PBI_ResultType = Table
-

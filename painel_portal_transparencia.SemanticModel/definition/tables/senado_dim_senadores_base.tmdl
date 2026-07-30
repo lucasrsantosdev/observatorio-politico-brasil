@@ -2,196 +2,195 @@ table senado_dim_senadores_base
 
 	column chave_registro
 		dataType: string
-		summarizeBy: none
 		sourceColumn: chave_registro
+		summarizeBy: none
 
 	column hash_registro
 		dataType: string
-		summarizeBy: none
 		sourceColumn: hash_registro
+		summarizeBy: none
 
 	column dataset
 		dataType: string
-		summarizeBy: none
 		sourceColumn: dataset
+		summarizeBy: none
 
 	column identificacao_parlamentar_codigo_parlamentar
 		dataType: int64
-		summarizeBy: none
 		sourceColumn: identificacao_parlamentar_codigo_parlamentar
+		summarizeBy: none
 
 	column identificacao_parlamentar_codigo_publico_na_leg_atual
 		dataType: int64
-		summarizeBy: none
 		sourceColumn: identificacao_parlamentar_codigo_publico_na_leg_atual
+		summarizeBy: none
 
 	column identificacao_parlamentar_nome_parlamentar
 		dataType: string
-		summarizeBy: none
 		sourceColumn: identificacao_parlamentar_nome_parlamentar
+		summarizeBy: none
 
 	column identificacao_parlamentar_nome_completo_parlamentar
 		dataType: string
-		summarizeBy: none
 		sourceColumn: identificacao_parlamentar_nome_completo_parlamentar
+		summarizeBy: none
 
 	column identificacao_parlamentar_sexo_parlamentar
 		dataType: string
-		summarizeBy: none
 		sourceColumn: identificacao_parlamentar_sexo_parlamentar
+		summarizeBy: none
 
 	column identificacao_parlamentar_forma_tratamento
 		dataType: string
-		summarizeBy: none
 		sourceColumn: identificacao_parlamentar_forma_tratamento
+		summarizeBy: none
 
 	column identificacao_parlamentar_url_foto_parlamentar
 		dataType: string
-		summarizeBy: none
 		sourceColumn: identificacao_parlamentar_url_foto_parlamentar
+		summarizeBy: none
 
 	column identificacao_parlamentar_url_pagina_parlamentar
 		dataType: string
-		summarizeBy: none
 		sourceColumn: identificacao_parlamentar_url_pagina_parlamentar
+		summarizeBy: none
 
 	column identificacao_parlamentar_email_parlamentar
 		dataType: string
-		summarizeBy: none
 		sourceColumn: identificacao_parlamentar_email_parlamentar
+		summarizeBy: none
 
 	column identificacao_parlamentar_telefones_telefone
 		dataType: string
-		summarizeBy: none
 		sourceColumn: identificacao_parlamentar_telefones_telefone
+		summarizeBy: none
 
 	column identificacao_parlamentar_sigla_partido_parlamentar
 		dataType: string
-		summarizeBy: none
 		sourceColumn: identificacao_parlamentar_sigla_partido_parlamentar
+		summarizeBy: none
 
 	column identificacao_parlamentar_uf_parlamentar
 		dataType: string
-		summarizeBy: none
 		sourceColumn: identificacao_parlamentar_uf_parlamentar
+		summarizeBy: none
 
 	column identificacao_parlamentar_bloco_codigo_bloco
 		dataType: string
-		summarizeBy: none
 		sourceColumn: identificacao_parlamentar_bloco_codigo_bloco
+		summarizeBy: none
 
 	column identificacao_parlamentar_bloco_nome_bloco
 		dataType: string
-		summarizeBy: none
 		sourceColumn: identificacao_parlamentar_bloco_nome_bloco
+		summarizeBy: none
 
 	column identificacao_parlamentar_bloco_nome_apelido
 		dataType: string
-		summarizeBy: none
 		sourceColumn: identificacao_parlamentar_bloco_nome_apelido
+		summarizeBy: none
 
 	column identificacao_parlamentar_bloco_data_criacao
 		dataType: string
-		summarizeBy: none
 		sourceColumn: identificacao_parlamentar_bloco_data_criacao
+		summarizeBy: none
 
 	column identificacao_parlamentar_membro_mesa
 		dataType: string
-		summarizeBy: none
 		sourceColumn: identificacao_parlamentar_membro_mesa
+		summarizeBy: none
 
 	column identificacao_parlamentar_membro_lideranca
 		dataType: string
-		summarizeBy: none
 		sourceColumn: identificacao_parlamentar_membro_lideranca
+		summarizeBy: none
 
 	column mandato_codigo_mandato
 		dataType: int64
-		summarizeBy: none
 		sourceColumn: mandato_codigo_mandato
+		summarizeBy: none
 
 	column mandato_uf_parlamentar
 		dataType: string
-		summarizeBy: none
 		sourceColumn: mandato_uf_parlamentar
+		summarizeBy: none
 
 	column mandato_primeira_legislatura_do_mandato_numero_legislatura
 		dataType: string
-		summarizeBy: none
 		sourceColumn: mandato_primeira_legislatura_do_mandato_numero_legislatura
+		summarizeBy: none
 
 	column mandato_primeira_legislatura_do_mandato_data_inicio
 		dataType: string
-		summarizeBy: none
 		sourceColumn: mandato_primeira_legislatura_do_mandato_data_inicio
+		summarizeBy: none
 
 	column mandato_primeira_legislatura_do_mandato_data_fim
 		dataType: string
-		summarizeBy: none
 		sourceColumn: mandato_primeira_legislatura_do_mandato_data_fim
+		summarizeBy: none
 
 	column mandato_segunda_legislatura_do_mandato_numero_legislatura
 		dataType: string
-		summarizeBy: none
 		sourceColumn: mandato_segunda_legislatura_do_mandato_numero_legislatura
+		summarizeBy: none
 
 	column mandato_segunda_legislatura_do_mandato_data_inicio
 		dataType: string
-		summarizeBy: none
 		sourceColumn: mandato_segunda_legislatura_do_mandato_data_inicio
+		summarizeBy: none
 
 	column mandato_segunda_legislatura_do_mandato_data_fim
 		dataType: string
-		summarizeBy: none
 		sourceColumn: mandato_segunda_legislatura_do_mandato_data_fim
+		summarizeBy: none
 
 	column mandato_descricao_participacao
 		dataType: string
-		summarizeBy: none
 		sourceColumn: mandato_descricao_participacao
+		summarizeBy: none
 
 	column mandato_suplentes_suplente
 		dataType: string
-		summarizeBy: none
 		sourceColumn: mandato_suplentes_suplente
+		summarizeBy: none
 
 	column mandato_exercicios_exercicio
 		dataType: string
-		summarizeBy: none
 		sourceColumn: mandato_exercicios_exercicio
+		summarizeBy: none
 
 	column mandato_titular_descricao_participacao
 		dataType: string
-		summarizeBy: none
 		sourceColumn: mandato_titular_descricao_participacao
+		summarizeBy: none
 
 	column mandato_titular_codigo_parlamentar
 		dataType: string
-		summarizeBy: none
 		sourceColumn: mandato_titular_codigo_parlamentar
+		summarizeBy: none
 
 	column mandato_titular_nome_parlamentar
 		dataType: string
-		summarizeBy: none
 		sourceColumn: mandato_titular_nome_parlamentar
+		summarizeBy: none
 
 	column identificacao_parlamentar_url_pagina_particular
 		dataType: string
-		summarizeBy: none
 		sourceColumn: identificacao_parlamentar_url_pagina_particular
+		summarizeBy: none
 
 	column linha_origem
 		dataType: int64
-		summarizeBy: none
 		sourceColumn: linha_origem
+		summarizeBy: none
 
 	partition senado_dim_senadores_base = m
 		mode: import
 		source =
-				let
-					Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\senado_federal\senado_dim_senadores_base.parquet"))
-				in
-					Source
+			let
+				Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\senado_federal\senado_dim_senadores_base.parquet"))
+			in
+				Source
 
 	annotation PBI_ResultType = Table
-

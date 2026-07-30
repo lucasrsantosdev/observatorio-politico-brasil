@@ -1,56 +1,97 @@
 relationship 2c901e30-043c-5097-9973-0c63c6a4a227
+	fromCardinality: many
+	toCardinality: one
 	fromColumn: senado_fato_gastos_senadores.cod_senador
 	toColumn: senado_dim_senador.id_senador
+	crossFilteringBehavior: oneDirection
 
 relationship 0be65250-5b9e-5bf9-8e09-c95bcbf0acfd
+	fromCardinality: many
+	toCardinality: one
 	fromColumn: senado_fato_votos.codigo_parlamentar
 	toColumn: senado_dim_senador.id_senador
+	crossFilteringBehavior: oneDirection
 
 relationship a24ba5b4-80a7-5563-9f09-b6f897c20711
+	fromCardinality: many
+	toCardinality: one
 	fromColumn: senado_fato_votacoes.codigo_materia
 	toColumn: senado_dim_materia.id_materia
+	crossFilteringBehavior: oneDirection
 
 relationship 0a20d73a-b21c-5af7-b03e-51cd075b6a9d
+	fromCardinality: many
+	toCardinality: one
 	fromColumn: senado_fato_votos.codigo_materia
 	toColumn: senado_dim_materia.id_materia
+	crossFilteringBehavior: oneDirection
 
 relationship 444540c5-bf44-5a60-a09a-660692512d28
+	fromCardinality: many
+	toCardinality: one
 	fromColumn: senado_fato_gastos_senadores.data_referencia
 	toColumn: senado_dim_tempo.data
+	crossFilteringBehavior: oneDirection
 
 relationship 4b7c6e6e-c4fa-537e-928f-b96cb62a4f6a
+	fromCardinality: many
+	toCardinality: one
 	fromColumn: senado_fato_votacoes.data_sessao
 	toColumn: senado_dim_tempo.data
+	crossFilteringBehavior: oneDirection
 
 relationship d5e6cc22-abda-5117-98b4-905fa7d8150b
+	fromCardinality: many
+	toCardinality: one
 	fromColumn: senado_fato_votos.data_sessao
 	toColumn: senado_dim_tempo.data
+	crossFilteringBehavior: oneDirection
 
 relationship d522bb7c-91d8-5617-bfcd-91309b623164
+	fromCardinality: many
+	toCardinality: one
 	fromColumn: senado_fato_materias.data
 	toColumn: senado_dim_tempo.data
+	crossFilteringBehavior: oneDirection
 
 relationship c456c99a-e1c1-5900-adc3-18ddfe31554e
+	fromCardinality: many
+	toCardinality: one
 	fromColumn: senado_fato_gastos_senadores.tipo_despesa
 	toColumn: senado_dim_tipo_despesa.tipo_despesa
+	crossFilteringBehavior: oneDirection
 
 relationship 9ce0944d-b4c6-58a1-831b-ebb872d495e2
+	fromCardinality: many
+	toCardinality: one
 	fromColumn: senado_fato_materias.sigla
 	toColumn: senado_dim_tipo_materia.sigla_tipo_materia
+	crossFilteringBehavior: oneDirection
 
 relationship 0b00c268-80a4-5dfa-8c97-1338e84e2504
+	fromCardinality: many
+	toCardinality: one
 	fromColumn: senado_fato_votacoes.resultado_votacao_normalizado
 	toColumn: senado_dim_resultado_votacao.resultado_normalizado
+	crossFilteringBehavior: oneDirection
 
 relationship f03186b0-fea6-57ab-8e09-1993001be36b
+	fromCardinality: many
+	toCardinality: one
 	fromColumn: senado_fato_votos.sigla_partido_parlamentar
 	toColumn: senado_dim_partido.sigla_partido
+	crossFilteringBehavior: oneDirection
 
 relationship 010a36d2-917a-5a00-973b-1ee4f0ab7153
+	fromCardinality: many
+	toCardinality: one
 	fromColumn: senado_fato_votos.sigla_uf_parlamentar
 	toColumn: senado_dim_uf.sigla_uf
+	crossFilteringBehavior: oneDirection
 
 relationship b48f445e-9687-5f42-a0af-06cfb297d63f
+	fromCardinality: many
+	toCardinality: one
 	fromColumn: senado_fato_votos.sigla_voto_parlamentar
 	toColumn: senado_dim_tipo_voto.descricao_voto_original
-
+	crossFilteringBehavior: oneDirection

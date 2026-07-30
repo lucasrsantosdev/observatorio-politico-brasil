@@ -2,146 +2,145 @@ table senado_fato_gastos_senadores
 
 	column chave_registro
 		dataType: string
-		summarizeBy: none
 		sourceColumn: chave_registro
+		summarizeBy: none
 
 	column hash_registro
 		dataType: string
-		summarizeBy: none
 		sourceColumn: hash_registro
+		summarizeBy: none
 
 	column dataset
 		dataType: string
-		summarizeBy: none
 		sourceColumn: dataset
+		summarizeBy: none
 
 	column id
 		dataType: int64
-		summarizeBy: none
 		sourceColumn: id
+		summarizeBy: none
 
 	column tipo_documento
 		dataType: string
-		summarizeBy: none
 		sourceColumn: tipo_documento
+		summarizeBy: none
 
 	column ano
 		dataType: int64
-		summarizeBy: none
 		sourceColumn: ano
+		summarizeBy: none
 
 	column mes
 		dataType: int64
-		summarizeBy: none
 		sourceColumn: mes
+		summarizeBy: none
 
 	column cod_senador
 		dataType: int64
-		summarizeBy: none
 		sourceColumn: cod_senador
+		summarizeBy: none
 
 	column nome_senador
 		dataType: string
-		summarizeBy: none
 		sourceColumn: nome_senador
+		summarizeBy: none
 
 	column tipo_despesa
 		dataType: string
-		summarizeBy: none
 		sourceColumn: tipo_despesa
+		summarizeBy: none
 
 	column cpf_cnpj_fornecedor
 		dataType: string
-		summarizeBy: none
 		sourceColumn: cpf_cnpj_fornecedor
+		summarizeBy: none
 
 	column nome_fornecedor
 		dataType: string
-		summarizeBy: none
 		sourceColumn: nome_fornecedor
+		summarizeBy: none
 
 	column documento
 		dataType: string
-		summarizeBy: none
 		sourceColumn: documento
+		summarizeBy: none
 
 	column data
 		dataType: dateTime
-		formatString: Short Date
-		summarizeBy: none
 		sourceColumn: data
+		summarizeBy: none
+		formatString: Short Date
 
 	column detalhamento
 		dataType: string
-		summarizeBy: none
 		sourceColumn: detalhamento
+		summarizeBy: none
 
 	column valor_reembolsado
 		dataType: double
-		formatString: R$ #,0.00;-R$ #,0.00;R$ #,0.00
-		summarizeBy: none
 		sourceColumn: valor_reembolsado
+		summarizeBy: none
+		formatString: R$ #,0.00;-R$ #,0.00;R$ #,0.00
 
 	column linha_origem
 		dataType: int64
-		summarizeBy: none
 		sourceColumn: linha_origem
+		summarizeBy: none
 
 	column data_documento_original
 		dataType: dateTime
-		formatString: Short Date
-		summarizeBy: none
 		sourceColumn: data_documento_original
+		summarizeBy: none
+		formatString: Short Date
 
 	column data_referencia
 		dataType: dateTime
-		formatString: Short Date
-		summarizeBy: none
 		sourceColumn: data_referencia
+		summarizeBy: none
+		formatString: Short Date
 
 	column data_referencia_ajustada
 		dataType: boolean
-		summarizeBy: none
 		sourceColumn: data_referencia_ajustada
+		summarizeBy: none
 
 	column id_gasto
 		dataType: int64
-		summarizeBy: none
 		sourceColumn: id_gasto
+		summarizeBy: none
 
 	column ano_gasto
 		dataType: int64
-		summarizeBy: none
 		sourceColumn: ano_gasto
+		summarizeBy: none
 
 	column mes_gasto
 		dataType: int64
-		summarizeBy: none
 		sourceColumn: mes_gasto
+		summarizeBy: none
 
 	column periodo_gasto
 		dataType: string
-		summarizeBy: none
 		sourceColumn: periodo_gasto
+		summarizeBy: none
 
 	column cpf_cnpj_fornecedor_normalizado
 		dataType: string
-		summarizeBy: none
 		sourceColumn: cpf_cnpj_fornecedor_normalizado
+		summarizeBy: none
 
 	column valor_gasto
 		dataType: double
-		formatString: R$ #,0.00;-R$ #,0.00;R$ #,0.00
-		summarizeBy: none
 		sourceColumn: valor_gasto
+		summarizeBy: none
+		formatString: R$ #,0.00;-R$ #,0.00;R$ #,0.00
 
 	partition senado_fato_gastos_senadores = m
 		mode: import
 		source =
-				let
-					Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\senado_federal\senado_fato_gastos_senadores.parquet"))
-				in
-					Source
+			let
+				Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\senado_federal\senado_fato_gastos_senadores.parquet"))
+			in
+				Source
 
 	annotation PBI_ResultType = Table
-
