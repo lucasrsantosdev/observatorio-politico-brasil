@@ -1,472 +1,524 @@
 ﻿<div align="center">
 
-🇧🇷 Observatório Político Brasil
+<br>
 
-Engenharia de dados aplicada à transparência pública
+# 🏛️ Observatório Político Brasil
 
-Plataforma open source para coleta, organização, validação e análise de dados públicos oficiais, com pipelines reproduzíveis, arquitetura medalhão e modelo analítico versionável no Power BI.
+### Engenharia de dados aplicada à transparência pública brasileira
 
+Plataforma open source para **coletar, organizar, validar e analisar dados públicos oficiais**, utilizando pipelines reproduzíveis, arquitetura medalhão, controle de qualidade e modelo semântico versionável no Power BI.
 
+<br>
 
-Portal da Transparência • Câmara dos Deputados • Senado Federal
+![Python](https://img.shields.io/badge/Python-3.12%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![uv](https://img.shields.io/badge/uv-Dependências-DE5FE9?style=for-the-badge)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Analítico-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
+![Power BI](https://img.shields.io/badge/Power%20BI-PBIP-F2C811?style=for-the-badge&logo=powerbi&logoColor=black)
+
+![Parquet](https://img.shields.io/badge/Apache%20Parquet-Armazenamento-50ABF1?style=flat-square&logo=apacheparquet&logoColor=white)
+![Architecture](https://img.shields.io/badge/Arquitetura-Medalhão-8A2BE2?style=flat-square)
+![Open Source](https://img.shields.io/badge/Projeto-Open%20Source-2EA44F?style=flat-square)
+![License](https://img.shields.io/badge/Licença-MIT-2EA44F?style=flat-square)
+
+<br>
+
+**Portal da Transparência** · **Câmara dos Deputados** · **Senado Federal**
+
+<br>
+
+[Visão geral](#-visão-geral) ·
+[Arquitetura](#-arquitetura-da-plataforma) ·
+[Domínios](#-fontes-e-domínios) ·
+[Execução](#-execução-dos-pipelines) ·
+[Power BI](#-power-bi) ·
+[Contribuição](#-contribuição)
+
+<br>
 
 </div>
 
-Sumário
+---
 
-Visão geral
+## 📌 Visão geral
 
-Princípios do projeto
+<table>
+<tr>
+<td width="68%">
 
-Arquitetura
+O **Observatório Político Brasil** é uma plataforma de engenharia de dados criada para consolidar informações públicas provenientes de fontes oficiais do Governo Federal e do Poder Legislativo.
 
-Fontes e domínios
+Os dados são coletados, preservados, padronizados, validados e transformados em estruturas analíticas preparadas para consumo por meio de:
 
-Status
+- Power BI;
+- consultas SQL;
+- arquivos Parquet;
+- arquivos CSV;
+- aplicações analíticas;
+- pesquisas e auditorias independentes.
 
-Tecnologias
+</td>
+<td width="32%" align="center">
 
-Estrutura do repositório
+### 🎯 Propósito
 
-Configuração do ambiente
+Transformar dados públicos dispersos em informações:
 
-Execução dos pipelines
+**estruturadas**
 
-Qualidade e rastreabilidade
+**rastreáveis**
 
-Power BI
+**auditáveis**
 
-Segurança
+**reproduzíveis**
 
-Contribuição
+</td>
+</tr>
+</table>
 
-Solicitação de dados ausentes
+### Objetivos do projeto
 
-Licença
+| Objetivo | Aplicação prática |
+|---|---|
+| **Centralizar fontes oficiais** | Integrar dados de diferentes órgãos em uma estrutura padronizada |
+| **Preservar a origem** | Manter arquivos brutos e manifestos de execução |
+| **Garantir rastreabilidade** | Registrar origem, período, execução e regras de transformação |
+| **Produzir dados analíticos** | Construir fatos, dimensões, rankings e relacionamentos |
+| **Permitir auditoria** | Disponibilizar reconciliações e validações entre camadas |
+| **Apoiar o controle social** | Facilitar a exploração de dados públicos por qualquer interessado |
 
-Visão geral
+> [!IMPORTANT]
+> O projeto possui caráter técnico, informativo e apartidário.  
+> Os indicadores são construídos a partir de dados oficiais e não representam apoio, oposição ou preferência por partidos, parlamentares, candidatos ou instituições.
 
-O Observatório Político Brasil é um projeto de engenharia de dados voltado à consolidação de informações públicas provenientes de fontes oficiais do Governo Federal e do Poder Legislativo.
+---
 
-A plataforma transforma arquivos e respostas de APIs em conjuntos de dados analíticos organizados, validados e preparados para exploração no Power BI, em consultas SQL ou em outras ferramentas de análise.
+## 🧭 Princípios de engenharia
 
-O projeto foi estruturado para permitir:
+| Princípio | Como é aplicado |
+|:---:|---|
+| 🏛️ **Fonte oficial** | Dados obtidos diretamente de APIs, arquivos e portais institucionais |
+| 🔁 **Reprodutibilidade** | Pipelines executáveis a partir do código e das configurações versionadas |
+| 🔎 **Rastreabilidade** | Manifestos, partições, logs e identificadores de execução |
+| ✅ **Qualidade** | Validações técnicas e regras de consistência entre camadas |
+| ⚖️ **Neutralidade** | Apresentação dos dados sem orientação político-partidária |
+| 🔐 **Segurança** | Credenciais e informações sensíveis fora do controle de versão |
+| 📚 **Documentação** | Regras de negócio e fontes documentadas junto ao código |
+| 🧩 **Modularidade** | Pipelines separados por fonte, domínio e responsabilidade |
 
-reprodução integral dos pipelines;
+---
 
-rastreabilidade entre origem, transformação e resultado;
+## 🏗️ Arquitetura da plataforma
 
-auditoria das regras de negócio;
+```mermaid
+flowchart TB
+    subgraph FONTES["🏛️ FONTES OFICIAIS"]
+        PT["Portal da Transparência"]
+        CD["Câmara dos Deputados"]
+        SF["Senado Federal"]
+    end
 
-versionamento do modelo semântico e do relatório;
+    subgraph INGESTAO["📥 INGESTÃO"]
+        API["APIs REST"]
+        ARQ["Arquivos públicos<br/>CSV · JSON · ZIP"]
+    end
 
-evolução colaborativa por meio de código aberto;
+    subgraph MEDALHAO["🏅 ARQUITETURA MEDALHÃO"]
+        BRONZE["🥉 BRONZE<br/>Dados brutos e manifestos"]
+        SILVER["🥈 SILVER<br/>Padronização e qualidade"]
+        GOLD["🥇 GOLD<br/>Modelo analítico"]
+    end
 
-neutralidade política na apresentação dos dados.
+    subgraph CONTROLE["🛡️ CONTROLE E AUDITORIA"]
+        QUALITY["Quality checks"]
+        RECON["Reconciliação"]
+        LOGS["Logs e manifestos"]
+        REJECTED["Dados rejeitados"]
+    end
 
-[!IMPORTANT]O projeto organiza dados oficiais para fins de análise, pesquisa e controle social.Ele não representa, endossa ou classifica partidos, candidatos, parlamentares ou instituições com base em preferência política.
+    subgraph CONSUMO["📊 CAMADA DE CONSUMO"]
+        PARQUET["Parquet / CSV"]
+        POSTGRES[("PostgreSQL")]
+        PBI["Power BI<br/>PBIP + TMDL"]
+    end
 
-Princípios do projeto
+    PT --> API
+    CD --> API
+    SF --> API
 
-Princípio
+    PT --> ARQ
+    CD --> ARQ
+    SF --> ARQ
 
-Aplicação
+    API --> BRONZE
+    ARQ --> BRONZE
 
-Fonte oficial
+    BRONZE --> SILVER
+    SILVER --> GOLD
 
-Dados obtidos diretamente de APIs, arquivos e portais institucionais
+    BRONZE -.-> LOGS
+    SILVER -.-> QUALITY
+    SILVER -.-> REJECTED
+    GOLD -.-> RECON
 
-Reprodutibilidade
+    GOLD --> PARQUET
+    GOLD --> POSTGRES
 
-Pipelines executáveis localmente a partir do código versionado
+    PARQUET --> PBI
+    POSTGRES --> PBI
+```
 
-Rastreabilidade
+### Fluxo de processamento
 
-Manifestos de execução, partições por período e registros de reconciliação
+| Etapa | Entrada | Responsabilidade | Saída |
+|---:|---|---|---|
+| **1. Extração** | APIs e arquivos oficiais | Obter os dados das fontes institucionais | Respostas JSON, CSV e arquivos compactados |
+| **2. Bronze** | Dados originais | Preservar o conteúdo com máxima fidelidade | Dados brutos particionados e manifestos |
+| **3. Silver** | Dados brutos | Limpar, tipar, normalizar e validar | Dados padronizados |
+| **4. Gold** | Dados padronizados | Construir o modelo analítico | Fatos, dimensões, rankings e resumos |
+| **5. Qualidade** | Todas as camadas | Validar contagens, chaves e consistência | Relatórios e reconciliações |
+| **6. Publicação** | Camada Gold | Preparar dados para análise | PostgreSQL, Parquet, CSV e Power BI |
 
-Qualidade
+---
 
-Validações entre as camadas Bronze, Silver e Gold
+## 🏅 Arquitetura medalhão
 
-Transparência
+<table>
+<tr>
+<td width="33%" valign="top">
 
-Regras de transformação documentadas e resultados auditáveis
+### 🥉 Bronze
 
-Neutralidade
+**Ingestão e preservação**
 
-Indicadores construídos sem orientação político-partidária
+Mantém os dados com o maior nível possível de fidelidade à origem.
 
-Segurança
+- arquivos originais;
+- respostas de APIs;
+- arquivos ZIP;
+- partições temporais;
+- manifestos de execução;
+- possibilidade de reprocessamento.
 
-Segredos e credenciais mantidos fora do controle de versão
+</td>
+<td width="33%" valign="top">
 
-Arquitetura
+### 🥈 Silver
+
+**Padronização e qualidade**
+
+Aplica as transformações técnicas necessárias para tornar os dados consistentes.
+
+- normalização de colunas;
+- conversão de tipos;
+- tratamento de nulos;
+- remoção de duplicidades;
+- padronização de chaves;
+- controle de rejeições.
 
-flowchart LR
-    A1[Portal da Transparência]
-    A2[Câmara dos Deputados]
-    A3[Senado Federal]
+</td>
+<td width="33%" valign="top">
 
-    A1 --> B[Bronze<br/>dados brutos]
-    A2 --> B
-    A3 --> B
+### 🥇 Gold
 
-    B --> C[Silver<br/>padronização e qualidade]
-    C --> D[Gold<br/>modelo analítico]
+**Modelo analítico**
 
-    D --> E1[(PostgreSQL)]
-    D --> E2[Parquet / CSV]
-    E1 --> F[Power BI]
-    E2 --> F
+Disponibiliza estruturas preparadas para análise e visualização.
 
-    C -. validações .-> Q[Quality]
-    D -. reconciliações .-> R[Reconciliation]
-
-Arquitetura medalhão
-
-🥉 Bronze — ingestão e preservação
-
-A camada Bronze mantém os dados com o maior nível possível de fidelidade à origem.
-
-Características:
-
-arquivos originais de APIs e downloads;
-
-particionamento por ano, mês, dia ou execução;
-
-manifestos com informações da carga;
-
-preservação de arquivos compactados quando aplicável;
-
-possibilidade de reprocessamento sem nova consulta à origem.
-
-🥈 Silver — padronização e qualidade
-
-A camada Silver concentra as transformações técnicas necessárias para tornar os dados consistentes.
-
-Exemplos:
-
-normalização de nomes e tipos;
-
-conversão de datas e valores monetários;
-
-tratamento de nulos e duplicidades;
-
-padronização de identificadores;
-
-consolidação de múltiplas partições;
-
-geração de relatórios de qualidade.
-
-🥇 Gold — modelo analítico
-
-A camada Gold disponibiliza estruturas prontas para consumo analítico.
-
-Exemplos:
-
-tabelas fato e dimensão;
-
-rankings descritivos;
-
-resumos mensais e anuais;
-
-tabelas de relacionamento;
-
-reconciliações entre camadas;
-
-arquivos Parquet e CSV para consumo externo.
-
-Fontes e domínios
-
-Fonte
-
-Domínios atualmente contemplados
-
-Portal da Transparência
-
-Emendas, favorecidos, convênios, contratos, licitações e órgãos SIAFI
-
-Câmara dos Deputados
-
-Gastos parlamentares, proposições, autores, temas, votações, orientações e votos
-
-Senado Federal
-
-Senadores, CEAPS, matérias, votações, fornecedores e empresas contratadas
-
-Principais análises
-
-Domínio
-
-Exemplos de produtos analíticos
-
-Emendas parlamentares
-
-Valores empenhados, liquidados, pagos, favorecidos e distribuição territorial
-
-Convênios
-
-Convenentes, funções, localidades e relacionamento com emendas
-
-Contratos
-
-Contratados, órgãos, itens, termos aditivos e variações contratuais
-
-Licitações
-
-Órgãos, fornecedores, modalidades, participantes e itens
-
-Câmara dos Deputados
-
-Gastos, fornecedores, partidos, tipos de despesa, proposições e votos
-
-Senado Federal
-
-Despesas CEAPS, fornecedores, matérias, votações e atividade parlamentar
-
-Status
-
-Área
-
-Situação
-
-Emendas
-
-✅ Pipeline implementado
-
-Favorecidos
-
-✅ Pipeline implementado
-
-Convênios
-
-✅ Pipeline implementado
-
-Contratos
-
-✅ Pipeline implementado
-
-Licitações
-
-✅ Pipeline implementado
-
-Gastos dos deputados
-
-✅ Pipeline implementado
-
-Proposições e votações da Câmara
-
-✅ Publicado para consumo analítico
-
-Atividade e gastos do Senado
-
-✅ Publicado para consumo analítico
-
-Projeto Power BI no formato PBIP
-
-✅ Versionado
-
-Modelo semântico
-
-🟡 Em evolução
-
-Páginas e dashboards finais
-
-🟡 Em desenvolvimento
-
-Tecnologias
-
-Categoria
-
-Tecnologias
-
-Linguagem
-
-Python
-
-Gerenciamento do projeto
-
-uv, pyproject.toml
-
-Processamento
-
-Polars e bibliotecas do ecossistema Python
-
-Persistência analítica
-
-PostgreSQL
-
-Formatos
-
-Parquet, CSV e JSON
-
-Integração
-
-APIs REST e arquivos públicos
-
-Qualidade
-
-Validações, manifestos e reconciliações
-
-Visualização
-
-Power BI Desktop
-
-Versionamento BI
-
-Power BI Project (.pbip) e TMDL
-
-Controle de versão
-
-Git e GitHub
-
-Estrutura do repositório
-
-A estrutura abaixo apresenta uma visão lógica e reduzida do projeto. Pastas particionadas por ano, mês e execução foram omitidas para manter a documentação legível.
-
+- tabelas fato;
+- dimensões;
+- rankings;
+- resumos periódicos;
+- relacionamentos;
+- reconciliações.
+
+</td>
+</tr>
+</table>
+
+---
+
+## 🏛️ Fontes e domínios
+
+### Portal da Transparência
+
+| Domínio | Conteúdo |
+|---|---|
+| **Emendas parlamentares** | Valores empenhados, liquidados, pagos e restos a pagar |
+| **Favorecidos** | Pessoas e empresas beneficiárias de recursos |
+| **Convênios** | Convenentes, objetos, valores, funções e localidades |
+| **Contratos** | Contratados, órgãos, itens, vigência e alterações |
+| **Licitações** | Modalidades, participantes, itens e empenhos relacionados |
+| **Órgãos SIAFI** | Estrutura dos órgãos e unidades governamentais |
+
+### Câmara dos Deputados
+
+| Domínio | Conteúdo |
+|---|---|
+| **Gastos parlamentares** | Despesas, fornecedores, partidos, estados e tipos de despesa |
+| **Proposições** | Projetos, autores, temas, órgãos e tramitação |
+| **Votações** | Resultados, orientações, objetos e proposições relacionadas |
+| **Votos** | Posicionamento individual dos deputados |
+| **Rankings descritivos** | Gastos, fornecedores, temas, autores e participação |
+
+### Senado Federal
+
+| Domínio | Conteúdo |
+|---|---|
+| **Senadores** | Cadastro e composição atual |
+| **CEAPS** | Despesas dos senadores |
+| **Empresas contratadas** | Fornecedores e prestadores |
+| **Matérias legislativas** | Proposições e atividades legislativas |
+| **Votações** | Registros de votações do Senado |
+
+---
+
+## 📊 Produtos analíticos
+
+| Domínio | Fatos e relacionamentos | Rankings e resumos |
+|---|---|---|
+| **Emendas** | Fato de emendas, favorecidos e distribuição territorial | Autores, funções, municípios e UFs |
+| **Convênios** | Fato de convênios e relacionamento emenda-convênio | Convenentes, funções e localidades |
+| **Contratos** | Contratos, itens, termos e relacionamento órgão-contratado | Contratados, órgãos e variações |
+| **Licitações** | Licitações, itens, participantes e empenhos | Órgãos, fornecedores e modalidades |
+| **Gastos dos deputados** | Fato de gastos parlamentares | Deputados, partidos, fornecedores e despesas |
+| **Proposições e votações** | Fatos de proposições, votações e votos | Autores, temas, partidos e deputados |
+| **Senado Federal** | Despesas, matérias e votações | Senadores, fornecedores e atividade |
+
+---
+
+## 🚦 Status do projeto
+
+| Componente | Estado | Observação |
+|---|:---:|---|
+| Emendas parlamentares | ✅ | Pipeline implementado |
+| Favorecidos | ✅ | Pipeline implementado |
+| Convênios | ✅ | Pipeline implementado |
+| Contratos | ✅ | Pipeline implementado |
+| Licitações | ✅ | Pipeline implementado |
+| Gastos dos deputados | ✅ | Pipeline implementado |
+| Proposições da Câmara | ✅ | Disponível para consumo analítico |
+| Votações da Câmara | ✅ | Disponível para consumo analítico |
+| Dados do Senado | ✅ | Disponível para consumo analítico |
+| Manifestos de execução | ✅ | Implementados nos principais pipelines |
+| Reconciliações | ✅ | Disponíveis nos domínios analíticos |
+| Projeto Power BI PBIP | ✅ | Versionado no Git |
+| Modelo semântico | 🟡 | Em evolução |
+| Páginas executivas | 🟡 | Em desenvolvimento |
+| Automação completa | 🔵 | Planejada |
+
+**Legenda:** ✅ concluído · 🟡 em evolução · 🔵 planejado
+
+---
+
+## 🧰 Stack tecnológica
+
+<div align="center">
+
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Polars](https://img.shields.io/badge/Polars-CD792C?style=for-the-badge&logo=polars&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
+![Power BI](https://img.shields.io/badge/Power%20BI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black)
+![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
+![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
+
+</div>
+
+| Categoria | Tecnologias e padrões |
+|---|---|
+| **Linguagem** | Python |
+| **Dependências** | uv e `pyproject.toml` |
+| **Processamento** | Polars e bibliotecas do ecossistema Python |
+| **Integração** | APIs REST e arquivos públicos |
+| **Armazenamento** | Parquet, CSV e JSON |
+| **Persistência** | PostgreSQL |
+| **Visualização** | Power BI Desktop |
+| **Modelo semântico** | PBIP e TMDL |
+| **Qualidade** | Manifestos, validações e reconciliações |
+| **Testes** | pytest |
+| **Qualidade de código** | Ruff e mypy |
+| **Versionamento** | Git e GitHub |
+
+---
+
+## 📁 Estrutura do repositório
+
+Em vez de apresentar uma árvore extensa e difícil de ler, a estrutura principal é documentada por responsabilidade.
+
+| Diretório ou arquivo | Responsabilidade |
+|---|---|
+| `src/` | Código-fonte dos pipelines e regras de transformação |
+| `scripts/` | Scripts operacionais, publicações e geração do modelo semântico |
+| `tests/` | Testes automatizados |
+| `sql/` | Scripts SQL e objetos de banco |
+| `data/bronze/` | Dados brutos preservados |
+| `data/silver/` | Dados normalizados e validados |
+| `data/gold/` | Modelo analítico e produtos de consumo |
+| `data/rejected/` | Registros rejeitados pelas validações |
+| `output/power_bi/` | Arquivos publicados para consumo no Power BI |
+| `output/auditoria/` | Evidências e resultados de auditoria |
+| `docs/` | Documentação técnica e funcional |
+| `logs/` | Logs locais de execução |
+| `powerbi/` | Configurações e recursos auxiliares do Power BI |
+| `painel_portal_transparencia.Report/` | Definição versionável do relatório |
+| `painel_portal_transparencia.SemanticModel/` | Modelo semântico, medidas e relacionamentos |
+| `painel_portal_transparencia.pbip` | Arquivo de abertura do projeto Power BI |
+| `pyproject.toml` | Dependências e configuração do projeto Python |
+| `uv.lock` | Lock file das dependências |
+| `exemple_env.txt` | Exemplo das variáveis de ambiente |
+
+<details>
+<summary><strong>📂 Visualizar estrutura lógica resumida</strong></summary>
+
+<br>
+
+```text
 observatorio-politico-brasil/
+│
+├── src/                              # Código-fonte
+├── scripts/                          # Scripts operacionais
+├── tests/                            # Testes automatizados
+├── sql/                              # Scripts SQL
+├── docs/                             # Documentação
+├── logs/                             # Logs locais
+│
 ├── data/
 │   ├── bronze/
-│   │   ├── camara_deputados/
-│   │   │   ├── gastos_deputados/
-│   │   │   └── proposicoes_votacoes/
 │   │   ├── portal_transparencia/
-│   │   │   ├── contratos/
-│   │   │   ├── emendas/
-│   │   │   ├── emendas_historico/
-│   │   │   ├── emendas_convenios_historico/
-│   │   │   ├── emendas_favorecidos_historico/
-│   │   │   ├── licitacoes/
-│   │   │   └── orgaos_siafi/
+│   │   ├── camara_deputados/
 │   │   └── senado_federal/
+│   │
 │   ├── silver/
-│   │   ├── camara_deputados/
 │   │   ├── portal_transparencia/
+│   │   ├── camara_deputados/
 │   │   └── senado_federal/
+│   │
 │   ├── gold/
-│   │   ├── camara_deputados/
 │   │   ├── portal_transparencia/
+│   │   ├── camara_deputados/
 │   │   └── senado_federal/
+│   │
 │   └── rejected/
-├── docs/
-├── logs/
+│
 ├── output/
+│   ├── power_bi/
 │   ├── auditoria/
-│   ├── backup_modelo_semantico/
-│   └── power_bi/
+│   └── backup_modelo_semantico/
+│
 ├── painel_portal_transparencia.Report/
 ├── painel_portal_transparencia.SemanticModel/
-│   └── definition/
-│       ├── cultures/
-│       ├── tables/
-│       ├── database.tmdl
-│       ├── model.tmdl
-│       └── relationships.tmdl
-├── powerbi/
-├── scripts/
-├── sql/
-├── src/
-├── tests/
-├── exemple_env.txt
 ├── painel_portal_transparencia.pbip
+│
 ├── pyproject.toml
 ├── uv.lock
+├── exemple_env.txt
 └── README.md
+```
 
-Organização dos dados
+</details>
 
-Os dados seguem convenções de particionamento que facilitam reprocessamento, auditoria e leitura seletiva.
+### Convenção de armazenamento
 
-data/bronze/<fonte>/<dominio>/ano=<AAAA>/mes=<MM>/execucao=<TIMESTAMP>/
-data/silver/<fonte>/<dominio>/periodo=<INTERVALO>/
-data/gold/<fonte>/<dominio>/periodo=<INTERVALO>/
+| Camada | Padrão lógico |
+|---|---|
+| Bronze | `data/bronze/<fonte>/<dominio>/<particoes>/` |
+| Silver | `data/silver/<fonte>/<dominio>/<periodo>/` |
+| Gold | `data/gold/<fonte>/<dominio>/<periodo>/` |
+| Rejeitados | `data/rejected/<fonte>/<dominio>/` |
+| Power BI | `output/power_bi/<dominio>/` |
 
-As estruturas Gold incluem, conforme o domínio:
+Exemplo de particionamento:
 
-dimensions/
-fato_*/
-ranking_*/
-relacionamento_*/
-resumo_*/
-quality/
-reconciliation/
+```text
+data/
+└── bronze/
+    └── portal_transparencia/
+        └── contratos/
+            └── ano=2026/
+                └── mes=07/
+                    └── execucao=20260729T220000Z/
+```
 
-Configuração do ambiente
+---
 
-Pré-requisitos
+## ⚙️ Configuração do ambiente
 
-Git;
+### Pré-requisitos
 
-Python compatível com o pyproject.toml;
+| Requisito | Finalidade |
+|---|---|
+| **Git** | Clonar e versionar o projeto |
+| **Python** | Executar os pipelines |
+| **uv** | Gerenciar dependências e ambiente virtual |
+| **Power BI Desktop** | Abrir e editar o projeto PBIP |
+| **PostgreSQL** | Persistência analítica, quando habilitada |
+| **Conta Gov.br** | Gerar a chave da API do Portal da Transparência |
 
-uv;
+### 1. Clonar o projeto
 
-Power BI Desktop, apenas para uso do relatório;
-
-PostgreSQL, quando a persistência em banco estiver habilitada;
-
-conta Gov.br apta a gerar a chave da API do Portal da Transparência.
-
-1. Clonar o repositório
-
+```bash
 git clone <URL_DO_REPOSITORIO>
 cd observatorio-politico-brasil
+```
 
-2. Instalar as dependências
+### 2. Instalar as dependências
 
+```bash
 uv sync
+```
 
-3. Criar o arquivo de ambiente
+### 3. Criar o arquivo `.env`
 
-PowerShell — Windows
+#### Windows — PowerShell
 
+```powershell
 Copy-Item .\exemple_env.txt .\.env
+```
 
-Linux ou macOS
+#### Linux ou macOS
 
+```bash
 cp exemple_env.txt .env
+```
 
-[!WARNING]O arquivo .env contém configurações locais e possíveis credenciais.Ele nunca deve ser enviado ao GitHub.
+> [!WARNING]
+> O arquivo `.env` deve permanecer apenas na máquina do colaborador.  
+> Nunca envie esse arquivo ao GitHub.
 
-Confirme que o .gitignore contém:
+Confirme que o `.gitignore` contém:
 
+```gitignore
 .env
 .env.*
 !.env.example
+```
 
-4. Gerar a chave do Portal da Transparência
+---
 
-Cada colaborador deve gerar sua própria chave:
+## 🔑 Chave da API do Portal da Transparência
 
-Cadastro de acesso à API
+Cada colaborador deve gerar sua própria chave de acesso.
 
-Documentação Swagger
+| Recurso | Endereço |
+|---|---|
+| Gerar chave | [Cadastro da API](https://portaldatransparencia.gov.br/api-de-dados/cadastrar-email) |
+| Swagger | [Documentação técnica](https://api.portaldatransparencia.gov.br/) |
+| Informações gerais | [API de Dados](https://portaldatransparencia.gov.br/api-de-dados) |
 
-Informações gerais da API
+### Procedimento
 
-Fluxo recomendado:
+1. Acesse a página de cadastro.
+2. Autentique-se utilizando sua conta Gov.br.
+3. Conclua os requisitos de segurança solicitados.
+4. Aguarde o recebimento da chave no e-mail cadastrado.
+5. Adicione a chave ao arquivo `.env`.
 
-Acesse a página de cadastro.
-
-Autentique-se com sua conta Gov.br.
-
-Conclua os requisitos de segurança solicitados.
-
-Aguarde o recebimento da chave no e-mail vinculado à conta.
-
-Grave a chave exclusivamente no arquivo .env.
-
-Exemplo:
-
+```env
 PORTAL_TRANSPARENCIA_API_KEY=sua_chave_aqui
+```
 
-Nunca grave credenciais diretamente no código:
+### Uso correto
 
-# Incorreto
-API_KEY = "chave-real"
-
-Utilize variáveis de ambiente:
-
+```python
 import os
 
 api_key = os.getenv("PORTAL_TRANSPARENCIA_API_KEY")
@@ -475,52 +527,85 @@ if not api_key:
     raise RuntimeError(
         "A variável PORTAL_TRANSPARENCIA_API_KEY não foi configurada."
     )
+```
 
-Execução dos pipelines
+### Uso incorreto
 
-Consulte os comandos disponíveis na CLI antes de executar uma carga:
+```python
+# Nunca faça isso
+API_KEY = "minha-chave-real"
+```
 
+---
+
+## ▶️ Execução dos pipelines
+
+### Consultar os comandos disponíveis
+
+```bash
 uv run python -m observatorio_politico.main --help
+```
 
-Exemplo: Senado Federal
+### Pipeline do Senado Federal
 
+| Etapa | Comando |
+|---|---|
+| Bronze | `uv run python -m observatorio_politico.main senado-bronze` |
+| Silver | `uv run python -m observatorio_politico.main senado-silver` |
+| Gold | `uv run python -m observatorio_politico.main senado-gold` |
+| Qualidade | `uv run python -m observatorio_politico.main senado-quality` |
+| Dimensões | `uv run python -m observatorio_politico.main senado-dimensions` |
+| Publicação Power BI | `uv run python .\scripts\publicar_senado_power_bi.py` |
+
+Ou execute individualmente:
+
+```powershell
 uv run python -m observatorio_politico.main senado-bronze
 uv run python -m observatorio_politico.main senado-silver
 uv run python -m observatorio_politico.main senado-gold
 uv run python -m observatorio_politico.main senado-quality
 uv run python -m observatorio_politico.main senado-dimensions
 
-Publicação para consumo no Power BI:
-
 uv run python .\scripts\publicar_senado_power_bi.py
+```
 
-Exemplo: gastos dos deputados
+### Gastos dos deputados
 
-Execute a sequência Bronze, Silver, Gold, qualidade e publicação definida para o domínio. Ao final, confirme a geração dos arquivos em:
+Após a execução do pipeline, confirme a publicação dos arquivos em:
 
+```text
 output/power_bi/gastos_deputados/
+```
 
-Testes
+### Testes automatizados
 
+```bash
 uv run pytest
+```
 
-Validação estática
+### Validação de código
 
-Quando configurado no projeto:
-
+```bash
 uv run ruff check .
 uv run mypy src
+```
 
-[!TIP]Antes de abrir um pull request, execute os testes, valide os manifestos e confira as reconciliações do domínio alterado.
+> [!TIP]
+> Antes de abrir um pull request, execute os testes, valide os manifestos e confira as reconciliações do domínio alterado.
 
-Qualidade e rastreabilidade
+---
 
-O projeto adota controles de qualidade ao longo de todo o fluxo.
+## 🛡️ Qualidade e rastreabilidade
 
-Manifestos
+<table>
+<tr>
+<td width="50%" valign="top">
 
-As execuções podem gerar arquivos como:
+### 📜 Manifestos
 
+Os pipelines registram informações de execução por meio de manifestos.
+
+```text
 bronze.manifest.json
 silver.manifest.json
 gold.manifest.json
@@ -528,316 +613,300 @@ quality.manifest.json
 reconciliation.manifest.json
 dimensions.manifest.json
 execucao.manifest.json
+```
 
-Esses arquivos registram informações úteis para auditoria, como:
+</td>
+<td width="50%" valign="top">
 
-período processado;
+### 🔍 Informações registradas
 
-origem dos dados;
+- período processado;
+- origem dos dados;
+- identificador da execução;
+- quantidade de registros;
+- arquivos produzidos;
+- validações realizadas;
+- status do processamento.
 
-data e identificador da execução;
+</td>
+</tr>
+</table>
 
-quantidade de arquivos ou registros;
+### Reconciliações
 
-artefatos produzidos;
+| Reconciliação | Finalidade |
+|---|---|
+| `reconciliacao_emendas` | Comparar dados processados de emendas |
+| `reconciliacao_convenios` | Validar dados e relacionamentos de convênios |
+| `reconciliacao_contratos` | Conferir contratos, itens e valores |
+| `reconciliacao_licitacoes` | Validar licitações e entidades relacionadas |
+| `reconciliacao_gastos_deputados` | Conferir os gastos parlamentares processados |
 
-resultado das validações.
+### Dados rejeitados
 
-Reconciliação
+Registros que não atendem às regras mínimas de qualidade podem ser gravados em:
 
-As tabelas de reconciliação permitem comparar etapas do pipeline e identificar divergências entre entrada, transformação e publicação.
-
-Exemplos:
-
-reconciliacao_emendas
-reconciliacao_convenios
-reconciliacao_contratos
-reconciliacao_licitacoes
-reconciliacao_gastos_deputados
-
-Dados rejeitados
-
-Registros que não atendem às regras mínimas de qualidade podem ser direcionados para:
-
+```text
 data/rejected/
+```
 
-A rejeição deve ser acompanhada do motivo, da origem e da execução responsável.
+Cada rejeição deve informar:
 
-Power BI
+| Informação | Descrição |
+|---|---|
+| **Origem** | Arquivo ou endpoint de origem |
+| **Execução** | Identificador da carga |
+| **Motivo** | Regra de qualidade não atendida |
+| **Registro** | Dados necessários para investigação |
+| **Data** | Momento em que ocorreu a rejeição |
 
-O relatório utiliza o formato Power BI Project (.pbip), que permite versionar separadamente o relatório e o modelo semântico.
+---
 
-Componentes
+## 📊 Power BI
 
-painel_portal_transparencia.pbip
-painel_portal_transparencia.Report/
-painel_portal_transparencia.SemanticModel/
+<table>
+<tr>
+<td width="67%" valign="top">
 
-Componente
+O projeto utiliza o formato **Power BI Project (`.pbip`)**, permitindo que o relatório e o modelo semântico sejam versionados no Git.
 
-Responsabilidade
+Essa abordagem permite acompanhar alterações em:
 
-painel_portal_transparencia.pbip
+- páginas e visuais;
+- medidas DAX;
+- tabelas;
+- relacionamentos;
+- partições;
+- culturas;
+- configurações do modelo.
 
-Ponto de entrada do projeto no Power BI Desktop
+</td>
+<td width="33%" align="center" valign="middle">
 
-painel_portal_transparencia.Report/
+### 📈 Camada analítica
 
-Páginas, visuais, temas e configurações do relatório
+**PBIP**
 
-painel_portal_transparencia.SemanticModel/
+**TMDL**
 
-Tabelas, medidas DAX, culturas e relacionamentos
+**DAX**
 
-definition/tables/
+**Parquet**
 
-Definições TMDL das tabelas e medidas
+**Modelo semântico**
 
-relationships.tmdl
+</td>
+</tr>
+</table>
 
-Relacionamentos do modelo
+### Componentes do projeto
 
-model.tmdl
+| Componente | Responsabilidade |
+|---|---|
+| `painel_portal_transparencia.pbip` | Arquivo de abertura do projeto |
+| `painel_portal_transparencia.Report/` | Páginas, visuais, temas e configurações |
+| `painel_portal_transparencia.SemanticModel/` | Tabelas, medidas, partições e relacionamentos |
+| `definition/tables/` | Definições TMDL das tabelas |
+| `model.tmdl` | Configuração geral do modelo |
+| `relationships.tmdl` | Relacionamentos entre tabelas |
+| `database.tmdl` | Definição do banco do modelo |
 
-Configurações gerais do modelo semântico
+### Fluxo de publicação
 
-Pré-requisitos
+```mermaid
+flowchart LR
+    G["🥇 Camada Gold"] --> P["📦 Publicação"]
+    P --> F["Arquivos Parquet"]
+    F --> M["Modelo semântico TMDL"]
+    M --> R["Relatório PBIP"]
+    R --> D["📊 Power BI Desktop"]
+```
 
-Antes de abrir ou atualizar o relatório:
+### Preparar os dados
 
-instale o Power BI Desktop;
+Antes de abrir o relatório:
 
-execute os pipelines necessários;
+1. execute os pipelines necessários;
+2. execute os scripts de publicação;
+3. confirme os arquivos em `output/power_bi/`;
+4. atualize os caminhos locais quando necessário.
 
-publique os arquivos de consumo;
+### Abrir o projeto
 
-confirme a existência dos arquivos em output/power_bi/.
-
-Os arquivos Parquet e CSV de consumo não são versionados, pois podem ser reconstruídos a partir das fontes oficiais e dos pipelines.
-
-Abrir o projeto
-
+```powershell
 Start-Process .\painel_portal_transparencia.pbip
+```
 
-Também é possível abrir manualmente:
+### Atualizar os caminhos locais
 
-painel_portal_transparencia.pbip
-
-Ao abrir o projeto:
-
-aguarde o carregamento do modelo semântico;
-
-aceite o recarregamento caso o Power BI detecte alterações externas;
-
-selecione Atualizar agora;
-
-aguarde a leitura dos arquivos Parquet;
-
-salve o projeto após as alterações.
-
-Atualização de caminhos locais
-
-Como o modelo consome arquivos locais, um clone realizado em outro diretório pode exigir a regeneração das definições de origem:
-
+```powershell
 uv run python .\scripts\gerar_modelo_semantico_senado.py
 uv run python .\scripts\gerar_modelo_semantico_gastos_deputados.py
 uv run python .\scripts\gerar_relacionamentos_senado.py
+```
 
-Depois, abra novamente:
+Depois:
 
+```powershell
 Start-Process .\painel_portal_transparencia.pbip
+```
 
-Artefatos não versionados
+### Arquivos não versionados
 
-output/power_bi/**/*.parquet
-output/power_bi/**/*.csv
-output/auditoria/
-output/backup_modelo_semantico/
-**/.pbi/
-*.abf
+| Padrão | Motivo |
+|---|---|
+| `output/power_bi/**/*.parquet` | Arquivos reconstruídos pelos pipelines |
+| `output/power_bi/**/*.csv` | Arquivos reconstruídos pelos pipelines |
+| `output/auditoria/` | Evidências locais de execução |
+| `output/backup_modelo_semantico/` | Backups operacionais |
+| `**/.pbi/` | Artefatos internos do Power BI |
+| `*.abf` | Arquivos temporários do modelo |
 
-O código dos pipelines, as definições TMDL, as medidas DAX, os relacionamentos e as páginas do relatório permanecem versionados.
+---
 
-Segurança
+## 🔐 Segurança
 
-Cada colaborador deve:
+| Regra | Aplicação |
+|---|---|
+| **Chaves individuais** | Cada colaborador utiliza sua própria chave |
+| **`.env` local** | O arquivo não deve ser versionado |
+| **Segredos fora do código** | Tokens são carregados por variáveis de ambiente |
+| **Revisão antes do commit** | Arquivos devem ser verificados antes do push |
+| **Revogação imediata** | Credenciais expostas devem ser substituídas |
+| **Proteção de dados pessoais** | Logs e protocolos não devem expor informações sensíveis |
 
-utilizar sua própria chave de API;
+> [!CAUTION]
+> Nunca publique chaves, senhas, tokens, cookies de sessão, arquivos `.env`, CPFs, endereços ou informações pessoais presentes em protocolos administrativos.
 
-manter o .env fora do controle de versão;
+---
 
-não compartilhar credenciais em commits, issues ou pull requests;
+## 🤝 Contribuição
 
-revogar imediatamente qualquer chave exposta;
+Contribuições técnicas, correções, documentações e integrações com novas fontes oficiais são bem-vindas.
 
-documentar novas variáveis somente no arquivo de exemplo;
+### Fluxo de trabalho
 
-evitar dados pessoais desnecessários em logs e artefatos;
+```mermaid
+flowchart LR
+    A["Fork ou clone"] --> B["Criar branch"]
+    B --> C["Implementar"]
+    C --> D["Executar testes"]
+    D --> E["Validar dados"]
+    E --> F["Documentar"]
+    F --> G["Abrir pull request"]
+```
 
-revisar arquivos antes de publicá-los no repositório.
+### Criar uma branch
 
-[!CAUTION]Nunca publique chaves, senhas, tokens, cookies de sessão, arquivos .env ou informações pessoais obtidas em protocolos administrativos.
-
-Contribuição
-
-Contribuições técnicas, correções e novas fontes oficiais são bem-vindas.
-
-Fluxo recomendado
-
-Faça um fork ou clone do projeto.
-
-Sincronize as dependências com uv sync.
-
-Configure o .env.
-
-Crie uma branch objetiva:
-
+```bash
 git checkout -b feature/nome-da-alteracao
+```
 
-Implemente a alteração.
+### Checklist do pull request
 
-Execute os testes e validações.
+- [ ] objetivo da alteração descrito;
+- [ ] fonte oficial informada;
+- [ ] período processado documentado;
+- [ ] regras de transformação explicadas;
+- [ ] testes executados;
+- [ ] qualidade dos dados validada;
+- [ ] impacto nas camadas informado;
+- [ ] impacto no Power BI avaliado;
+- [ ] documentação atualizada;
+- [ ] nenhuma credencial incluída.
 
-Atualize a documentação quando necessário.
+### Padrões esperados
 
-Abra um pull request.
+| Área | Padrão |
+|---|---|
+| **Código** | Legível, modular e com responsabilidade clara |
+| **Erros** | Tratamento explícito e mensagens úteis |
+| **Logs** | Informações suficientes para diagnóstico |
+| **Processamento** | Idempotência sempre que aplicável |
+| **Qualidade** | Validações e reconciliações documentadas |
+| **Dados** | Origem e período claramente identificados |
+| **Política** | Neutralidade na construção dos indicadores |
+| **Documentação** | Atualizada junto com o código |
 
-O pull request deve informar
+---
 
-objetivo da alteração;
+## 📬 Solicitação de dados ausentes
 
-fonte oficial utilizada;
+Quando dados públicos necessários não estiverem disponíveis nas fontes oficiais, poderá ser registrada uma solicitação no **Fala.BR**.
 
-período contemplado;
+[Acessar o Fala.BR](https://falabr.cgu.gov.br/web/home)
 
-regras de transformação;
+### Tipo de solicitação
 
-estratégia de particionamento;
+| Tipo | Quando utilizar |
+|---|---|
+| **Pedido de Acesso à Informação** | Para obter documentos ou bases não localizados |
+| **Reclamação** | Quando os dados deveriam estar disponíveis, mas estão incompletos ou desatualizados |
+| **Solicitação de providência** | Quando for necessária uma ação do órgão responsável |
+| **Denúncia** | Somente quando existirem indícios concretos que exijam apuração |
 
-validações realizadas;
+### Organização dos protocolos
 
-impacto nas camadas Bronze, Silver e Gold;
-
-impacto no modelo semântico;
-
-limitações conhecidas.
-
-Padrões esperados
-
-código legível e modular;
-
-funções com responsabilidade clara;
-
-tratamento explícito de erros;
-
-logs úteis para diagnóstico;
-
-idempotência sempre que aplicável;
-
-novas cargas acompanhadas de manifestos;
-
-regras de negócio documentadas;
-
-neutralidade política;
-
-possibilidade de reprodução do resultado.
-
-Solicitação de dados ausentes
-
-Quando um documento ou conjunto de dados necessário não estiver disponível nos portais oficiais, poderá ser registrada uma solicitação no Fala.BR:
-
-Acessar o Fala.BR
-
-Quando utilizar
-
-Tipo
-
-Situação
-
-Pedido de Acesso à Informação
-
-Para solicitar documentos ou bases ainda não localizados
-
-Reclamação ou solicitação
-
-Quando dados que deveriam estar publicados estão indisponíveis ou desatualizados
-
-Denúncia
-
-Apenas quando houver indícios concretos de irregularidade que exijam apuração
-
-Registro dos protocolos
-
+```text
 docs/
 └── solicitacoes_falabr/
     ├── README.md
     ├── pedidos_acesso_informacao.csv
     └── evidencias/
+```
 
-Exemplo:
+### Controle recomendado
 
-Protocolo
+| Protocolo | Órgão | Assunto | Data | Situação | Resposta |
+|---|---|---|---|---|---|
+| A preencher | A preencher | Dados ausentes | A preencher | Em andamento | Aguardando |
 
-Órgão
+> [!WARNING]
+> Antes de publicar evidências, remova CPF, endereço, telefone, e-mail particular e qualquer outra informação pessoal.
 
-Assunto
+---
 
-Data
+## 🗺️ Roadmap
 
-Situação
+| Entrega | Situação |
+|---|:---:|
+| Estrutura inicial dos pipelines | ✅ |
+| Arquitetura Bronze, Silver e Gold | ✅ |
+| Integração com Portal da Transparência | ✅ |
+| Integração com Câmara dos Deputados | ✅ |
+| Integração com Senado Federal | ✅ |
+| Manifestos de execução | ✅ |
+| Reconciliações entre camadas | ✅ |
+| Projeto Power BI em PBIP | ✅ |
+| Modelo semântico consolidado | 🟡 |
+| Páginas executivas | 🟡 |
+| Automação completa das atualizações | 🔵 |
+| Catálogo de dados | 🔵 |
+| Documentação detalhada por domínio | 🔵 |
+| Ampliação dos testes de qualidade | 🔵 |
 
-Resposta
+**Legenda:** ✅ concluído · 🟡 em desenvolvimento · 🔵 planejado
 
-A preencher
+---
 
-A preencher
+## 📄 Licença
 
-Dados ausentes
+Este projeto é distribuído sob os termos definidos no arquivo [`LICENSE`](LICENSE).
 
-A preencher
-
-Em andamento
-
-Aguardando
-
-Não publique CPF, endereço, e-mail particular ou outros dados pessoais presentes nos protocolos.
-
-Roadmap
-
-Estrutura inicial dos pipelines
-
-Arquitetura Bronze, Silver e Gold
-
-Manifestos de execução
-
-Camada de qualidade e reconciliação
-
-Integração com Câmara dos Deputados
-
-Integração com Senado Federal
-
-Integração com Portal da Transparência
-
-Projeto Power BI no formato PBIP
-
-Consolidação final do modelo semântico
-
-Desenvolvimento das páginas executivas
-
-Automação completa de atualização
-
-Ampliação de testes de qualidade
-
-Documentação detalhada por domínio
-
-Publicação de catálogo de dados
-
-Licença
-
-Este projeto é distribuído sob os termos definidos no arquivo LICENSE.
+---
 
 <div align="center">
 
-Desenvolvido para fortalecer a transparência, a rastreabilidade e o acesso estruturado a dados públicos brasileiros.
+<br>
+
+## 🏛️ Observatório Político Brasil
+
+**Dados públicos estruturados para fortalecer transparência, rastreabilidade e controle social.**
+
+<br>
+
+Desenvolvido com Python, arquitetura medalhão e Power BI.
+
+<br>
 
 </div>
