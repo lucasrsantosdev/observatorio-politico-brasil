@@ -1,46 +1,55 @@
 table senado_dim_empresas_contratadas_base
+	lineageTag: 40f8b94c-27a9-49d4-843e-cdffdd6609e5
 
 	column chave_registro
 		dataType: string
-		sourceColumn: chave_registro
+		lineageTag: e8294247-780a-49f4-9ea5-02295a3d314a
 		summarizeBy: none
+		sourceColumn: chave_registro
 
 	column hash_registro
 		dataType: string
-		sourceColumn: hash_registro
+		lineageTag: ec8e9072-ffe2-453d-ad2c-517ca64185f5
 		summarizeBy: none
+		sourceColumn: hash_registro
 
 	column dataset
 		dataType: string
-		sourceColumn: dataset
+		lineageTag: d3951ee1-4e05-4f2a-aeb1-9260fb083b47
 		summarizeBy: none
+		sourceColumn: dataset
 
 	column codigo
 		dataType: int64
-		sourceColumn: codigo
+		lineageTag: 6da6e8ce-b06f-49d8-859f-fb5747de3040
 		summarizeBy: none
+		sourceColumn: codigo
 
 	column cnpj_cpf
 		dataType: string
-		sourceColumn: cnpj_cpf
+		lineageTag: fb50ccba-b998-4ca3-8b1f-45fee8056fe9
 		summarizeBy: none
+		sourceColumn: cnpj_cpf
 
 	column nome
 		dataType: string
-		sourceColumn: nome
+		lineageTag: 8edb81db-b747-4eda-a9eb-ff8699df394f
 		summarizeBy: none
+		sourceColumn: nome
 
 	column linha_origem
 		dataType: int64
-		sourceColumn: linha_origem
+		lineageTag: 74f20ab3-d491-4c05-855e-2e60806ee726
 		summarizeBy: none
+		sourceColumn: linha_origem
 
 	partition senado_dim_empresas_contratadas_base = m
 		mode: import
 		source =
-			let
-				Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\senado_federal\senado_dim_empresas_contratadas_base.parquet"))
-			in
-				Source
+				let
+					Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\senado_federal\senado_dim_empresas_contratadas_base.parquet"))
+				in
+					Source
 
 	annotation PBI_ResultType = Table
+

@@ -66,3 +66,6 @@ output/modelo_semantico_senado.manifest.json
 output/backup_modelo_semantico/
 output/modelo_semantico/
 output/modelo_semantico_senado.manifest.json
+
+# Manifestos locais do modelo semântico
+output/modelo_semantico_gastos_deputados.manifest.json

@@ -1,27 +1,32 @@
 table senado_dim_tipo_materia
+	lineageTag: 64317e12-361d-499d-aaad-1c3fb4f9fb40
 
 	column id_tipo_materia
 		dataType: int64
 		isKey
-		sourceColumn: id_tipo_materia
+		lineageTag: ff9b7e63-b285-4d67-a92c-d6bca057b883
 		summarizeBy: none
+		sourceColumn: id_tipo_materia
 
 	column sigla_tipo_materia
 		dataType: string
-		sourceColumn: sigla_tipo_materia
+		lineageTag: 9602887e-2c40-4825-ad38-f51f09991a93
 		summarizeBy: none
+		sourceColumn: sigla_tipo_materia
 
 	column descricao_tipo_materia
 		dataType: string
-		sourceColumn: descricao_tipo_materia
+		lineageTag: 1b8b6aea-e22d-4257-88b2-df8f341f00a4
 		summarizeBy: none
+		sourceColumn: descricao_tipo_materia
 
 	partition senado_dim_tipo_materia = m
 		mode: import
 		source =
-			let
-				Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\senado_federal\senado_dim_tipo_materia.parquet"))
-			in
-				Source
+				let
+					Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\senado_federal\senado_dim_tipo_materia.parquet"))
+				in
+					Source
 
 	annotation PBI_ResultType = Table
+

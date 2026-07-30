@@ -1,196 +1,235 @@
 table senado_dim_senadores_base
+	lineageTag: b608b7b3-c016-41ff-9143-6416c31a7fff
 
 	column chave_registro
 		dataType: string
-		sourceColumn: chave_registro
+		lineageTag: 3af66c4c-f06d-4abe-a8c2-91b77f87b580
 		summarizeBy: none
+		sourceColumn: chave_registro
 
 	column hash_registro
 		dataType: string
-		sourceColumn: hash_registro
+		lineageTag: 6a32b855-3049-47ca-908a-0586a58acde6
 		summarizeBy: none
+		sourceColumn: hash_registro
 
 	column dataset
 		dataType: string
-		sourceColumn: dataset
+		lineageTag: 4a9401ad-d9dc-41aa-83ef-c89f9b580f16
 		summarizeBy: none
+		sourceColumn: dataset
 
 	column identificacao_parlamentar_codigo_parlamentar
 		dataType: int64
-		sourceColumn: identificacao_parlamentar_codigo_parlamentar
+		lineageTag: f712b62d-f6c6-4063-95ef-33e02da2c5d8
 		summarizeBy: none
+		sourceColumn: identificacao_parlamentar_codigo_parlamentar
 
 	column identificacao_parlamentar_codigo_publico_na_leg_atual
 		dataType: int64
-		sourceColumn: identificacao_parlamentar_codigo_publico_na_leg_atual
+		lineageTag: 3e2ba935-5794-492b-91b5-524bb59fbbc4
 		summarizeBy: none
+		sourceColumn: identificacao_parlamentar_codigo_publico_na_leg_atual
 
 	column identificacao_parlamentar_nome_parlamentar
 		dataType: string
-		sourceColumn: identificacao_parlamentar_nome_parlamentar
+		lineageTag: 2eaa27c6-e838-4475-aa0e-7f07c06baf88
 		summarizeBy: none
+		sourceColumn: identificacao_parlamentar_nome_parlamentar
 
 	column identificacao_parlamentar_nome_completo_parlamentar
 		dataType: string
-		sourceColumn: identificacao_parlamentar_nome_completo_parlamentar
+		lineageTag: ef5822b9-bdb7-4dd9-ad9d-4e6e7a284e6c
 		summarizeBy: none
+		sourceColumn: identificacao_parlamentar_nome_completo_parlamentar
 
 	column identificacao_parlamentar_sexo_parlamentar
 		dataType: string
-		sourceColumn: identificacao_parlamentar_sexo_parlamentar
+		lineageTag: 9b91ea91-3343-484a-8375-c616939620da
 		summarizeBy: none
+		sourceColumn: identificacao_parlamentar_sexo_parlamentar
 
 	column identificacao_parlamentar_forma_tratamento
 		dataType: string
-		sourceColumn: identificacao_parlamentar_forma_tratamento
+		lineageTag: 2c588f5b-6941-46e4-9738-f3f247f52a8d
 		summarizeBy: none
+		sourceColumn: identificacao_parlamentar_forma_tratamento
 
 	column identificacao_parlamentar_url_foto_parlamentar
 		dataType: string
-		sourceColumn: identificacao_parlamentar_url_foto_parlamentar
+		lineageTag: 8964e4ac-adf5-42f8-8b16-5dd156f198cd
 		summarizeBy: none
+		sourceColumn: identificacao_parlamentar_url_foto_parlamentar
 
 	column identificacao_parlamentar_url_pagina_parlamentar
 		dataType: string
-		sourceColumn: identificacao_parlamentar_url_pagina_parlamentar
+		lineageTag: f2edcb61-0d18-4e25-afe3-71f810bcb876
 		summarizeBy: none
+		sourceColumn: identificacao_parlamentar_url_pagina_parlamentar
 
 	column identificacao_parlamentar_email_parlamentar
 		dataType: string
-		sourceColumn: identificacao_parlamentar_email_parlamentar
+		lineageTag: 4f6e2b4f-fd8d-4e6f-a0fe-910f52f79100
 		summarizeBy: none
+		sourceColumn: identificacao_parlamentar_email_parlamentar
 
 	column identificacao_parlamentar_telefones_telefone
 		dataType: string
-		sourceColumn: identificacao_parlamentar_telefones_telefone
+		lineageTag: ce0dd720-2126-4740-b919-663c2ef133bc
 		summarizeBy: none
+		sourceColumn: identificacao_parlamentar_telefones_telefone
 
 	column identificacao_parlamentar_sigla_partido_parlamentar
 		dataType: string
-		sourceColumn: identificacao_parlamentar_sigla_partido_parlamentar
+		lineageTag: f16874d9-fca3-4011-b0c1-1ea309bb04e4
 		summarizeBy: none
+		sourceColumn: identificacao_parlamentar_sigla_partido_parlamentar
 
 	column identificacao_parlamentar_uf_parlamentar
 		dataType: string
-		sourceColumn: identificacao_parlamentar_uf_parlamentar
+		lineageTag: 0445d32a-8c67-4356-95ed-a7803843c147
 		summarizeBy: none
+		sourceColumn: identificacao_parlamentar_uf_parlamentar
 
 	column identificacao_parlamentar_bloco_codigo_bloco
 		dataType: string
-		sourceColumn: identificacao_parlamentar_bloco_codigo_bloco
+		lineageTag: b5077471-11de-4342-91ff-9daddc553e7b
 		summarizeBy: none
+		sourceColumn: identificacao_parlamentar_bloco_codigo_bloco
 
 	column identificacao_parlamentar_bloco_nome_bloco
 		dataType: string
-		sourceColumn: identificacao_parlamentar_bloco_nome_bloco
+		lineageTag: 9673f6b3-eeb4-4c0f-adb2-8d3177525083
 		summarizeBy: none
+		sourceColumn: identificacao_parlamentar_bloco_nome_bloco
 
 	column identificacao_parlamentar_bloco_nome_apelido
 		dataType: string
-		sourceColumn: identificacao_parlamentar_bloco_nome_apelido
+		lineageTag: 810c626d-b2f6-4280-a734-e86d4fccdd00
 		summarizeBy: none
+		sourceColumn: identificacao_parlamentar_bloco_nome_apelido
 
 	column identificacao_parlamentar_bloco_data_criacao
 		dataType: string
-		sourceColumn: identificacao_parlamentar_bloco_data_criacao
+		lineageTag: e3c0eeff-4fce-48f5-9dc4-74b85b51a545
 		summarizeBy: none
+		sourceColumn: identificacao_parlamentar_bloco_data_criacao
 
 	column identificacao_parlamentar_membro_mesa
 		dataType: string
-		sourceColumn: identificacao_parlamentar_membro_mesa
+		lineageTag: 5cccfbf5-dd6b-4c89-93c9-52ef86808a2d
 		summarizeBy: none
+		sourceColumn: identificacao_parlamentar_membro_mesa
 
 	column identificacao_parlamentar_membro_lideranca
 		dataType: string
-		sourceColumn: identificacao_parlamentar_membro_lideranca
+		lineageTag: 71336c12-4651-4a91-9e75-91bd66f26731
 		summarizeBy: none
+		sourceColumn: identificacao_parlamentar_membro_lideranca
 
 	column mandato_codigo_mandato
 		dataType: int64
-		sourceColumn: mandato_codigo_mandato
+		lineageTag: c939cc6a-28f6-41de-a8f1-b9f6361bd8db
 		summarizeBy: none
+		sourceColumn: mandato_codigo_mandato
 
 	column mandato_uf_parlamentar
 		dataType: string
-		sourceColumn: mandato_uf_parlamentar
+		lineageTag: 30cce273-03f2-483f-a662-c5f4324fb0b4
 		summarizeBy: none
+		sourceColumn: mandato_uf_parlamentar
 
 	column mandato_primeira_legislatura_do_mandato_numero_legislatura
 		dataType: string
-		sourceColumn: mandato_primeira_legislatura_do_mandato_numero_legislatura
+		lineageTag: 310334c7-adfd-4983-b9e5-24242676bfb6
 		summarizeBy: none
+		sourceColumn: mandato_primeira_legislatura_do_mandato_numero_legislatura
 
 	column mandato_primeira_legislatura_do_mandato_data_inicio
 		dataType: string
-		sourceColumn: mandato_primeira_legislatura_do_mandato_data_inicio
+		lineageTag: 503e8c5f-7644-4c7b-ac66-0a71cd43dbbe
 		summarizeBy: none
+		sourceColumn: mandato_primeira_legislatura_do_mandato_data_inicio
 
 	column mandato_primeira_legislatura_do_mandato_data_fim
 		dataType: string
-		sourceColumn: mandato_primeira_legislatura_do_mandato_data_fim
+		lineageTag: 55637791-6005-41e4-8a6b-d4980dea3267
 		summarizeBy: none
+		sourceColumn: mandato_primeira_legislatura_do_mandato_data_fim
 
 	column mandato_segunda_legislatura_do_mandato_numero_legislatura
 		dataType: string
-		sourceColumn: mandato_segunda_legislatura_do_mandato_numero_legislatura
+		lineageTag: df1f3d72-b94f-4d46-b686-c20cf1d2c82d
 		summarizeBy: none
+		sourceColumn: mandato_segunda_legislatura_do_mandato_numero_legislatura
 
 	column mandato_segunda_legislatura_do_mandato_data_inicio
 		dataType: string
-		sourceColumn: mandato_segunda_legislatura_do_mandato_data_inicio
+		lineageTag: b3ab7cf7-2538-4775-a37a-c0904012a61f
 		summarizeBy: none
+		sourceColumn: mandato_segunda_legislatura_do_mandato_data_inicio
 
 	column mandato_segunda_legislatura_do_mandato_data_fim
 		dataType: string
-		sourceColumn: mandato_segunda_legislatura_do_mandato_data_fim
+		lineageTag: 8d966e13-f2c7-4acc-91d3-14e17a95d6e0
 		summarizeBy: none
+		sourceColumn: mandato_segunda_legislatura_do_mandato_data_fim
 
 	column mandato_descricao_participacao
 		dataType: string
-		sourceColumn: mandato_descricao_participacao
+		lineageTag: 7d97f78f-0867-408b-a762-2a9d836a79d2
 		summarizeBy: none
+		sourceColumn: mandato_descricao_participacao
 
 	column mandato_suplentes_suplente
 		dataType: string
-		sourceColumn: mandato_suplentes_suplente
+		lineageTag: 5d8f4f98-f6e8-4d5d-b9fc-fa03683dfc3a
 		summarizeBy: none
+		sourceColumn: mandato_suplentes_suplente
 
 	column mandato_exercicios_exercicio
 		dataType: string
-		sourceColumn: mandato_exercicios_exercicio
+		lineageTag: c706391d-e92c-4958-9bfa-461e484829fc
 		summarizeBy: none
+		sourceColumn: mandato_exercicios_exercicio
 
 	column mandato_titular_descricao_participacao
 		dataType: string
-		sourceColumn: mandato_titular_descricao_participacao
+		lineageTag: 82cac69e-4e97-4559-9b5b-e7c1e39a174b
 		summarizeBy: none
+		sourceColumn: mandato_titular_descricao_participacao
 
 	column mandato_titular_codigo_parlamentar
 		dataType: string
-		sourceColumn: mandato_titular_codigo_parlamentar
+		lineageTag: b40f6207-64b8-43e8-a110-4c56155f0b10
 		summarizeBy: none
+		sourceColumn: mandato_titular_codigo_parlamentar
 
 	column mandato_titular_nome_parlamentar
 		dataType: string
-		sourceColumn: mandato_titular_nome_parlamentar
+		lineageTag: 4f6435ca-04a9-4c9c-beff-5dd21c56e09b
 		summarizeBy: none
+		sourceColumn: mandato_titular_nome_parlamentar
 
 	column identificacao_parlamentar_url_pagina_particular
 		dataType: string
-		sourceColumn: identificacao_parlamentar_url_pagina_particular
+		lineageTag: f25190ef-899b-41f9-916d-d13d20c0befa
 		summarizeBy: none
+		sourceColumn: identificacao_parlamentar_url_pagina_particular
 
 	column linha_origem
 		dataType: int64
-		sourceColumn: linha_origem
+		lineageTag: 2184f375-5308-476e-acc6-878536025722
 		summarizeBy: none
+		sourceColumn: linha_origem
 
 	partition senado_dim_senadores_base = m
 		mode: import
 		source =
-			let
-				Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\senado_federal\senado_dim_senadores_base.parquet"))
-			in
-				Source
+				let
+					Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\senado_federal\senado_dim_senadores_base.parquet"))
+				in
+					Source
 
 	annotation PBI_ResultType = Table
+

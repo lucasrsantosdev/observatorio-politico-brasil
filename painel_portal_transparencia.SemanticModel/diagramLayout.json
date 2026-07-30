@@ -5,11 +5,300 @@
       "ordinal": 0,
       "scrollPosition": {
         "x": 0,
-        "y": 0
+        "y": 9.67741935483871
       },
-      "nodes": [],
+      "nodes": [
+        {
+          "location": {
+            "x": 1811.4969606779869,
+            "y": 620.59244639830717
+          },
+          "nodeIndex": "_Medidas",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2095.4969606779869,
+            "y": 646.59244639830717
+          },
+          "nodeIndex": "senado_dim_empresas_contratadas_base",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2379.4969606779869,
+            "y": 670.59244639830717
+          },
+          "nodeIndex": "senado_dim_fornecedor",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 604.9600848984245,
+            "y": 980.48049779530766
+          },
+          "nodeIndex": "senado_dim_materia",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 50,
+            "y": 603.74336688786207
+          },
+          "nodeIndex": "senado_dim_partido",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 881.41575615786155,
+            "y": 1339.1848927966143
+          },
+          "nodeIndex": "senado_dim_resultado_votacao",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 609.16681308760155,
+            "y": 205.36571858292973
+          },
+          "nodeIndex": "senado_dim_senador",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2663.4969606779869,
+            "y": 620.59244639830717
+          },
+          "nodeIndex": "senado_dim_senadores_base",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 898.07463283117227,
+            "y": 491.508173033322
+          },
+          "nodeIndex": "senado_dim_tempo",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 959.170133637044,
+            "y": -50
+          },
+          "nodeIndex": "senado_dim_tipo_despesa",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1577.4969606779869,
+            "y": 765.13326560793325
+          },
+          "nodeIndex": "senado_dim_tipo_materia",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 50.077265327632063,
+            "y": 331.30425461894879
+          },
+          "nodeIndex": "senado_dim_tipo_voto",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 50.082094868535364,
+            "y": 888.63699072616737
+          },
+          "nodeIndex": "senado_dim_uf",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1002.6890552201842,
+            "y": 135.18340935864967
+          },
+          "nodeIndex": "senado_fato_gastos_senadores",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1291.5978304708226,
+            "y": 420.17090142927282
+          },
+          "nodeIndex": "senado_fato_materias",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 897.57029815955582,
+            "y": 850.265476327953
+          },
+          "nodeIndex": "senado_fato_votacoes",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 342.89926108068232,
+            "y": 536.45488176180675
+          },
+          "nodeIndex": "senado_fato_votos",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2947.4969606779869,
+            "y": 658.59244639830717
+          },
+          "nodeIndex": "senado_ranking_fornecedores_ceaps",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 3231.4969606779869,
+            "y": 646.59244639830717
+          },
+          "nodeIndex": "senado_ranking_partidos_votos",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 3515.4969606779869,
+            "y": 658.59244639830717
+          },
+          "nodeIndex": "senado_ranking_senadores_gastos",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 3799.4969606779869,
+            "y": 620.59244639830717
+          },
+          "nodeIndex": "senado_ranking_senadores_votos",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 4083.4969606779869,
+            "y": 670.59244639830717
+          },
+          "nodeIndex": "senado_ranking_tipos_despesa_ceaps",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 4367.4969606779869,
+            "y": 646.59244639830717
+          },
+          "nodeIndex": "senado_resumo_atividade_mensal",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 4651.4969606779869,
+            "y": 646.59244639830717
+          },
+          "nodeIndex": "senado_resumo_gastos_mensal",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
       "name": "Todas as tabelas",
-      "zoomValue": 100,
+      "zoomValue": 31,
       "pinKeyFieldsToTop": false,
       "showExtraHeaderInfo": false,
       "hideKeyFieldsWhenCollapsed": false,

@@ -1,37 +1,44 @@
 table senado_ranking_tipos_despesa_ceaps
+	lineageTag: 58135738-49a0-4061-8524-49afa1a512eb
 
 	column tipo_despesa
 		dataType: string
-		sourceColumn: tipo_despesa
+		lineageTag: c1f2d3a8-fe72-41fc-a5e9-61b4af51fc3d
 		summarizeBy: none
+		sourceColumn: tipo_despesa
 
 	column quantidade_despesas
 		dataType: int64
-		sourceColumn: quantidade_despesas
+		lineageTag: 7c2eb214-d451-4936-b038-2bd2334dc1d2
 		summarizeBy: none
+		sourceColumn: quantidade_despesas
 
 	column valor_total
 		dataType: double
-		sourceColumn: valor_total
-		summarizeBy: none
 		formatString: R$ #,0.00;-R$ #,0.00;R$ #,0.00
+		lineageTag: 97535a50-a87b-4e7e-bd37-244b387710b8
+		summarizeBy: none
+		sourceColumn: valor_total
 
 	column quantidade_senadores
 		dataType: int64
-		sourceColumn: quantidade_senadores
+		lineageTag: e3d032e6-4c98-49da-8d1b-a1fb958a5cd4
 		summarizeBy: none
+		sourceColumn: quantidade_senadores
 
 	column posicao
 		dataType: int64
-		sourceColumn: posicao
+		lineageTag: 2da95fac-1f4f-4b16-b019-18e96f3220ee
 		summarizeBy: none
+		sourceColumn: posicao
 
 	partition senado_ranking_tipos_despesa_ceaps = m
 		mode: import
 		source =
-			let
-				Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\senado_federal\senado_ranking_tipos_despesa_ceaps.parquet"))
-			in
-				Source
+				let
+					Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\senado_federal\senado_ranking_tipos_despesa_ceaps.parquet"))
+				in
+					Source
 
 	annotation PBI_ResultType = Table
+

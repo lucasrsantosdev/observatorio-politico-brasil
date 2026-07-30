@@ -1,27 +1,32 @@
 table senado_dim_tipo_voto
+	lineageTag: 858f6514-59b5-4f0d-ba25-41a523ccdc9b
 
 	column id_tipo_voto
 		dataType: int64
 		isKey
-		sourceColumn: id_tipo_voto
+		lineageTag: daadc2aa-bdad-4218-807b-7c3eed092baa
 		summarizeBy: none
+		sourceColumn: id_tipo_voto
 
 	column categoria_voto
 		dataType: string
-		sourceColumn: categoria_voto
+		lineageTag: a5b8cb7c-1bb1-4a04-8b88-ad0437531048
 		summarizeBy: none
+		sourceColumn: categoria_voto
 
 	column descricao_voto_original
 		dataType: string
-		sourceColumn: descricao_voto_original
+		lineageTag: f14d2dc8-0394-4f51-b566-d31273b473fc
 		summarizeBy: none
+		sourceColumn: descricao_voto_original
 
 	partition senado_dim_tipo_voto = m
 		mode: import
 		source =
-			let
-				Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\senado_federal\senado_dim_tipo_voto.parquet"))
-			in
-				Source
+				let
+					Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\senado_federal\senado_dim_tipo_voto.parquet"))
+				in
+					Source
 
 	annotation PBI_ResultType = Table
+

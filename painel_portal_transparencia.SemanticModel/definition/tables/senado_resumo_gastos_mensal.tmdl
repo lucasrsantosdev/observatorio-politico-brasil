@@ -1,47 +1,56 @@
 table senado_resumo_gastos_mensal
+	lineageTag: 8e7339a0-442b-495b-93e2-f66545b3f2ab
 
 	column ano_gasto
 		dataType: int64
-		sourceColumn: ano_gasto
+		lineageTag: 2f0f1bf9-c6d9-4436-b8d3-a5186fcbb8d5
 		summarizeBy: none
+		sourceColumn: ano_gasto
 
 	column mes_gasto
 		dataType: int64
-		sourceColumn: mes_gasto
+		lineageTag: 0ac906b8-b3c2-4a66-8c54-b53ee629b343
 		summarizeBy: none
+		sourceColumn: mes_gasto
 
 	column periodo_gasto
 		dataType: string
-		sourceColumn: periodo_gasto
+		lineageTag: efa4fc7c-2fc7-4a3e-aee1-850d30130f40
 		summarizeBy: none
+		sourceColumn: periodo_gasto
 
 	column quantidade_despesas
 		dataType: int64
-		sourceColumn: quantidade_despesas
+		lineageTag: 4356ba0e-d154-4624-b51a-b0eb4f450720
 		summarizeBy: none
+		sourceColumn: quantidade_despesas
 
 	column valor_total
 		dataType: double
-		sourceColumn: valor_total
-		summarizeBy: none
 		formatString: R$ #,0.00;-R$ #,0.00;R$ #,0.00
+		lineageTag: 86557470-01b5-4f08-8d21-7aaf00796a8b
+		summarizeBy: none
+		sourceColumn: valor_total
 
 	column quantidade_senadores
 		dataType: int64
-		sourceColumn: quantidade_senadores
+		lineageTag: f22f0ea8-fadb-4ffd-9455-2b990802a134
 		summarizeBy: none
+		sourceColumn: quantidade_senadores
 
 	column quantidade_fornecedores
 		dataType: int64
-		sourceColumn: quantidade_fornecedores
+		lineageTag: 1c8a5102-1004-423f-87a4-d97ac997740c
 		summarizeBy: none
+		sourceColumn: quantidade_fornecedores
 
 	partition senado_resumo_gastos_mensal = m
 		mode: import
 		source =
-			let
-				Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\senado_federal\senado_resumo_gastos_mensal.parquet"))
-			in
-				Source
+				let
+					Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\senado_federal\senado_resumo_gastos_mensal.parquet"))
+				in
+					Source
 
 	annotation PBI_ResultType = Table
+

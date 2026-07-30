@@ -1,97 +1,86 @@
 relationship 2c901e30-043c-5097-9973-0c63c6a4a227
-	fromCardinality: many
-	toCardinality: one
 	fromColumn: senado_fato_gastos_senadores.cod_senador
 	toColumn: senado_dim_senador.id_senador
-	crossFilteringBehavior: oneDirection
 
 relationship 0be65250-5b9e-5bf9-8e09-c95bcbf0acfd
-	fromCardinality: many
-	toCardinality: one
 	fromColumn: senado_fato_votos.codigo_parlamentar
 	toColumn: senado_dim_senador.id_senador
-	crossFilteringBehavior: oneDirection
 
 relationship a24ba5b4-80a7-5563-9f09-b6f897c20711
-	fromCardinality: many
-	toCardinality: one
 	fromColumn: senado_fato_votacoes.codigo_materia
 	toColumn: senado_dim_materia.id_materia
-	crossFilteringBehavior: oneDirection
 
 relationship 0a20d73a-b21c-5af7-b03e-51cd075b6a9d
-	fromCardinality: many
-	toCardinality: one
 	fromColumn: senado_fato_votos.codigo_materia
 	toColumn: senado_dim_materia.id_materia
-	crossFilteringBehavior: oneDirection
 
 relationship 444540c5-bf44-5a60-a09a-660692512d28
-	fromCardinality: many
-	toCardinality: one
 	fromColumn: senado_fato_gastos_senadores.data_referencia
 	toColumn: senado_dim_tempo.data
-	crossFilteringBehavior: oneDirection
 
 relationship 4b7c6e6e-c4fa-537e-928f-b96cb62a4f6a
-	fromCardinality: many
-	toCardinality: one
 	fromColumn: senado_fato_votacoes.data_sessao
 	toColumn: senado_dim_tempo.data
-	crossFilteringBehavior: oneDirection
 
 relationship d5e6cc22-abda-5117-98b4-905fa7d8150b
-	fromCardinality: many
-	toCardinality: one
 	fromColumn: senado_fato_votos.data_sessao
 	toColumn: senado_dim_tempo.data
-	crossFilteringBehavior: oneDirection
 
 relationship d522bb7c-91d8-5617-bfcd-91309b623164
-	fromCardinality: many
-	toCardinality: one
 	fromColumn: senado_fato_materias.data
 	toColumn: senado_dim_tempo.data
-	crossFilteringBehavior: oneDirection
 
 relationship c456c99a-e1c1-5900-adc3-18ddfe31554e
-	fromCardinality: many
-	toCardinality: one
 	fromColumn: senado_fato_gastos_senadores.tipo_despesa
 	toColumn: senado_dim_tipo_despesa.tipo_despesa
-	crossFilteringBehavior: oneDirection
 
 relationship 9ce0944d-b4c6-58a1-831b-ebb872d495e2
-	fromCardinality: many
-	toCardinality: one
 	fromColumn: senado_fato_materias.sigla
 	toColumn: senado_dim_tipo_materia.sigla_tipo_materia
-	crossFilteringBehavior: oneDirection
 
 relationship 0b00c268-80a4-5dfa-8c97-1338e84e2504
-	fromCardinality: many
-	toCardinality: one
 	fromColumn: senado_fato_votacoes.resultado_votacao_normalizado
 	toColumn: senado_dim_resultado_votacao.resultado_normalizado
-	crossFilteringBehavior: oneDirection
 
 relationship f03186b0-fea6-57ab-8e09-1993001be36b
-	fromCardinality: many
-	toCardinality: one
 	fromColumn: senado_fato_votos.sigla_partido_parlamentar
 	toColumn: senado_dim_partido.sigla_partido
-	crossFilteringBehavior: oneDirection
 
 relationship 010a36d2-917a-5a00-973b-1ee4f0ab7153
-	fromCardinality: many
-	toCardinality: one
 	fromColumn: senado_fato_votos.sigla_uf_parlamentar
 	toColumn: senado_dim_uf.sigla_uf
-	crossFilteringBehavior: oneDirection
 
 relationship b48f445e-9687-5f42-a0af-06cfb297d63f
-	fromCardinality: many
-	toCardinality: one
 	fromColumn: senado_fato_votos.sigla_voto_parlamentar
 	toColumn: senado_dim_tipo_voto.descricao_voto_original
-	crossFilteringBehavior: oneDirection
+
+relationship 76ca8f43-7c0e-4104-8e8f-11d334a6ff4b
+	joinOnDateBehavior: datePartOnly
+	fromColumn: senado_fato_votacoes.data_apresentacao
+	toColumn: LocalDateTable_bb8c7a52-036b-43cf-93e6-3915f75f5465.Date
+
+relationship 0b88de73-ef6e-41c9-9696-4b4ad4786b3a
+	joinOnDateBehavior: datePartOnly
+	fromColumn: senado_fato_votacoes.informe_legislativo_data
+	toColumn: LocalDateTable_79dea144-355e-4632-94cb-f9a6b0513425.Date
+
+relationship 4d5a7230-ec6d-4ac7-9837-2e4ba29a10e1
+	joinOnDateBehavior: datePartOnly
+	fromColumn: senado_fato_gastos_senadores.data
+	toColumn: LocalDateTable_83bd1c71-510d-42e8-aa27-16ba4bb03e88.Date
+
+relationship 13ef07b8-a080-45be-9ebe-64492ae37409
+	joinOnDateBehavior: datePartOnly
+	fromColumn: senado_fato_gastos_senadores.data_documento_original
+	toColumn: LocalDateTable_a6024c14-6826-4279-b251-6bcebe340f2b.Date
+
+relationship 21af4be4-2278-4cb3-b10a-782d82a9f804
+	joinOnDateBehavior: datePartOnly
+	fromColumn: senado_dim_materia.data
+	toColumn: LocalDateTable_f0506051-dfe0-434a-aee4-60b569305df7.Date
+
+relationship 994e1ff0-8533-4e75-9112-9ea6331d54fc
+	joinOnDateBehavior: datePartOnly
+	fromColumn: senado_dim_tempo.data
+	toColumn: LocalDateTable_bb3950e9-5b87-452c-a966-24a74787de62.Date
+

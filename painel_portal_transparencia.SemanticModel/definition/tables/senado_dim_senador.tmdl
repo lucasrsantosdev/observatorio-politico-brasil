@@ -1,52 +1,62 @@
 table senado_dim_senador
+	lineageTag: 292e63b0-73aa-425c-a8d9-51902f24765b
 
 	column id_senador
 		dataType: int64
 		isKey
-		sourceColumn: id_senador
+		lineageTag: e6681d48-ff84-4df1-ae01-da2fa580b387
 		summarizeBy: none
+		sourceColumn: id_senador
 
 	column codigo_senador
 		dataType: int64
-		sourceColumn: codigo_senador
+		lineageTag: 1dd338fb-cdb2-4bb4-adca-c106d7f117a9
 		summarizeBy: none
+		sourceColumn: codigo_senador
 
 	column nome_senador
 		dataType: string
-		sourceColumn: nome_senador
+		lineageTag: d25f038f-34c2-49fd-ad18-5f07de8c2777
 		summarizeBy: none
+		sourceColumn: nome_senador
 
 	column nome_completo
 		dataType: string
-		sourceColumn: nome_completo
+		lineageTag: 8f807ee1-5344-478f-b67d-27f5d97ac6da
 		summarizeBy: none
+		sourceColumn: nome_completo
 
 	column sigla_partido
 		dataType: string
-		sourceColumn: sigla_partido
+		lineageTag: 1e4a2169-2304-40dc-8c6c-27ef5c443bc1
 		summarizeBy: none
+		sourceColumn: sigla_partido
 
 	column sigla_uf
 		dataType: string
-		sourceColumn: sigla_uf
+		lineageTag: c9bdd0fd-1809-45e4-84a8-58ca25031601
 		summarizeBy: none
+		sourceColumn: sigla_uf
 
 	column sexo
 		dataType: string
-		sourceColumn: sexo
+		lineageTag: f7a6f83d-f023-4c3c-9c13-968e4a1685f3
 		summarizeBy: none
+		sourceColumn: sexo
 
 	column senador_em_exercicio
 		dataType: boolean
-		sourceColumn: senador_em_exercicio
+		lineageTag: a35e062a-9274-4a7e-a4ae-b19e3603e13a
 		summarizeBy: none
+		sourceColumn: senador_em_exercicio
 
 	partition senado_dim_senador = m
 		mode: import
 		source =
-			let
-				Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\senado_federal\senado_dim_senador.parquet"))
-			in
-				Source
+				let
+					Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\senado_federal\senado_dim_senador.parquet"))
+				in
+					Source
 
 	annotation PBI_ResultType = Table
+

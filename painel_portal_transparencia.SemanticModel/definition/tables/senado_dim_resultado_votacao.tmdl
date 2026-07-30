@@ -1,27 +1,32 @@
 table senado_dim_resultado_votacao
+	lineageTag: 610220ff-f7b3-4abf-bcbe-a265205d03d2
 
 	column id_resultado_votacao
 		dataType: int64
 		isKey
-		sourceColumn: id_resultado_votacao
+		lineageTag: 06f23f86-9594-42fb-9c72-b40a82f7e358
 		summarizeBy: none
+		sourceColumn: id_resultado_votacao
 
 	column resultado_original
 		dataType: string
-		sourceColumn: resultado_original
+		lineageTag: a494b739-3a3f-4409-aa3b-24bbc1f668d0
 		summarizeBy: none
+		sourceColumn: resultado_original
 
 	column resultado_normalizado
 		dataType: string
-		sourceColumn: resultado_normalizado
+		lineageTag: 9d37d73c-5200-4c26-8e2d-c28f8b3ea6e4
 		summarizeBy: none
+		sourceColumn: resultado_normalizado
 
 	partition senado_dim_resultado_votacao = m
 		mode: import
 		source =
-			let
-				Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\senado_federal\senado_dim_resultado_votacao.parquet"))
-			in
-				Source
+				let
+					Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\senado_federal\senado_dim_resultado_votacao.parquet"))
+				in
+					Source
 
 	annotation PBI_ResultType = Table
+

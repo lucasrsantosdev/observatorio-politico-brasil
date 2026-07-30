@@ -1,146 +1,208 @@
 table senado_fato_gastos_senadores
+	lineageTag: 1524df51-855f-445a-9266-8b823b4bc281
 
 	column chave_registro
 		dataType: string
-		sourceColumn: chave_registro
+		lineageTag: 5f42fd1d-3921-4711-837e-c4d97901aeab
 		summarizeBy: none
+		sourceColumn: chave_registro
 
 	column hash_registro
 		dataType: string
-		sourceColumn: hash_registro
+		lineageTag: dd07a963-56c4-401a-9446-9203dd23099e
 		summarizeBy: none
+		sourceColumn: hash_registro
 
 	column dataset
 		dataType: string
-		sourceColumn: dataset
+		lineageTag: 686a35bb-9610-44f4-9828-2131f66e2741
 		summarizeBy: none
+		sourceColumn: dataset
 
 	column id
 		dataType: int64
+		lineageTag: 064932e9-3572-4db3-9ea0-ee826e02758d
+		summarizeBy: sum
 		sourceColumn: id
-		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
 
 	column tipo_documento
 		dataType: string
-		sourceColumn: tipo_documento
+		lineageTag: 140de8e7-8f57-4c59-a1fb-8743aa51cd46
 		summarizeBy: none
+		sourceColumn: tipo_documento
 
 	column ano
 		dataType: int64
+		lineageTag: 2f22f363-5f6d-40c6-8d56-7b2fff51897b
+		summarizeBy: sum
 		sourceColumn: ano
-		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
 
 	column mes
 		dataType: int64
+		lineageTag: a50b467c-dd47-4982-992f-c74a110bcc6d
+		summarizeBy: sum
 		sourceColumn: mes
-		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
 
 	column cod_senador
 		dataType: int64
-		sourceColumn: cod_senador
+		lineageTag: 8056581d-5070-42f6-8252-12dbaaa493ad
 		summarizeBy: none
+		sourceColumn: cod_senador
 
 	column nome_senador
 		dataType: string
-		sourceColumn: nome_senador
+		lineageTag: 01b0e590-8c10-44b1-9411-d2b0e091abf8
 		summarizeBy: none
+		sourceColumn: nome_senador
 
 	column tipo_despesa
 		dataType: string
-		sourceColumn: tipo_despesa
+		lineageTag: 6e7ac34f-5b8e-4ed1-97cf-081d1d9f4241
 		summarizeBy: none
+		sourceColumn: tipo_despesa
 
 	column cpf_cnpj_fornecedor
 		dataType: string
-		sourceColumn: cpf_cnpj_fornecedor
+		lineageTag: 402586c5-1cf0-4d4f-b4fd-62c7736210c3
 		summarizeBy: none
+		sourceColumn: cpf_cnpj_fornecedor
 
 	column nome_fornecedor
 		dataType: string
-		sourceColumn: nome_fornecedor
+		lineageTag: b361824c-85b8-4f63-91fa-45d41e71dfbb
 		summarizeBy: none
+		sourceColumn: nome_fornecedor
 
 	column documento
 		dataType: string
-		sourceColumn: documento
+		lineageTag: 81853c90-dee8-4a85-b55d-d2c417d96445
 		summarizeBy: none
+		sourceColumn: documento
 
 	column data
 		dataType: dateTime
-		sourceColumn: data
-		summarizeBy: none
 		formatString: Short Date
+		lineageTag: 1870eb42-2378-4d92-aa1d-868dc39c1ab4
+		summarizeBy: none
+		sourceColumn: data
+
+		variation Variation
+			isDefault
+			relationship: 4d5a7230-ec6d-4ac7-9837-2e4ba29a10e1
+			defaultHierarchy: LocalDateTable_83bd1c71-510d-42e8-aa27-16ba4bb03e88.'Hierarquia de datas'
+
+		annotation UnderlyingDateTimeDataType = Date
 
 	column detalhamento
 		dataType: string
-		sourceColumn: detalhamento
+		lineageTag: 2ea4e148-f7a4-4c5d-aafc-00f790ed91fb
 		summarizeBy: none
+		sourceColumn: detalhamento
 
 	column valor_reembolsado
 		dataType: double
-		sourceColumn: valor_reembolsado
-		summarizeBy: none
 		formatString: R$ #,0.00;-R$ #,0.00;R$ #,0.00
+		lineageTag: 5e5aaced-676b-4173-b6a2-623201449ebe
+		summarizeBy: sum
+		sourceColumn: valor_reembolsado
+
+		annotation SummarizationSetBy = Automatic
 
 	column linha_origem
 		dataType: int64
+		lineageTag: e2c83967-0d3f-4742-b0c1-514b18cc8359
+		summarizeBy: sum
 		sourceColumn: linha_origem
-		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
 
 	column data_documento_original
 		dataType: dateTime
-		sourceColumn: data_documento_original
-		summarizeBy: none
 		formatString: Short Date
+		lineageTag: b9292c82-b465-40df-b256-99c64afdb86a
+		summarizeBy: none
+		sourceColumn: data_documento_original
+
+		variation Variation
+			isDefault
+			relationship: 13ef07b8-a080-45be-9ebe-64492ae37409
+			defaultHierarchy: LocalDateTable_a6024c14-6826-4279-b251-6bcebe340f2b.'Hierarquia de datas'
+
+		annotation UnderlyingDateTimeDataType = Date
 
 	column data_referencia
 		dataType: dateTime
-		sourceColumn: data_referencia
-		summarizeBy: none
 		formatString: Short Date
+		lineageTag: f2238e03-c50b-464c-9b0f-88746b681401
+		summarizeBy: none
+		sourceColumn: data_referencia
+
+		annotation UnderlyingDateTimeDataType = Date
 
 	column data_referencia_ajustada
 		dataType: boolean
-		sourceColumn: data_referencia_ajustada
+		lineageTag: c432f8ba-704d-4663-b595-cd5aa4f000f1
 		summarizeBy: none
+		sourceColumn: data_referencia_ajustada
 
 	column id_gasto
 		dataType: int64
+		lineageTag: eb6d29f5-19f7-46ee-ac14-b8c14ce95d6c
+		summarizeBy: sum
 		sourceColumn: id_gasto
-		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
 
 	column ano_gasto
 		dataType: int64
+		lineageTag: 3a9eb738-fe96-4ecc-9534-5d86e4c76738
+		summarizeBy: sum
 		sourceColumn: ano_gasto
-		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
 
 	column mes_gasto
 		dataType: int64
+		lineageTag: 5fda3c97-faf2-45a6-962d-527b8d97d1e8
+		summarizeBy: sum
 		sourceColumn: mes_gasto
-		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
 
 	column periodo_gasto
 		dataType: string
-		sourceColumn: periodo_gasto
+		lineageTag: dc13b76a-0ec7-4c9a-a10e-1ef6d189e42a
 		summarizeBy: none
+		sourceColumn: periodo_gasto
 
 	column cpf_cnpj_fornecedor_normalizado
 		dataType: string
-		sourceColumn: cpf_cnpj_fornecedor_normalizado
+		lineageTag: b9b30232-43de-47c2-a0ad-3fa7aa0c59e3
 		summarizeBy: none
+		sourceColumn: cpf_cnpj_fornecedor_normalizado
 
 	column valor_gasto
 		dataType: double
-		sourceColumn: valor_gasto
-		summarizeBy: none
 		formatString: R$ #,0.00;-R$ #,0.00;R$ #,0.00
+		lineageTag: 644610cd-9efb-4730-9e74-9be1182b09dd
+		summarizeBy: sum
+		sourceColumn: valor_gasto
+
+		annotation SummarizationSetBy = Automatic
 
 	partition senado_fato_gastos_senadores = m
 		mode: import
 		source =
-			let
-				Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\senado_federal\senado_fato_gastos_senadores.parquet"))
-			in
-				Source
+				let
+					Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\senado_federal\senado_fato_gastos_senadores.parquet"))
+				in
+					Source
 
 	annotation PBI_ResultType = Table
+
