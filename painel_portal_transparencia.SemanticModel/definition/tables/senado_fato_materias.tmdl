@@ -1,142 +1,117 @@
 table senado_fato_materias
-	lineageTag: 249de284-8816-4298-9d79-b0efa020cd28
 
 	column chave_registro
 		dataType: string
-		lineageTag: 007382c6-ba94-4970-b378-11d019d469d0
-		summarizeBy: none
 		sourceColumn: chave_registro
+		summarizeBy: none
 
 	column hash_registro
 		dataType: string
-		lineageTag: 29f6a991-2483-48b4-8ac6-dfe3f68eae9d
-		summarizeBy: none
 		sourceColumn: hash_registro
+		summarizeBy: none
 
 	column dataset
 		dataType: string
-		lineageTag: 06118868-d154-4d37-85ab-673400c23fbb
-		summarizeBy: none
 		sourceColumn: dataset
+		summarizeBy: none
 
 	column codigo
 		dataType: int64
-		lineageTag: 41091809-e2fc-4539-b6ab-a3c3fb2c0917
-		summarizeBy: none
 		sourceColumn: codigo
+		summarizeBy: none
 
 	column identificacao_processo
 		dataType: string
-		lineageTag: bfc9d493-2439-4a3d-8406-c59c10bd9de7
-		summarizeBy: none
 		sourceColumn: identificacao_processo
+		summarizeBy: none
 
 	column descricao_identificacao
 		dataType: string
-		lineageTag: 1e754a05-81bf-478e-8829-ad93e3f15c61
-		summarizeBy: none
 		sourceColumn: descricao_identificacao
+		summarizeBy: none
 
 	column sigla
 		dataType: string
-		lineageTag: 48bc00ab-51bd-4128-ae42-6fbd50b483ae
-		summarizeBy: none
 		sourceColumn: sigla
+		summarizeBy: none
 
 	column numero
 		dataType: int64
-		lineageTag: da45a338-090c-459f-a76c-30ea34f6d07e
-		summarizeBy: none
 		sourceColumn: numero
+		summarizeBy: none
 
 	column ano
 		dataType: int64
-		lineageTag: e32dbe5f-0db5-43c6-b628-f888bac22fd9
-		summarizeBy: none
 		sourceColumn: ano
+		summarizeBy: none
 
 	column sigla_comissao
 		dataType: string
-		lineageTag: 7d7d3fe9-b553-4bc1-a7c6-1b036ade7149
-		summarizeBy: none
 		sourceColumn: sigla_comissao
+		summarizeBy: none
 
 	column ementa
 		dataType: string
-		lineageTag: b818a622-1c89-47a5-ada4-477c0c71cd57
-		summarizeBy: none
 		sourceColumn: ementa
+		summarizeBy: none
 
 	column autor
 		dataType: string
-		lineageTag: 3bae517f-f860-4273-b039-6ee5894d1d32
-		summarizeBy: none
 		sourceColumn: autor
+		summarizeBy: none
 
 	column data
 		dataType: dateTime
-		formatString: Short Date
-		lineageTag: a368c2a3-7b92-41f3-9a43-30638de4459d
-		summarizeBy: none
 		sourceColumn: data
-
-		annotation UnderlyingDateTimeDataType = Date
+		summarizeBy: none
+		formatString: Short Date
 
 	column url_detalhe_materia
 		dataType: string
-		lineageTag: d4945f3f-c3ae-4ade-83e8-0127840330ef
-		summarizeBy: none
 		sourceColumn: url_detalhe_materia
+		summarizeBy: none
 
 	column linha_origem
 		dataType: int64
-		lineageTag: d1eab334-159a-4e3d-85b7-fc6f56ebdc4a
-		summarizeBy: none
 		sourceColumn: linha_origem
+		summarizeBy: none
 
 	column id_materia
 		dataType: int64
-		lineageTag: 4047a998-49b1-40d7-9914-94b5790db918
-		summarizeBy: none
 		sourceColumn: id_materia
+		summarizeBy: none
 
 	column titulo_materia
 		dataType: string
-		lineageTag: 79b3fe5d-9068-4a13-a106-47538a56b228
-		summarizeBy: none
 		sourceColumn: titulo_materia
+		summarizeBy: none
 
 	column ano_apresentacao
 		dataType: int64
-		lineageTag: 2ae132b0-45d8-4efc-9a67-1f6ffbb74be5
-		summarizeBy: none
 		sourceColumn: ano_apresentacao
+		summarizeBy: none
 
 	column mes_apresentacao
 		dataType: int64
-		lineageTag: 8b634940-9628-4f41-8ca3-8e05b6061132
-		summarizeBy: none
 		sourceColumn: mes_apresentacao
+		summarizeBy: none
 
 	column periodo_apresentacao
 		dataType: string
-		lineageTag: fb31c3d7-bb34-4749-bddb-3d7a2eab124b
-		summarizeBy: none
 		sourceColumn: periodo_apresentacao
+		summarizeBy: none
 
 	column possui_ementa
 		dataType: boolean
-		lineageTag: 2af4e33d-7f04-476a-880c-52935dcafe14
-		summarizeBy: none
 		sourceColumn: possui_ementa
+		summarizeBy: none
 
 	partition senado_fato_materias = m
 		mode: import
 		source =
-				let
-					Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\senado_federal\senado_fato_materias.parquet"))
-				in
-					Source
+			let
+				Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\senado_federal\senado_fato_materias.parquet"))
+			in
+				Source
 
 	annotation PBI_ResultType = Table
-

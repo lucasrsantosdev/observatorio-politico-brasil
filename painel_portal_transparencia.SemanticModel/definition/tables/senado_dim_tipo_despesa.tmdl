@@ -1,26 +1,22 @@
 table senado_dim_tipo_despesa
-	lineageTag: 34ecb046-f48d-40ce-bd8c-65c2aa8404c2
 
 	column id_tipo_despesa
 		dataType: int64
 		isKey
-		lineageTag: 608626c3-5486-4aac-8941-9c14ba1529a1
-		summarizeBy: none
 		sourceColumn: id_tipo_despesa
+		summarizeBy: none
 
 	column tipo_despesa
 		dataType: string
-		lineageTag: 5c2a0539-7e79-4852-ac72-64b77f389184
-		summarizeBy: none
 		sourceColumn: tipo_despesa
+		summarizeBy: none
 
 	partition senado_dim_tipo_despesa = m
 		mode: import
 		source =
-				let
-					Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\senado_federal\senado_dim_tipo_despesa.parquet"))
-				in
-					Source
+			let
+				Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\senado_federal\senado_dim_tipo_despesa.parquet"))
+			in
+				Source
 
 	annotation PBI_ResultType = Table
-

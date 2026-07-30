@@ -1,92 +1,63 @@
 table senado_dim_tempo
-	lineageTag: 5b738304-c0b8-4c68-be2d-ec23c0331212
 
 	column id_tempo
 		dataType: int64
 		isKey
-		lineageTag: b74c151d-33fa-4b2c-9575-7b8a65c94bd5
-		summarizeBy: sum
 		sourceColumn: id_tempo
-
-		annotation SummarizationSetBy = Automatic
+		summarizeBy: none
 
 	column data
 		dataType: dateTime
-		formatString: Short Date
-		lineageTag: 99d9aa11-d684-41e4-87d8-d9aa5338a528
-		summarizeBy: none
 		sourceColumn: data
-
-		variation Variation
-			isDefault
-			relationship: 994e1ff0-8533-4e75-9112-9ea6331d54fc
-			defaultHierarchy: LocalDateTable_bb3950e9-5b87-452c-a966-24a74787de62.'Hierarquia de datas'
-
-		annotation UnderlyingDateTimeDataType = Date
+		summarizeBy: none
+		formatString: Short Date
 
 	column ano
 		dataType: int64
-		lineageTag: f2c99e31-8d8a-4a31-9c65-64518fa28547
-		summarizeBy: sum
 		sourceColumn: ano
-
-		annotation SummarizationSetBy = Automatic
+		summarizeBy: none
 
 	column mes
 		dataType: int64
-		lineageTag: 22daf394-4c4c-4a90-a7fd-2b3404fc8f6b
-		summarizeBy: sum
 		sourceColumn: mes
-
-		annotation SummarizationSetBy = Automatic
+		summarizeBy: none
 
 	column dia
 		dataType: int64
-		lineageTag: 9df3eefe-fb0c-45de-9c09-6590c84195b1
-		summarizeBy: sum
 		sourceColumn: dia
-
-		annotation SummarizationSetBy = Automatic
+		summarizeBy: none
 
 	column ano_mes
 		dataType: string
-		lineageTag: 5222f8cb-c19c-4e64-8b5b-2f58fcbe0dab
-		summarizeBy: none
 		sourceColumn: ano_mes
+		summarizeBy: none
 
 	column nome_mes
 		dataType: string
-		lineageTag: c69a57d3-4499-4a54-9be5-e4028f18129a
-		summarizeBy: none
 		sourceColumn: nome_mes
+		summarizeBy: none
 
 	column trimestre
 		dataType: string
-		lineageTag: 36a9883a-9982-411c-b402-6a0b73b9c4f4
-		summarizeBy: none
 		sourceColumn: trimestre
+		summarizeBy: none
 
 	column dia_semana
 		dataType: int64
-		lineageTag: 7202b53a-30a8-4b64-9daf-eb97e90ec2a2
-		summarizeBy: sum
 		sourceColumn: dia_semana
-
-		annotation SummarizationSetBy = Automatic
+		summarizeBy: none
 
 	column nome_dia_semana
 		dataType: string
-		lineageTag: 3a228247-1673-4ebf-81d4-0d7f2e2c3417
-		summarizeBy: none
 		sourceColumn: nome_dia_semana
+		summarizeBy: none
 
 	partition senado_dim_tempo = m
 		mode: import
 		source =
-				let
-					Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\senado_federal\senado_dim_tempo.parquet"))
-				in
-					Source
+			let
+				Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\senado_federal\senado_dim_tempo.parquet"))
+			in
+				Source
 
 	annotation PBI_ResultType = Table
-

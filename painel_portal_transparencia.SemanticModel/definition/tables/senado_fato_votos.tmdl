@@ -1,130 +1,107 @@
 table senado_fato_votos
-	lineageTag: 01df1f77-99f6-4a6f-8ac4-72ce4366cf49
 
 	column chave_registro
 		dataType: string
-		lineageTag: 4d16505e-3573-4fc8-a059-2af5d015ed05
-		summarizeBy: none
 		sourceColumn: chave_registro
+		summarizeBy: none
 
 	column hash_registro
 		dataType: string
-		lineageTag: 8eee3831-d07d-4e9a-b32f-ab597168202e
-		summarizeBy: none
 		sourceColumn: hash_registro
+		summarizeBy: none
 
 	column dataset
 		dataType: string
-		lineageTag: 546adc28-c621-46c0-bf31-585f74b26af3
-		summarizeBy: none
 		sourceColumn: dataset
+		summarizeBy: none
 
 	column codigo_parlamentar
 		dataType: int64
-		lineageTag: 7e39a6e9-00cf-47db-99d7-437df515397a
-		summarizeBy: none
 		sourceColumn: codigo_parlamentar
+		summarizeBy: none
 
 	column descricao_voto_parlamentar
 		dataType: string
-		lineageTag: a774956d-958c-4b17-9ab2-89e45c944222
-		summarizeBy: none
 		sourceColumn: descricao_voto_parlamentar
+		summarizeBy: none
 
 	column nome_parlamentar
 		dataType: string
-		lineageTag: d08a6522-b562-47f5-ae24-9789487650f8
-		summarizeBy: none
 		sourceColumn: nome_parlamentar
+		summarizeBy: none
 
 	column sexo_parlamentar
 		dataType: string
-		lineageTag: 835050e3-b299-44e5-a223-fc385b788f69
-		summarizeBy: none
 		sourceColumn: sexo_parlamentar
+		summarizeBy: none
 
 	column sigla_partido_parlamentar
 		dataType: string
-		lineageTag: 18eea583-5495-48cb-8577-c8e89c0c9339
-		summarizeBy: none
 		sourceColumn: sigla_partido_parlamentar
+		summarizeBy: none
 
 	column sigla_uf_parlamentar
 		dataType: string
-		lineageTag: 3d381e2f-21ff-48a9-bac3-2e16b52951b5
-		summarizeBy: none
 		sourceColumn: sigla_uf_parlamentar
+		summarizeBy: none
 
 	column sigla_voto_parlamentar
 		dataType: string
-		lineageTag: ed2a9851-e31e-440d-9b8a-322c9f67ddd1
-		summarizeBy: none
 		sourceColumn: sigla_voto_parlamentar
+		summarizeBy: none
 
 	column codigo_sessao_votacao
 		dataType: int64
-		lineageTag: 5aae26dd-ecf5-4180-afd7-e82f6f7e2ef8
-		summarizeBy: none
 		sourceColumn: codigo_sessao_votacao
+		summarizeBy: none
 
 	column codigo_materia
 		dataType: int64
-		lineageTag: 70f8fdb1-a01f-494e-86f8-ccd93ceb16e5
-		summarizeBy: none
 		sourceColumn: codigo_materia
+		summarizeBy: none
 
 	column data_sessao
 		dataType: dateTime
-		formatString: Short Date
-		lineageTag: 2a3f4aa1-0760-40d5-8032-c0fc6364b00a
-		summarizeBy: none
 		sourceColumn: data_sessao
-
-		annotation UnderlyingDateTimeDataType = Date
+		summarizeBy: none
+		formatString: Short Date
 
 	column linha_origem
 		dataType: int64
-		lineageTag: 344b7499-7814-4946-a485-d4dcd16a35e8
-		summarizeBy: none
 		sourceColumn: linha_origem
+		summarizeBy: none
 
 	column chave_voto
 		dataType: string
-		lineageTag: d0face88-83aa-42a9-81d6-40e69e63b73f
-		summarizeBy: none
 		sourceColumn: chave_voto
+		summarizeBy: none
 
 	column ano_voto
 		dataType: int64
-		lineageTag: cb4dbae2-f9a4-49f0-aa21-aa988cf1da81
-		summarizeBy: none
 		sourceColumn: ano_voto
+		summarizeBy: none
 
 	column mes_voto
 		dataType: int64
-		lineageTag: c0b5fa28-a835-41bb-93d5-8af386ecaeb2
-		summarizeBy: none
 		sourceColumn: mes_voto
+		summarizeBy: none
 
 	column periodo_voto
 		dataType: string
-		lineageTag: 703b0b1d-f619-428f-9e01-bdace27c72d8
-		summarizeBy: none
 		sourceColumn: periodo_voto
+		summarizeBy: none
 
 	column categoria_voto
 		dataType: string
-		lineageTag: cebaf8f7-f399-4437-af11-421a443242cb
-		summarizeBy: none
 		sourceColumn: categoria_voto
+		summarizeBy: none
 
 	partition senado_fato_votos = m
 		mode: import
 		source =
-				let
-					Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\senado_federal\senado_fato_votos.parquet"))
-				in
-					Source
+			let
+				Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\senado_federal\senado_fato_votos.parquet"))
+			in
+				Source
 
 	annotation PBI_ResultType = Table
-

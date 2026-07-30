@@ -1,5 +1,4 @@
 table _Medidas
-	lineageTag: a029b216-9acd-474f-b3b9-ca7dd09d415f
 
 	measure 'Total Gastos Senado' =
 			SUM (
@@ -7,7 +6,6 @@ table _Medidas
 			)
 		formatString: R$ #,0.00;-R$ #,0.00;R$ #,0.00
 		displayFolder: Senado\Gastos
-		lineageTag: b6ed01a1-9b45-44b3-a89c-5bd42e82d89d
 
 	measure 'Quantidade Despesas Senado' =
 			COUNTROWS (
@@ -15,7 +13,6 @@ table _Medidas
 			)
 		formatString: #,0
 		displayFolder: Senado\Gastos
-		lineageTag: 245f82c3-d022-4bff-a206-a84bebd1284b
 
 	measure 'Quantidade Senadores com Gastos' =
 			DISTINCTCOUNT (
@@ -23,7 +20,6 @@ table _Medidas
 			)
 		formatString: #,0
 		displayFolder: Senado\Gastos
-		lineageTag: 7af14aa6-5bee-4f88-b71d-7a2552a761c1
 
 	measure 'Quantidade Fornecedores Senado' =
 			DISTINCTCOUNT (
@@ -31,7 +27,6 @@ table _Medidas
 			)
 		formatString: #,0
 		displayFolder: Senado\Gastos
-		lineageTag: f3f35cc2-9342-4f5f-878b-c87c6d608028
 
 	measure 'Ticket Médio Despesa Senado' =
 			DIVIDE (
@@ -41,7 +36,6 @@ table _Medidas
 			)
 		formatString: R$ #,0.00;-R$ #,0.00;R$ #,0.00
 		displayFolder: Senado\Gastos
-		lineageTag: 9768dbca-858d-4eb3-81fa-91ec227edbf9
 
 	measure 'Total Matérias Senado' =
 			DISTINCTCOUNT (
@@ -49,7 +43,6 @@ table _Medidas
 			)
 		formatString: #,0
 		displayFolder: Senado\Atividade Legislativa
-		lineageTag: c9c12075-3436-4cb1-8676-9c5ff070fcde
 
 	measure 'Total Votações Senado' =
 			DISTINCTCOUNT (
@@ -57,7 +50,6 @@ table _Medidas
 			)
 		formatString: #,0
 		displayFolder: Senado\Atividade Legislativa
-		lineageTag: abcd1047-d46d-43aa-ab3a-81f55f2dc5c4
 
 	measure 'Total Votos Senado' =
 			COUNTROWS (
@@ -65,7 +57,6 @@ table _Medidas
 			)
 		formatString: #,0
 		displayFolder: Senado\Atividade Legislativa
-		lineageTag: 74e08039-076e-4258-b522-190174b10c12
 
 	measure 'Votos Sim Senado' =
 			CALCULATE (
@@ -74,7 +65,6 @@ table _Medidas
 			)
 		formatString: #,0
 		displayFolder: Senado\Atividade Legislativa
-		lineageTag: 38d82100-c5e8-42e0-ad32-fa70773d4699
 
 	measure 'Votos Não Senado' =
 			CALCULATE (
@@ -83,7 +73,6 @@ table _Medidas
 			)
 		formatString: #,0
 		displayFolder: Senado\Atividade Legislativa
-		lineageTag: b23c45d6-6405-48bc-9379-d8c7bb788a6e
 
 	measure 'Abstenções Senado' =
 			CALCULATE (
@@ -92,7 +81,6 @@ table _Medidas
 			)
 		formatString: #,0
 		displayFolder: Senado\Atividade Legislativa
-		lineageTag: bc62bc96-6210-4b1b-829b-61150cc7d24b
 
 	measure 'Percentual Votos Sim Senado' =
 			DIVIDE (
@@ -102,7 +90,6 @@ table _Medidas
 			)
 		formatString: 0.00%
 		displayFolder: Senado\Atividade Legislativa
-		lineageTag: b839f178-b01c-4c53-8949-4d8c920e1d4b
 
 	measure 'Votações Aprovadas Senado' =
 			CALCULATE (
@@ -111,7 +98,6 @@ table _Medidas
 			)
 		formatString: #,0
 		displayFolder: Senado\Atividade Legislativa
-		lineageTag: e2379655-5bfc-423b-a9fc-2c0c3e5b6733
 
 	measure 'Percentual Votações Aprovadas Senado' =
 			DIVIDE (
@@ -121,25 +107,22 @@ table _Medidas
 			)
 		formatString: 0.00%
 		displayFolder: Senado\Atividade Legislativa
-		lineageTag: 1d44f011-d1af-49e0-9959-9b8ba47db93b
 
 	column Indicador
 		dataType: string
 		isHidden
-		lineageTag: 3c0ef5a1-6032-4dae-a18a-03d0f12f7389
-		summarizeBy: none
 		sourceColumn: Indicador
+		summarizeBy: none
 
 	partition _Medidas = m
 		mode: import
 		source =
-				let
-					Source = #table(
-					    type table [Indicador = text],
-					    {{"Medidas"}}
-					)
-				in
-					Source
+			let
+				Source = #table(
+				    type table [Indicador = text],
+				    {{"Medidas"}}
+				)
+			in
+				Source
 
 	annotation PBI_ResultType = Table
-

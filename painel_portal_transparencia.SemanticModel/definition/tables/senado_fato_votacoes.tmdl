@@ -1,356 +1,249 @@
 table senado_fato_votacoes
-	lineageTag: 9c878b2b-1c1d-4cbc-8bc7-3b385335498f
 
 	column chave_registro
 		dataType: string
-		lineageTag: ab3171f9-48c0-4bec-a51d-0c4b35746353
-		summarizeBy: none
 		sourceColumn: chave_registro
+		summarizeBy: none
 
 	column hash_registro
 		dataType: string
-		lineageTag: 66df3bd2-276d-48fd-9446-08d9b4c04138
-		summarizeBy: none
 		sourceColumn: hash_registro
+		summarizeBy: none
 
 	column dataset
 		dataType: string
-		lineageTag: b63a7e77-d65f-4480-b74c-98234dcf8659
-		summarizeBy: none
 		sourceColumn: dataset
+		summarizeBy: none
 
 	column ano
 		dataType: int64
-		lineageTag: 79fc7d39-ed35-4b04-a848-e329ba1a06a5
-		summarizeBy: sum
 		sourceColumn: ano
-
-		annotation SummarizationSetBy = Automatic
+		summarizeBy: none
 
 	column casa_sessao
 		dataType: string
-		lineageTag: 73bd9635-48cf-4932-8738-b4c448122e80
-		summarizeBy: none
 		sourceColumn: casa_sessao
+		summarizeBy: none
 
 	column codigo_materia
 		dataType: int64
-		lineageTag: ef71fba2-c330-4cf4-bf6b-3bd01216b2ab
-		summarizeBy: none
 		sourceColumn: codigo_materia
+		summarizeBy: none
 
 	column codigo_sessao
 		dataType: int64
-		lineageTag: cc5787a4-a2f3-41c3-b41a-e77e2a8660a4
-		summarizeBy: sum
 		sourceColumn: codigo_sessao
-
-		annotation SummarizationSetBy = Automatic
+		summarizeBy: none
 
 	column codigo_sessao_legislativa
 		dataType: int64
-		lineageTag: f7adc7e0-ded9-4bb9-80d1-0c40929aa74b
-		summarizeBy: sum
 		sourceColumn: codigo_sessao_legislativa
-
-		annotation SummarizationSetBy = Automatic
+		summarizeBy: none
 
 	column codigo_sessao_votacao
 		dataType: int64
-		lineageTag: bc49d015-f4a9-4c44-b7ca-41a13241dd07
-		summarizeBy: sum
 		sourceColumn: codigo_sessao_votacao
-
-		annotation SummarizationSetBy = Automatic
+		summarizeBy: none
 
 	column data_apresentacao
 		dataType: dateTime
-		formatString: Short Date
-		lineageTag: a10f0355-646b-4aeb-a4a8-981d922d0646
-		summarizeBy: none
 		sourceColumn: data_apresentacao
-
-		variation Variation
-			isDefault
-			relationship: 76ca8f43-7c0e-4104-8e8f-11d334a6ff4b
-			defaultHierarchy: LocalDateTable_bb8c7a52-036b-43cf-93e6-3915f75f5465.'Hierarquia de datas'
-
-		annotation UnderlyingDateTimeDataType = Date
+		summarizeBy: none
+		formatString: Short Date
 
 	column data_sessao
 		dataType: dateTime
-		formatString: Short Date
-		lineageTag: 223c7eff-05c8-4ffd-a642-3509bbc9ab2a
-		summarizeBy: none
 		sourceColumn: data_sessao
-
-		annotation UnderlyingDateTimeDataType = Date
+		summarizeBy: none
+		formatString: Short Date
 
 	column descricao_votacao
 		dataType: string
-		lineageTag: bddf4682-5867-416f-8a78-abed071ee97c
-		summarizeBy: none
 		sourceColumn: descricao_votacao
+		summarizeBy: none
 
 	column ementa
 		dataType: string
-		lineageTag: 9cd4b265-69b4-40b1-9bf4-87891095a92e
-		summarizeBy: none
 		sourceColumn: ementa
+		summarizeBy: none
 
 	column id_processo
 		dataType: int64
-		lineageTag: 2e6bb0b4-a0e3-43d2-927d-4fe9a238d977
-		summarizeBy: sum
 		sourceColumn: id_processo
-
-		annotation SummarizationSetBy = Automatic
+		summarizeBy: none
 
 	column identificacao
 		dataType: string
-		lineageTag: 0100dab9-260e-4a44-879c-7b099742ef8a
-		summarizeBy: none
 		sourceColumn: identificacao
+		summarizeBy: none
 
 	column informe_legislativo_casa_colegiado
 		dataType: string
-		lineageTag: aa0a7c4f-3c9f-466d-addb-3cfbce19cf3e
-		summarizeBy: none
 		sourceColumn: informe_legislativo_casa_colegiado
+		summarizeBy: none
 
 	column informe_legislativo_casa_ente_adm
 		dataType: string
-		lineageTag: 5a1293bb-4419-465b-a977-8843c15dc6b0
-		summarizeBy: none
 		sourceColumn: informe_legislativo_casa_ente_adm
+		summarizeBy: none
 
 	column informe_legislativo_codigo_colegiado
 		dataType: int64
-		lineageTag: 092dd94a-7fe2-4a8d-ba72-aed4eb0e2c5e
-		summarizeBy: sum
 		sourceColumn: informe_legislativo_codigo_colegiado
-
-		annotation SummarizationSetBy = Automatic
+		summarizeBy: none
 
 	column informe_legislativo_data
 		dataType: dateTime
-		formatString: Short Date
-		lineageTag: dd4b0389-2f56-4608-96e1-cb6e995ff464
-		summarizeBy: none
 		sourceColumn: informe_legislativo_data
-
-		variation Variation
-			isDefault
-			relationship: 0b88de73-ef6e-41c9-9696-4b4ad4786b3a
-			defaultHierarchy: LocalDateTable_79dea144-355e-4632-94cb-f9a6b0513425.'Hierarquia de datas'
-
-		annotation UnderlyingDateTimeDataType = Date
+		summarizeBy: none
+		formatString: Short Date
 
 	column informe_legislativo_id
 		dataType: int64
-		lineageTag: ca4083a4-9086-4a93-af41-cb643911fe11
-		summarizeBy: sum
 		sourceColumn: informe_legislativo_id
-
-		annotation SummarizationSetBy = Automatic
+		summarizeBy: none
 
 	column informe_legislativo_id_ente_adm
 		dataType: int64
-		lineageTag: 54e72cda-34f4-48cd-912d-97429a06a189
-		summarizeBy: sum
 		sourceColumn: informe_legislativo_id_ente_adm
-
-		annotation SummarizationSetBy = Automatic
+		summarizeBy: none
 
 	column informe_legislativo_id_evento
 		dataType: int64
-		lineageTag: 21272f32-2a24-4f73-885b-253864d9da14
-		summarizeBy: sum
 		sourceColumn: informe_legislativo_id_evento
-
-		annotation SummarizationSetBy = Automatic
+		summarizeBy: none
 
 	column informe_legislativo_nome_colegiado
 		dataType: string
-		lineageTag: 310666f6-9c5a-457b-bd6f-f9d8c2682e52
-		summarizeBy: none
 		sourceColumn: informe_legislativo_nome_colegiado
+		summarizeBy: none
 
 	column informe_legislativo_nome_ente_adm
 		dataType: string
-		lineageTag: 619416a4-e373-4f8a-925c-f6ad59a6a9a5
-		summarizeBy: none
 		sourceColumn: informe_legislativo_nome_ente_adm
+		summarizeBy: none
 
 	column informe_legislativo_numero_autuacao
 		dataType: int64
-		lineageTag: 0cac8654-0208-4526-85e2-315429a0c0c1
-		summarizeBy: sum
 		sourceColumn: informe_legislativo_numero_autuacao
-
-		annotation SummarizationSetBy = Automatic
+		summarizeBy: none
 
 	column informe_legislativo_sigla_colegiado
 		dataType: string
-		lineageTag: 4bb92667-78f2-4b54-8c2a-d2f1b514fc20
-		summarizeBy: none
 		sourceColumn: informe_legislativo_sigla_colegiado
+		summarizeBy: none
 
 	column informe_legislativo_sigla_ente_adm
 		dataType: string
-		lineageTag: 390330e7-1f9b-4e19-949c-caeea62b37e2
-		summarizeBy: none
 		sourceColumn: informe_legislativo_sigla_ente_adm
+		summarizeBy: none
 
 	column informe_legislativo_texto
 		dataType: string
-		lineageTag: e9ff2b90-d824-45ab-8029-5c37b029e6e8
-		summarizeBy: none
 		sourceColumn: informe_legislativo_texto
+		summarizeBy: none
 
 	column numero
 		dataType: string
-		lineageTag: ee7818a3-5546-47b3-afb2-1f1cb635990d
-		summarizeBy: none
 		sourceColumn: numero
+		summarizeBy: none
 
 	column numero_sessao
 		dataType: int64
-		lineageTag: 5cfbfd7f-a3dd-4b91-8e3b-7464a03508a5
-		summarizeBy: sum
 		sourceColumn: numero_sessao
-
-		annotation SummarizationSetBy = Automatic
+		summarizeBy: none
 
 	column resultado_votacao
 		dataType: string
-		lineageTag: 48f94a4d-266c-4c15-82f8-f13f4381c4b1
-		summarizeBy: none
 		sourceColumn: resultado_votacao
+		summarizeBy: none
 
 	column sequencial_sessao
 		dataType: int64
-		lineageTag: 567a19a6-24eb-450d-8e36-c25d508a119d
-		summarizeBy: sum
 		sourceColumn: sequencial_sessao
-
-		annotation SummarizationSetBy = Automatic
+		summarizeBy: none
 
 	column sequencial_votacao
 		dataType: int64
-		lineageTag: f51128c8-e6f2-4d29-b877-e6adb6f2b863
-		summarizeBy: sum
 		sourceColumn: sequencial_votacao
-
-		annotation SummarizationSetBy = Automatic
+		summarizeBy: none
 
 	column sigla
 		dataType: string
-		lineageTag: 7301361f-7a6c-4ad8-aeb8-f2d53c7c5b0b
-		summarizeBy: none
 		sourceColumn: sigla
+		summarizeBy: none
 
 	column sigla_tipo_sessao
 		dataType: string
-		lineageTag: 8b4350e0-b483-4552-a910-3cc097dc9db2
-		summarizeBy: none
 		sourceColumn: sigla_tipo_sessao
+		summarizeBy: none
 
 	column total_votos_abstencao
 		dataType: int64
-		lineageTag: 5c74b883-b255-4d35-b511-8625ff704c8f
-		summarizeBy: sum
 		sourceColumn: total_votos_abstencao
-
-		annotation SummarizationSetBy = Automatic
+		summarizeBy: none
 
 	column total_votos_nao
 		dataType: int64
-		lineageTag: 04dede57-524d-4f60-9469-7e91315ebab8
-		summarizeBy: sum
 		sourceColumn: total_votos_nao
-
-		annotation SummarizationSetBy = Automatic
+		summarizeBy: none
 
 	column total_votos_sim
 		dataType: int64
-		lineageTag: 0c1f5233-0a82-42d1-99d4-4b2c30afa14d
-		summarizeBy: sum
 		sourceColumn: total_votos_sim
-
-		annotation SummarizationSetBy = Automatic
+		summarizeBy: none
 
 	column votacao_secreta
 		dataType: string
-		lineageTag: 81a006b8-7d01-4e5d-b68e-49cd7fb9112d
-		summarizeBy: none
 		sourceColumn: votacao_secreta
+		summarizeBy: none
 
 	column informe_legislativo
 		dataType: string
-		lineageTag: d63cd859-9871-4c8f-a2c9-1f5a59857a61
-		summarizeBy: none
 		sourceColumn: informe_legislativo
+		summarizeBy: none
 
 	column linha_origem
 		dataType: int64
-		lineageTag: b1ceb252-d920-4559-9c9e-e11f20b4d94e
-		summarizeBy: sum
 		sourceColumn: linha_origem
-
-		annotation SummarizationSetBy = Automatic
+		summarizeBy: none
 
 	column id_votacao
 		dataType: int64
-		lineageTag: fee118c0-d540-4cbc-9c07-07567a3f6cd9
-		summarizeBy: sum
 		sourceColumn: id_votacao
-
-		annotation SummarizationSetBy = Automatic
+		summarizeBy: none
 
 	column ano_votacao
 		dataType: int64
-		lineageTag: c6bef6aa-63e0-4c70-b8ed-ae6b53bc1d96
-		summarizeBy: sum
 		sourceColumn: ano_votacao
-
-		annotation SummarizationSetBy = Automatic
+		summarizeBy: none
 
 	column mes_votacao
 		dataType: int64
-		lineageTag: bb6e6a36-5b04-4246-b287-abb83746abda
-		summarizeBy: sum
 		sourceColumn: mes_votacao
-
-		annotation SummarizationSetBy = Automatic
+		summarizeBy: none
 
 	column periodo_votacao
 		dataType: string
-		lineageTag: e91267d1-8790-4560-9e0b-ec4557dad3c7
-		summarizeBy: none
 		sourceColumn: periodo_votacao
+		summarizeBy: none
 
 	column total_votos_informados
 		dataType: int64
-		lineageTag: 7cb28883-ebbe-4862-8bd3-cec2e8988a45
-		summarizeBy: sum
 		sourceColumn: total_votos_informados
-
-		annotation SummarizationSetBy = Automatic
+		summarizeBy: none
 
 	column resultado_votacao_normalizado
 		dataType: string
-		lineageTag: ec4aeb24-371b-4d44-a59e-7388c467dffa
-		summarizeBy: none
 		sourceColumn: resultado_votacao_normalizado
+		summarizeBy: none
 
 	partition senado_fato_votacoes = m
 		mode: import
 		source =
-				let
-					Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\senado_federal\senado_fato_votacoes.parquet"))
-				in
-					Source
+			let
+				Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\senado_federal\senado_fato_votacoes.parquet"))
+			in
+				Source
 
 	annotation PBI_ResultType = Table
-

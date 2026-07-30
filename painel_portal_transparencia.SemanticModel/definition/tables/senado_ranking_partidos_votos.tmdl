@@ -1,55 +1,46 @@
 table senado_ranking_partidos_votos
-	lineageTag: a1659aef-4e83-4859-9b35-08fd514e3bfe
 
 	column sigla_partido
 		dataType: string
-		lineageTag: 289c0702-dfa2-4f53-bbca-1e9d5d2518ff
-		summarizeBy: none
 		sourceColumn: sigla_partido
+		summarizeBy: none
 
 	column quantidade_senadores
 		dataType: int64
-		lineageTag: cf34fa85-31fe-4d28-a0b3-7b7065b42914
-		summarizeBy: none
 		sourceColumn: quantidade_senadores
+		summarizeBy: none
 
 	column quantidade_votos
 		dataType: int64
-		lineageTag: f99a2e5c-e2e0-435b-9dae-3dd7b9d25e70
-		summarizeBy: none
 		sourceColumn: quantidade_votos
+		summarizeBy: none
 
 	column votos_sim
 		dataType: int64
-		lineageTag: 190799c8-c6e4-44e2-b681-c5f25384f19f
-		summarizeBy: none
 		sourceColumn: votos_sim
+		summarizeBy: none
 
 	column votos_nao
 		dataType: int64
-		lineageTag: b88503a1-a6b7-48d1-a3d9-2cd5fdfb6862
-		summarizeBy: none
 		sourceColumn: votos_nao
+		summarizeBy: none
 
 	column abstencoes
 		dataType: int64
-		lineageTag: b631b6f6-7a91-457f-81b5-89271df1db29
-		summarizeBy: none
 		sourceColumn: abstencoes
+		summarizeBy: none
 
 	column posicao
 		dataType: int64
-		lineageTag: 53893fc3-ee4a-4a59-9c92-d2711b695b7f
-		summarizeBy: none
 		sourceColumn: posicao
+		summarizeBy: none
 
 	partition senado_ranking_partidos_votos = m
 		mode: import
 		source =
-				let
-					Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\senado_federal\senado_ranking_partidos_votos.parquet"))
-				in
-					Source
+			let
+				Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\senado_federal\senado_ranking_partidos_votos.parquet"))
+			in
+				Source
 
 	annotation PBI_ResultType = Table
-

@@ -1,44 +1,37 @@
 table senado_dim_fornecedor
-	lineageTag: 96f77d73-a9fa-4a47-ae64-b5e576ded0a7
 
 	column id_fornecedor
 		dataType: int64
 		isKey
-		lineageTag: 50646bc1-9065-4771-9a9d-d3b98ca374a7
-		summarizeBy: none
 		sourceColumn: id_fornecedor
+		summarizeBy: none
 
 	column documento_fornecedor
 		dataType: string
-		lineageTag: c1e2c29a-4c94-457c-91a1-b6818ca6ce50
-		summarizeBy: none
 		sourceColumn: documento_fornecedor
+		summarizeBy: none
 
 	column documento_fornecedor_formatado
 		dataType: string
-		lineageTag: 4a04fca1-2af1-4568-9f9a-2b0594a348ad
-		summarizeBy: none
 		sourceColumn: documento_fornecedor_formatado
+		summarizeBy: none
 
 	column nome_fornecedor
 		dataType: string
-		lineageTag: 0da3b731-497d-4483-88df-8f073f2c6054
-		summarizeBy: none
 		sourceColumn: nome_fornecedor
+		summarizeBy: none
 
 	column tipo_documento
 		dataType: string
-		lineageTag: 1cbded84-cc26-4e22-96ce-bae9952fd61d
-		summarizeBy: none
 		sourceColumn: tipo_documento
+		summarizeBy: none
 
 	partition senado_dim_fornecedor = m
 		mode: import
 		source =
-				let
-					Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\senado_federal\senado_dim_fornecedor.parquet"))
-				in
-					Source
+			let
+				Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\senado_federal\senado_dim_fornecedor.parquet"))
+			in
+				Source
 
 	annotation PBI_ResultType = Table
-

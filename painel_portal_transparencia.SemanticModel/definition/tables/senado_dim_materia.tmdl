@@ -1,106 +1,78 @@
 table senado_dim_materia
-	lineageTag: 7e8207af-4019-463b-a924-1fe7b189d466
 
 	column id_materia
 		dataType: int64
 		isKey
-		lineageTag: dc3d550d-0006-4d89-a1b0-794c5116f59a
-		summarizeBy: none
 		sourceColumn: id_materia
+		summarizeBy: none
 
 	column codigo
 		dataType: int64
-		lineageTag: 8e2fcc6f-1a77-44e0-af13-34891421d006
-		summarizeBy: sum
 		sourceColumn: codigo
-
-		annotation SummarizationSetBy = Automatic
+		summarizeBy: none
 
 	column identificacao_processo
 		dataType: string
-		lineageTag: 02c30425-b674-4d2b-a812-21c9ae4f4060
-		summarizeBy: none
 		sourceColumn: identificacao_processo
+		summarizeBy: none
 
 	column descricao_identificacao
 		dataType: string
-		lineageTag: 5252b047-800b-462e-a3fb-f1d3a23e7592
-		summarizeBy: none
 		sourceColumn: descricao_identificacao
+		summarizeBy: none
 
 	column sigla
 		dataType: string
-		lineageTag: 29b50c5d-40de-421a-a274-51c772aae00b
-		summarizeBy: none
 		sourceColumn: sigla
+		summarizeBy: none
 
 	column numero
 		dataType: int64
-		lineageTag: 515fb426-6008-4a09-b07d-19a1b1c19b96
-		summarizeBy: sum
 		sourceColumn: numero
-
-		annotation SummarizationSetBy = Automatic
+		summarizeBy: none
 
 	column ano
 		dataType: int64
-		lineageTag: daa8680f-9bcf-463f-ab77-aa6da145717a
-		summarizeBy: sum
 		sourceColumn: ano
-
-		annotation SummarizationSetBy = Automatic
+		summarizeBy: none
 
 	column sigla_comissao
 		dataType: string
-		lineageTag: b74bd7b5-ded4-429d-8d03-ebeb43da7291
-		summarizeBy: none
 		sourceColumn: sigla_comissao
+		summarizeBy: none
 
 	column ementa
 		dataType: string
-		lineageTag: 39e0318c-df0e-43a3-9df3-6c6ab9774c7d
-		summarizeBy: none
 		sourceColumn: ementa
+		summarizeBy: none
 
 	column autor
 		dataType: string
-		lineageTag: 839cc77d-2ab1-4bd4-abea-88cc8cd9fa08
-		summarizeBy: none
 		sourceColumn: autor
+		summarizeBy: none
 
 	column data
 		dataType: dateTime
-		formatString: Short Date
-		lineageTag: d4906166-63ea-43b8-a20a-a81a512a7b0f
-		summarizeBy: none
 		sourceColumn: data
-
-		variation Variation
-			isDefault
-			relationship: 21af4be4-2278-4cb3-b10a-782d82a9f804
-			defaultHierarchy: LocalDateTable_f0506051-dfe0-434a-aee4-60b569305df7.'Hierarquia de datas'
-
-		annotation UnderlyingDateTimeDataType = Date
+		summarizeBy: none
+		formatString: Short Date
 
 	column url_detalhe_materia
 		dataType: string
-		lineageTag: 01a5fcca-a9d7-4c4e-8888-1562f83fbe7f
-		summarizeBy: none
 		sourceColumn: url_detalhe_materia
+		summarizeBy: none
 
 	column titulo_materia
 		dataType: string
-		lineageTag: 554d2724-dcb0-4f39-be88-1f088bcf3aaf
-		summarizeBy: none
 		sourceColumn: titulo_materia
+		summarizeBy: none
 
 	partition senado_dim_materia = m
 		mode: import
 		source =
-				let
-					Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\senado_federal\senado_dim_materia.parquet"))
-				in
-					Source
+			let
+				Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\senado_federal\senado_dim_materia.parquet"))
+			in
+				Source
 
 	annotation PBI_ResultType = Table
-

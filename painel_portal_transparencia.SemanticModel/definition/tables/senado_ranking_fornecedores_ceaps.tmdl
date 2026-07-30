@@ -1,50 +1,42 @@
 table senado_ranking_fornecedores_ceaps
-	lineageTag: f8c019f7-9e5d-425f-8f0f-165efeb9870b
 
 	column cpf_cnpj_fornecedor_normalizado
 		dataType: string
-		lineageTag: b7e5e0eb-5f8e-4614-bc83-61a060eee9d3
-		summarizeBy: none
 		sourceColumn: cpf_cnpj_fornecedor_normalizado
+		summarizeBy: none
 
 	column nome_fornecedor
 		dataType: string
-		lineageTag: ba2aef0e-683f-4446-8ab4-43a7dc705099
-		summarizeBy: none
 		sourceColumn: nome_fornecedor
+		summarizeBy: none
 
 	column quantidade_despesas
 		dataType: int64
-		lineageTag: 3b86114a-d588-4499-ab75-c5eaafac7ac9
-		summarizeBy: none
 		sourceColumn: quantidade_despesas
+		summarizeBy: none
 
 	column valor_total
 		dataType: double
-		formatString: R$ #,0.00;-R$ #,0.00;R$ #,0.00
-		lineageTag: 8152f3f0-699e-46b4-95eb-eb92f96dbcfe
-		summarizeBy: none
 		sourceColumn: valor_total
+		summarizeBy: none
+		formatString: R$ #,0.00;-R$ #,0.00;R$ #,0.00
 
 	column quantidade_senadores
 		dataType: int64
-		lineageTag: 8d0fd162-75d4-4809-a841-dcf6353ff159
-		summarizeBy: none
 		sourceColumn: quantidade_senadores
+		summarizeBy: none
 
 	column posicao
 		dataType: int64
-		lineageTag: 77683eb0-7030-4587-b843-e591cd273763
-		summarizeBy: none
 		sourceColumn: posicao
+		summarizeBy: none
 
 	partition senado_ranking_fornecedores_ceaps = m
 		mode: import
 		source =
-				let
-					Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\senado_federal\senado_ranking_fornecedores_ceaps.parquet"))
-				in
-					Source
+			let
+				Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\senado_federal\senado_ranking_fornecedores_ceaps.parquet"))
+			in
+				Source
 
 	annotation PBI_ResultType = Table
-

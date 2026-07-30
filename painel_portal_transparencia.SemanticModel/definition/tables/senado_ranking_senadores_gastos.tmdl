@@ -1,50 +1,42 @@
 table senado_ranking_senadores_gastos
-	lineageTag: a3dc770a-c6d6-4ce1-80bb-ce49d64721cc
 
 	column cod_senador
 		dataType: int64
-		lineageTag: 5e13c0b3-2c8f-440e-ac86-94e7063dcebe
-		summarizeBy: none
 		sourceColumn: cod_senador
+		summarizeBy: none
 
 	column nome_senador
 		dataType: string
-		lineageTag: 9f7a470f-3503-4674-8e97-e4bf7b7703ab
-		summarizeBy: none
 		sourceColumn: nome_senador
+		summarizeBy: none
 
 	column quantidade_despesas
 		dataType: int64
-		lineageTag: 89ad7e95-b971-4c96-9498-905be07c0ea4
-		summarizeBy: none
 		sourceColumn: quantidade_despesas
+		summarizeBy: none
 
 	column valor_total
 		dataType: double
-		formatString: R$ #,0.00;-R$ #,0.00;R$ #,0.00
-		lineageTag: ea39b629-69f2-4743-b958-eb8e854b4a54
-		summarizeBy: none
 		sourceColumn: valor_total
+		summarizeBy: none
+		formatString: R$ #,0.00;-R$ #,0.00;R$ #,0.00
 
 	column quantidade_fornecedores
 		dataType: int64
-		lineageTag: 2cbdfcbe-8bc5-48d6-87be-368b2bce6d32
-		summarizeBy: none
 		sourceColumn: quantidade_fornecedores
+		summarizeBy: none
 
 	column posicao
 		dataType: int64
-		lineageTag: 5b2881ee-c94d-49d2-953b-698b08e9672b
-		summarizeBy: none
 		sourceColumn: posicao
+		summarizeBy: none
 
 	partition senado_ranking_senadores_gastos = m
 		mode: import
 		source =
-				let
-					Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\senado_federal\senado_ranking_senadores_gastos.parquet"))
-				in
-					Source
+			let
+				Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\senado_federal\senado_ranking_senadores_gastos.parquet"))
+			in
+				Source
 
 	annotation PBI_ResultType = Table
-

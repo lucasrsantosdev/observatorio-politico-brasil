@@ -1,26 +1,22 @@
 table senado_dim_partido
-	lineageTag: 773539c7-ae36-4e76-bf1c-f3619a63ea22
 
 	column id_partido
 		dataType: int64
 		isKey
-		lineageTag: 82a75ff2-974d-40e7-bec7-c4afb354b945
-		summarizeBy: none
 		sourceColumn: id_partido
+		summarizeBy: none
 
 	column sigla_partido
 		dataType: string
-		lineageTag: a54f10ab-eba3-41af-8e03-1f563216e7ca
-		summarizeBy: none
 		sourceColumn: sigla_partido
+		summarizeBy: none
 
 	partition senado_dim_partido = m
 		mode: import
 		source =
-				let
-					Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\senado_federal\senado_dim_partido.parquet"))
-				in
-					Source
+			let
+				Source = Parquet.Document(File.Contents("C:\Users\lucas_um1\observatorio-politico-brasil\output\power_bi\senado_federal\senado_dim_partido.parquet"))
+			in
+				Source
 
 	annotation PBI_ResultType = Table
-

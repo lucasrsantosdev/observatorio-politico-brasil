@@ -7,7 +7,7 @@ model Model
 		legacyRedirects
 		returnErrorValuesAsNull
 
-annotation __PBI_TimeIntelligenceEnabled = 1
+annotation __PBI_TimeIntelligenceEnabled = 0
 
 annotation PBI_QueryOrder = ["senado_fato_materias","senado_fato_votacoes","senado_fato_votos","senado_fato_gastos_senadores","senado_dim_senadores_base","senado_dim_empresas_contratadas_base","senado_ranking_senadores_gastos","senado_ranking_fornecedores_ceaps","senado_ranking_tipos_despesa_ceaps","senado_ranking_senadores_votos","senado_ranking_partidos_votos","senado_resumo_gastos_mensal","senado_resumo_atividade_mensal","senado_dim_senador","senado_dim_materia","senado_dim_partido","senado_dim_uf","senado_dim_tipo_materia","senado_dim_tipo_voto","senado_dim_resultado_votacao","senado_dim_tipo_despesa","senado_dim_fornecedor","senado_dim_tempo","_Medidas"]
 
@@ -40,13 +40,6 @@ ref table senado_dim_tipo_despesa
 ref table senado_dim_fornecedor
 ref table senado_dim_tempo
 ref table _Medidas
-ref table DateTableTemplate_76dd6edb-f2ba-4156-894d-a15d593040c9
-ref table LocalDateTable_bb8c7a52-036b-43cf-93e6-3915f75f5465
-ref table LocalDateTable_79dea144-355e-4632-94cb-f9a6b0513425
-ref table LocalDateTable_83bd1c71-510d-42e8-aa27-16ba4bb03e88
-ref table LocalDateTable_a6024c14-6826-4279-b251-6bcebe340f2b
-ref table LocalDateTable_f0506051-dfe0-434a-aee4-60b569305df7
-ref table LocalDateTable_bb3950e9-5b87-452c-a966-24a74787de62
 ref table gastos_deputados_dim_beneficiario
 ref table gastos_deputados_dim_fornecedor
 ref table gastos_deputados_dim_movimento
