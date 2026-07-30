@@ -219,3 +219,85 @@ Antes de iniciar uma alteração:
    * eventuais limitações encontradas.
 
 Toda análise deve manter neutralidade política, rastreabilidade das fontes e possibilidade de reprodução dos resultados.
+
+## Power BI
+
+O projeto utiliza o formato **Power BI Project (`.pbip`)**, permitindo versionar no Git o relatório e o modelo semântico.
+
+### Pré-requisitos
+
+Para abrir o relatório, é necessário ter o **Power BI Desktop** instalado.
+
+O projeto Power BI utiliza arquivos Parquet gerados localmente pelos pipelines. Por isso, antes de abrir ou atualizar o relatório, execute os pipelines e scripts de publicação responsáveis por gerar os arquivos dentro de:
+
+```text
+output/power_bi/
+
+Os arquivos Parquet e CSV não são versionados no Git, pois podem ser reconstruídos a partir das fontes oficiais.
+
+Estrutura do projeto Power BI
+painel_portal_transparencia.pbip
+painel_portal_transparencia.Report/
+painel_portal_transparencia.SemanticModel/
+painel_portal_transparencia.pbip: arquivo utilizado para abrir o projeto no Power BI Desktop;
+painel_portal_transparencia.Report: páginas, visuais e configurações do relatório;
+painel_portal_transparencia.SemanticModel: tabelas, medidas DAX e relacionamentos do modelo semântico.
+Gerar os dados para o Power BI
+
+Na raiz do projeto, execute os pipelines necessários e publique os arquivos de consumo.
+
+Senado Federal
+uv run python -m observatorio_politico.main senado-bronze
+uv run python -m observatorio_politico.main senado-silver
+uv run python -m observatorio_politico.main senado-gold
+uv run python -m observatorio_politico.main senado-quality
+uv run python -m observatorio_politico.main senado-dimensions
+
+uv run python .\scripts\publicar_senado_power_bi.py
+Gastos dos deputados
+
+Execute o pipeline de gastos dos deputados e confirme que os arquivos foram publicados em:
+
+output/power_bi/gastos_deputados/
+Abrir o projeto
+
+Com os arquivos de consumo gerados, abra o projeto pelo arquivo:
+
+Start-Process .\painel_portal_transparencia.pbip
+
+Também é possível abrir manualmente o arquivo:
+
+painel_portal_transparencia.pbip
+
+Ao abrir o Power BI Desktop:
+
+Aguarde o carregamento do modelo semântico;
+Caso apareça uma mensagem sobre alterações externas, aceite recarregar o projeto;
+Clique em Atualizar agora;
+Aguarde a leitura dos arquivos Parquet;
+Salve o projeto após as alterações.
+Observação sobre caminhos locais
+
+O modelo semântico utiliza arquivos Parquet armazenados localmente no projeto.
+
+Caso o projeto seja clonado em outro diretório, execute novamente os geradores do modelo semântico para atualizar os caminhos dos arquivos:
+
+uv run python .\scripts\gerar_modelo_semantico_senado.py
+uv run python .\scripts\gerar_modelo_semantico_gastos_deputados.py
+uv run python .\scripts\gerar_relacionamentos_senado.py
+
+Depois abra novamente:
+
+Start-Process .\painel_portal_transparencia.pbip
+Arquivos que não são versionados
+
+Os seguintes arquivos são gerados localmente e não devem ser enviados ao Git:
+
+output/power_bi/**/*.parquet
+output/power_bi/**/*.csv
+output/auditoria/
+output/backup_modelo_semantico/
+**/.pbi/
+*.abf
+
+O código dos pipelines, o modelo semântico, as medidas, os relacionamentos e as páginas do relatório permanecem versionados.
